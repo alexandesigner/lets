@@ -1,4 +1,4 @@
-![Lets - A minimalist boilerplate for products](public/images/lets-brand.png.png)
+![Lets - A minimalist boilerplate for products](public/images/lets-brand.png)
 
 [Read the Documentation](https://alexandesigner.com.br/lets/docs)
 
