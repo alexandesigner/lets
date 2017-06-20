@@ -1,18 +1,53 @@
 ![Lets - A minimalist boilerplate for products](public/images/lets-brand.png)
 
-In this project we are using a ui layer [Vue2 with Meteor](https://github.com/Akryum/vue-meteor) and Build data in the [Meteor with MongoDB](https://www.meteor.com/)
+In this project we are using a ui layer [Vue with Meteor](https://github.com/Akryum/vue-meteor) and Build data in the [Meteor with MongoDB](https://www.meteor.com/)
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 $ make install
+```
 
-# serve with hot reload at localhost:4000
+After run, you can add the following ``.vueignore`` file to your app inorder to ignore ``.vue`` files in the ``node_modules`` folders:
+
+```
+node_modules/ 
+```
+
+[Needs Help?](https://github.com/Akryum/vue-meteor/tree/master/packages/vue-component#ignore-files)
+
+``` bash
+# Now.. serve with hot reload at localhost:4000
 $ make dev
+
+# Running in --production flag, after configure .deploy/settings-production.json file
+$ make production
+
+# Reset database
+$ make reset
 
 # lint code
 $ make lint
+```
+
+## Deployment
+
+Configure the basics of dns and hosting .. then there is a basic [nginx configuration file](https://github.com/alexandesigner/base-server-config/nginx.conf), use it with your domain settings. 
+
+[Install this package](https://github.com/trimurtix/meteor-up-legacy)
+
+``` bash
+
+# Installing package fork mup branch using mupx
+$ npm install -g trimurtix-mupx
+
+# Setup deploy
+$ make setup-deploy
+
+# Deploy to production
+$ make deploy
+
 ```
 
 ## Documentantion
