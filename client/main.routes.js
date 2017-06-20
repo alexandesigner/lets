@@ -33,7 +33,7 @@ export default [
   },
   {
     path: '/login',
-    component: '/imports/ui/pages/Auth/Auth.vue',
+    component: '/imports/ui/layout/Auth.vue',
     redirect: { name: 'login' },
     children: [
       {
@@ -65,7 +65,7 @@ export default [
   },
   {
     path: '/admin',
-    component: '/imports/ui/pages/Admin/Admin.vue',
+    component: '/imports/ui/layout/Admin.vue',
     redirect: { name: 'admin' },
     beforeEnter: (to, from, next) => {
       isUser().then(response => {

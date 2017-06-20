@@ -1,13 +1,8 @@
 <template>
   <div class="new-password">
-    <div class="page-auth_inner">
-      <h1 class="page-auth_logo">
-        <router-link :to="{ name:'login' }">
-          <img src="/images/logo.svg" width="80" />
-        </router-link>
-      </h1>
-      <el-card class="page-auth_card card">
-        <header class="page-auth_card-header card-header">
+    <div class="auth-layout_inner">
+      <el-card class="auth-layout_card card">
+        <header class="auth-layout_card-header card-header">
           <h2>New Password</h2>
         </header>
         <span class="divider"></span>
@@ -15,7 +10,7 @@
           :model="newPasswordForm" 
           :rules="rules" 
           ref="newPasswordForm"
-          class="page-auth_card-header card-content">
+          class="auth-layout_card-header card-content">
           <el-form-item label="Nova Senha" prop="new_password">
             <el-input type="password" v-model="newPasswordForm.new_password" auto-complete="off"></el-input>
           </el-form-item>
@@ -24,7 +19,7 @@
           </el-form-item>
           <el-form-item>
             <el-button 
-              class="page-auth_submit full-width"
+              class="auth-layout_submit full-width"
               size="large" 
               type="primary" 
               @click="submitForm('newPasswordForm')">

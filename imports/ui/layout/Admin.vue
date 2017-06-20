@@ -1,5 +1,5 @@
 <template>
-  <div class="page-admin">
+  <div class="admin-layout">
     <router-view></router-view>
   </div>
 </template>
@@ -11,6 +11,6 @@
 </script>
 
 <style lang="stylus" scoped>
-.page-admin
+.admin-layout
   text-align center
 </style>

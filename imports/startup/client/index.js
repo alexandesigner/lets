@@ -8,7 +8,7 @@ import '../../ui/stylesheets/main.styl'
 import ElementUI from 'element-ui'
 
 // App layout
-import AppLayout from '../../ui/layout/AppLayout.vue'
+import AppLayout from '../../ui/layout/App.vue'
 
 // App start
 Meteor.startup(() => {

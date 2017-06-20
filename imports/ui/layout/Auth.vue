@@ -1,16 +1,16 @@
 <template>
-  <div class="about">
-    <h4>About</h4>
+  <div class="auth-layout">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'About'
+    name: 'Auth'
   }
 </script>
 
 <style lang="stylus" scoped>
-.about
+.page-auth
   text-align center
 </style>

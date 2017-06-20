@@ -1,13 +1,8 @@
 <template>
   <div class="login">
-    <div class="page-auth_inner">
-      <h1 class="page-auth_logo">
-        <router-link :to="{ name:'login' }">
-          <img src="/images/logo.svg" width="80" />
-        </router-link>
-      </h1>
-      <el-card class="page-auth_card card">
-        <header class="page-auth_card-header card-header">
+    <div class="auth-layout_inner">
+      <el-card class="auth-layout_card card">
+        <header class="auth-layout_card-header card-header">
           <h2>Login</h2>
         </header>
         <span class="divider"></span>
@@ -15,7 +10,7 @@
           :model="loginForm"
           :rules="rules"
            ref="loginForm"
-           class="page-auth_card-header card-content">
+           class="auth-layout_card-header card-content">
           <el-form-item
             prop="email"
             label="Email">
@@ -33,7 +28,7 @@
           </el-form-item>
           <el-form-item>
             <el-button
-              class="page-auth_submit full-width"
+              class="auth-layout_submit full-width"
               size="large"
               type="primary"
               @click="submitForm('loginForm')"
@@ -46,7 +41,7 @@
           </el-form-item>
         </el-form>
       </el-card>
-      <footer class="page-auth_footer">
+      <footer class="auth-layout_footer">
         No account yet?
         <router-link :to="{ name: 'register'}">Register</router-link>
       </footer>
@@ -89,7 +84,7 @@
   						} else {
                 this.isLoading = true
                 this.$router.push({ name: 'admin' })
-                this.$notify.sucess({
+                this.$notify.success({
                   title: 'Welcome',
                   message: `Good to see you!`,
                   offset: 100
@@ -101,7 +96,7 @@
       },
       resetForm(formName) {
         this.$refs[formName].resetFields()
-      },
+      }
     }
   }
 </script>

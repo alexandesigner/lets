@@ -1,16 +1,16 @@
 <template>
-  <div class="page-auth">
-    <router-view></router-view>
+  <div class="documents-details">
+    <h4>Documents Details</h4>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Auth'
+    name: 'DocumentsDetails'
   }
 </script>
 
 <style lang="stylus" scoped>
-.page-auth
+.documents-details
   text-align center
 </style>

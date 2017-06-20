@@ -1,5 +1,5 @@
 <template>
-	<aside class="app-sidebar">
+	<aside class="admin-sidebar">
 	  <div class="sidebar-content">
 	    Sidebar 🔥
 	  </div>
@@ -8,12 +8,12 @@
 
 <script>
 	export default {
-		name: 'AppSidebar'
+		name: 'AdminSidebar'
 	}
 </script>
 
 <style lang="stylus" scoped>
-.app-sidebar
+.admin-sidebar
   position fixed
   left 0
   width 320px
