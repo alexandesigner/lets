@@ -10,12 +10,17 @@ ecmascript@0.8.0              	# Enable ECMAScript2015+ syntax in app code
 mobile-experience@1.0.4       	# Packages for a great mobile user experience
 dynamic-import@0.1.1						# Runtime support for Meteor 1.5 dynamic import(...) syntax
 static-html@1.2.2								# Define static page content in .html files
+audit-argument-checks@1.0.7
 
 # Data
 mongo@1.1.18                    # The database Meteor supports right now
 reactive-var@1.0.11             # Reactive variable for tracker
 tracker@1.1.3                 	# Meteor's client-side reactive programming library
 session@1.1.7										# Session variable. Provides a global object on the client..
+aldeed:simple-schema@1.5.3
+aldeed:collection2@2.10.0
+mdg:validated-method@1.1.0
+check@1.2.5
 
 # Vue.js Wrapper Meteor
 akryum:vue@1.2.2								# Integrate Vue with Meteor
@@ -25,3 +30,11 @@ akryum:vue-router2@0.1.0				# Easy vue routing for Meteor - vue-router 2.x
 # Stylus
 akryum:vue-stylus@0.0.5					# Add stylus support for vue components
 stylus@2.513.9									# Expressive, dynamic, robust CSS
+
+# SEO
+gentlenode:spiderable-ssl
+
+# Account
+accounts-password@1.3.6
+accounts-base@1.2.17
+alanning:roles@1.2.16
