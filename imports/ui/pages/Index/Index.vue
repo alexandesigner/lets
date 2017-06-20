@@ -1,16 +1,25 @@
 <template>
-  <div class="index">
-    <h1>Welcome Index</h1>
+  <div class="app-index">
+    <app-sidebar></app-sidebar>
+    <div class="app-index_content">
+      Index Conteúdo 🚀
+    </div>
   </div>
 </template>
 
 <script>
+  import AppSidebar from '../../layout/AppSidebar.vue';
   export default {
-    name: 'Index'
+  	name: 'Index',
+    components: {
+      AppSidebar
+    }
   }
 </script>
 
 <style lang="stylus" scoped>
-.index
-  text-align center
+.app-index
+  padding-left 340px
+  &_content
+    padding 20px
 </style>

@@ -16,14 +16,12 @@
 .app-menu
   margin 32px 0
   text-align center
-
-.app-menu a
-  display inline-block
-  padding 6px
-  margin 0 6px
-  border-radius 3px
-
-.app-menu a.v-link-active
-  background #674CD8
-  color white
+  a
+    display inline-block
+    padding 6px
+    margin 0 6px
+    border-radius 3px
+    &.v-link-active
+      background #674CD8
+      color white
 </style>

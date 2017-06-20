@@ -1,17 +1,23 @@
 <template>
   <div class="app-layout">
-    <app-menu></app-menu>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import AppMenu from '/imports/ui/layout/AppMenu.vue'
+import AppSidebar from '/imports/ui/layout/AppSidebar.vue'
 
 export default {
   name: 'App',
   components: {
-    AppMenu
+    AppMenu,
+    AppSidebar
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+	.app-layout
+		height 100%
+</style>
