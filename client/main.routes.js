@@ -1,4 +1,4 @@
-import isUser from '/imports/modules/is-user';
+import isUser from '/imports/modules/is-user'
 
 export default [
   {
@@ -17,7 +17,7 @@ export default [
     }
   },
   {
-    path: '/documents/:id',
+    path: '/documents/:documentId',
     name: 'documents-details',
     component: '/imports/ui/pages/Documents/DocumentsDetails.vue',
     beforeEnter: (to, from, next) => {
@@ -52,14 +52,9 @@ export default [
         component: '/imports/ui/pages/Auth/ForgotPassword.vue'
       },
       {
-        path: '/new-password',
-        name: 'new-password',
-        component: '/imports/ui/pages/Auth/NewPassword.vue',
-        beforeEnter: (to, from, next) => {
-          isUser().then(response => {
-            response ? next() : next({name: 'forgot-password'})
-          })
-        }
+        path: '/reset-password/:token',
+        name: 'reset-password',
+        component: '/imports/ui/pages/Auth/ResetPassword.vue'
       }
     ]
   },
@@ -89,7 +84,7 @@ export default [
         component: '/imports/ui/pages/Admin/Documents/DocumentsNew.vue'
       },
       {
-        path: '/admin/documents/:id/edit',
+        path: '/admin/documents/:documentId/edit',
         name: 'admin-documents-edit',
         component: '/imports/ui/pages/Admin/Documents/DocumentsEdit.vue'
       }
