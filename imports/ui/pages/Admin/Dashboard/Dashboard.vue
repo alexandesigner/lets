@@ -3,6 +3,7 @@
     <admin-sidebar></admin-sidebar>
     <div class="admin-dashboard_content">
       Dashboard Conteúdo 🚀
+      <el-button @click="logout">Logout</el-button>
     </div>
   </div>
 </template>
@@ -11,6 +12,12 @@
   import AdminSidebar from '../../../components/Admin/AdminSidebar'
   export default {
   	name: 'Dashboard',
+    methods: {
+      logout() {
+        Meteor.logout();
+        this.$router.push({ name: 'login' });
+      }
+    },
     components: {
       AdminSidebar
     }

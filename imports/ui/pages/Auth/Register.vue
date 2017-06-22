@@ -3,6 +3,7 @@
     <div class="auth-layout_inner">
       <el-card class="auth-layout_card card">
         <header class="auth-layout_card-header card-header">
+          <img class="logo" src="/images/logo.svg" width="60" height="60" alt="Logo" />
           <h2>Create Account</h2>
         </header>
         <span class="divider"></span>
@@ -10,7 +11,7 @@
           :model="registerForm"
           :rules="rules"
           ref="registerForm"
-          class="auth-layout_card-header card-content">
+          class="auth-layout_card-content card-content">
           <el-row :gutter="20" class="form-row-item">
             <el-col :span="12">
               <el-form-item
@@ -50,15 +51,6 @@
                   auto-complete="off"></el-input>
               </el-form-item>
             </el-col>
-          </el-row>
-          <el-row :gutter="0" class="form-row-item">
-            <el-form-item
-              prop="cpf"
-              label="CPF">
-              <el-input
-                v-model="registerForm.cpf"
-                auto-complete="off"></el-input>
-            </el-form-item>
           </el-row>
           <el-row :gutter="0" class="form-row-item">
             <el-form-item
@@ -104,7 +96,6 @@
         firstName: '',
         lastName: '',
         phone: '',
-        cpf: ''
       },
       rules: {
         email: [
@@ -122,14 +113,12 @@
         ],
         phone: [
           { required: true, message: 'Please insert your callphone!', trigger: 'blur' }
-        ],
-        cpf: [
-          { required: true, message: 'Please insert your document ID!', trigger: 'blur' }
         ]
       }
     }),
     methods: {
       submitForm(formName) {
+        this.isLoading = true
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let dataForm = this.registerForm
@@ -140,11 +129,9 @@
         			profile: {
         				firstName: dataForm.firstName,
         				lastName: dataForm.lastName,
-        				phone: dataForm.phone,
-        				cpf: dataForm.cpf
+        				phone: dataForm.phone
         			}
         		}
-            console.log(userData)
             Accounts.createUser(userData, (err) => {
         			if(err){
                 this.$notify.error({
@@ -152,9 +139,10 @@
                   message: err.reason,
                   offset: 100
                 })
+                this.isLoading = false
         			} else {
                 this.$notify.success({
-                  title: 'Success!',
+                  title: 'Success',
                   message: 'User create success!',
                   offset: 100
                 })
@@ -165,9 +153,10 @@
           } else {
             this.$notify.error({
               title: 'Sorry!!!',
-              message: 'Problem current is cabuloso! ˆˆ',
+              message: 'All fields are required',
               offset: 100
             })
+            this.isLoading = false
           }
         })
       },

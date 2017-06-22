@@ -1,39 +1,32 @@
 <template>
-  <div class="new-password">
+  <div class="reset-password">
     <div class="auth-layout_inner">
       <el-card class="auth-layout_card card">
         <header class="auth-layout_card-header card-header">
           <img class="logo" src="/images/logo.svg" width="60" height="60" alt="Logo" />
-          <h2>Forgot password</h2>
+          <h2>Reset Password</h2>
         </header>
         <span class="divider"></span>
-        <el-form
-          :model="forgotPasswordForm"
-          :rules="rules"
-           ref="forgotPasswordForm"
-           class="auth-layout_card-content card-content">
-          <el-form-item
-            prop="email"
-            label="Email">
-            <el-input
-              v-model="forgotPasswordForm.email"
-              auto-complete="off"></el-input>
+        <el-form 
+          :model="resetPasswordForm" 
+          :rules="rules" 
+          ref="resetPasswordForm"
+          class="auth-layout_card-content card-content">
+          <el-form-item label="New Password" prop="new_password">
+            <el-input type="password" v-model="resetPasswordForm.new_password" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button
+            <el-button 
               class="auth-layout_submit full-width"
-              size="large"
-              type="primary"
-              @click.prevent="submitForm('forgotPasswordForm')"
+              size="large" 
+              type="primary" 
+              @click="submitForm('resetPasswordForm')"
               :loading="isLoading">
-              Send
+              Confirm
             </el-button>
           </el-form-item>
         </el-form>
       </el-card>
-      <footer class="auth-layout_footer">
-        <router-link :to="{ name: 'login'}">Back</router-link>
-      </footer>
     </div>
   </div>
 </template>
@@ -42,13 +35,12 @@
   export default {
     data: () => ({
       isLoading: false,
-      forgotPasswordForm: {
-        email: ''
+      resetPasswordForm: {
+        new_password: ''
       },
       rules: {
-        email: [
-          { required: true, message: 'Please insert your email!', trigger: 'blur' },
-          { type: 'email', message: 'Please insert is valid email!', trigger: 'blur,change' }
+        new_password: [
+          { required: true, message: 'Please insert your new password', trigger: 'blur' }
         ]
       }
     }),
@@ -57,9 +49,10 @@
         this.isLoading = true
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            let dataForm = this.forgotPasswordForm
-            let email = dataForm.email
-            Accounts.forgotPassword({ email }, (err) => {
+            const dataForm = this.resetPasswordForm;
+            const new_password = dataForm.new_password;
+            const token = this.$route.params.token
+            Accounts.resetPassword(token, new_password, (err) => {
               if (err) {
                 this.$notify.error({
                   title: 'Sorry!',
@@ -70,7 +63,7 @@
               } else {
                 this.$notify.success({
                   title: 'Success',
-                  message: 'A link has been sent to your email!',
+                  message: 'Password reset with success!',
                   offset: 100
                 })
                 this.$router.push({name: 'login'})
@@ -79,7 +72,7 @@
           } else {
             this.$notify.error({
               title: 'Sorry!',
-              message: 'Email field is required',
+              message: 'All fields are required',
               offset: 100
             })
             this.isLoading = false

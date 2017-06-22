@@ -3,6 +3,7 @@
     <div class="auth-layout_inner">
       <el-card class="auth-layout_card card">
         <header class="auth-layout_card-header card-header">
+          <img class="logo" src="/images/logo.svg" width="60" height="60" alt="Logo" />
           <h2>Login</h2>
         </header>
         <span class="divider"></span>
@@ -10,20 +11,22 @@
           :model="loginForm"
           :rules="rules"
            ref="loginForm"
-           class="auth-layout_card-header card-content">
+           class="auth-layout_card-content card-content">
           <el-form-item
             prop="email"
             label="Email">
             <el-input
               v-model="loginForm.email"
+              v-on:keyup.enter="submitForm('loginForm')"
               auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item
             prop="password"
-            label="Senha">
+            label="Password">
             <el-input
               type="password"
               v-model="loginForm.password"
+              v-on:keyup.enter="submitForm('loginForm')"
               auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
@@ -59,7 +62,7 @@
       },
       rules: {
         email: [
-          { required: true, message: 'Please insert your email', trigger: 'blur' },
+          { required: true, message: 'Please insert your email!', trigger: 'blur' },
           { type: 'email', message: 'Please insert is valid email!', trigger: 'blur,change' }
         ],
         password: [
@@ -69,6 +72,7 @@
     }),
     methods: {
       submitForm(formName) {
+        this.isLoading = true
         this.$refs[formName].validate((valid) => {
           if (valid) {
             const dataForm = this.loginForm
@@ -81,8 +85,8 @@
                   message: err.reason,
                   offset: 100
                 })
+                this.isLoading = false
   						} else {
-                this.isLoading = true
                 this.$router.push({ name: 'admin' })
                 this.$notify.success({
                   title: 'Welcome',
@@ -91,6 +95,13 @@
                 })
   						}
   					})
+          } else {
+            this.$notify.error({
+              title: 'Sorry!!!',
+              message: 'All fields are required',
+              offset: 100
+            })
+            this.isLoading = false
           }
         })
       },
@@ -100,8 +111,3 @@
     }
   }
 </script>
-
-<style lang="stylus" scoped>
-.login
-  width 300px
-</style>
