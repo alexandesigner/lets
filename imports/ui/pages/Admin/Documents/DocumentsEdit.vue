@@ -1,25 +1,20 @@
 <template>
-  <div class="admin-dashboard documents-edit">
+  <admin-dashboard>
     <admin-sidebar></admin-sidebar>
     <div class="admin-dashboard_content">
       Documents Edit
     </div>
-  </div>
+  </admin-dashboard>
 </template>
 
 <script>
   import AdminSidebar from '../../../components/Admin/AdminSidebar.vue';
+  import AdminDashboard from '../../../components/Admin/AdminDashboard.vue';
   export default {
-  	name: 'DocumentsEdit',
+    name: 'Documents',
     components: {
-      AdminSidebar
+      AdminSidebar,
+      AdminDashboard
     }
   }
 </script>
-
-<style lang="stylus" scoped>
-.admin-dashboard
-  padding-left 340px
-  &_content
-    padding 20px
-</style>

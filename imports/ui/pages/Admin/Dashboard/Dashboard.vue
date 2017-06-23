@@ -1,25 +1,20 @@
 <template>
-  <div class="admin-dashboard">
+  <admin-dashboard>
     <admin-sidebar></admin-sidebar>
     <div class="admin-dashboard_content">
       Dashboard Conteúdo 🚀
-      <el-button @click="logout">Logout</el-button>
     </div>
-  </div>
+  </admin-dashboard>
 </template>
 
 <script>
   import AdminSidebar from '../../../components/Admin/AdminSidebar'
+  import AdminDashboard from '../../../components/Admin/AdminDashboard'
   export default {
   	name: 'Dashboard',
-    methods: {
-      logout() {
-        Meteor.logout();
-        this.$router.push({ name: 'login' });
-      }
-    },
     components: {
-      AdminSidebar
+      AdminSidebar,
+      AdminDashboard
     }
   }
 </script>
