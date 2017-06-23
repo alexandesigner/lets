@@ -33,7 +33,7 @@ $ make lint
 
 ## Deployment
 
-Configure the basics of dns and hosting .. then there is a basic [nginx configuration file](https://github.com/alexandesigner/base-server-config/nginx.conf), use it with your domain settings. 
+Configure the basics of dns and hosting .. then there is a basic [nginx configuration file](https://github.com/alexandesigner/base-server-config/blob/master/nginx.conf), use it with your domain settings. 
 
 [Install this package](https://github.com/trimurtix/meteor-up-legacy)
 
