@@ -1,14 +1,12 @@
 import { Meteor } from 'meteor/meteor'
 
-export const UsersCollection = Meteor.users
-
-UsersCollection.allow({
+Meteor.users.allow({
   insert: () => false,
   update: () => false,
   remove: () => false,
 })
 
-UsersCollection.deny({
+Meteor.users.deny({
   insert: () => true,
   update: () => true,
   remove: () => true,

@@ -1,6 +1,5 @@
-import { Meteor } from 'meteor/meteor'
-import { UsersCollection } from './users'
+import { Meteor } from 'meteor/meteor';
 
-Meteor.publish('usersPublish', () => {
-  return UsersCollection.find({})
-})
+Meteor.publish('users', function() {
+    return Meteor.users.find({});
+});

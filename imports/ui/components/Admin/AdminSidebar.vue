@@ -19,8 +19,14 @@
 	    	</div>
 	    </header>
 	    <div class="sidebar-content_nav">
-    		<router-link class="nav-item" :to="{name: 'admin'}">
+    		<router-link class="nav-item" :to="{name: 'admin'}" exact>
 	    		Dashboard
+	    		<svg class="icon">
+            <use xlink:href="#arrow-right" />
+          </svg>
+	    	</router-link>
+	    	<router-link class="nav-item" :to="{name: 'admin-users'}">
+	    		Users
 	    		<svg class="icon">
             <use xlink:href="#arrow-right" />
           </svg>

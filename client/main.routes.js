@@ -87,6 +87,16 @@ export default [
         path: '/admin/documents/:documentId/edit',
         name: 'admin-documents-edit',
         component: '/imports/ui/pages/Admin/Documents/DocumentsEdit.vue'
+      },
+      {
+        path: '/admin/users',
+        name: 'admin-users',
+        component: '/imports/ui/pages/Admin/Users/Users.vue'
+      },
+      {
+        path: '/admin/users/:userId/edit',
+        name: 'admin-users-edit',
+        component: '/imports/ui/pages/Admin/Users/UsersEdit.vue'
       }
     ]
   }

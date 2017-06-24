@@ -23,10 +23,9 @@ seeder(Meteor.users, {
     email: 'admin@admin.com',
     password: 'password',
     profile: {
-      name: {
-        first: 'Andy',
-        last: 'Warhol',
-      },
+      firstName: 'Johny',
+      lastName: 'Be Good',
+      phone: '1-739-346-4124'
     },
     roles: ['admin'],
     data(userId) {
@@ -40,10 +39,9 @@ seeder(Meteor.users, {
       email: `user+${userCount}@test.com`,
       password: 'password',
       profile: {
-        name: {
-          first: faker.name.firstName(),
-          last: faker.name.lastName(),
-        }
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        phone: faker.phone.phoneNumber()
       },
       roles: ['user'],
       data(userId) {

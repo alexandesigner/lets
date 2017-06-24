@@ -2,13 +2,17 @@
 import {Meteor} from 'meteor/meteor'
 import Vue from 'vue'
 import routerFactory from '../../routes'
-
 import '../../ui/stylesheets/main.styl'
-
 import ElementUI from 'element-ui'
 
 // App layout
 import AppLayout from '../../ui/layout/App.vue'
+
+const moment = require('moment')
+
+Vue.use(require('vue-moment'), {
+    moment
+})
 
 // App start
 Meteor.startup(() => {

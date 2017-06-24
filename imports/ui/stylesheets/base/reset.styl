@@ -152,25 +152,7 @@ td
 
 table
   width 100%
-  display table
-  border-spacing 0
-  border-collapse separate
-
-thead
-  background $base-color
-  border-bottom 1px solid rgba(0, 0, 0, 0.04)
-  font-weight 400
-
-td,
-th
-  padding 12px 15px
-  display table-cell
   text-align left
-  vertical-align middle
-  background-clip padding-box
-
-tbody td
-  font-size 15px
 
 hgroup h1,
 hgroup h2,
@@ -227,3 +209,16 @@ legend
 img[width],
 img[height]
   max-width none
+  
+.icon
+  width 16px
+  height 16px
+
+.el-table
+  .cell
+    display flex
+    justify-content flex-start
+    align-items center
+  .icon
+    margin-right 5px
+    fill #352C49

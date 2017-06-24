@@ -11,7 +11,7 @@
   import AdminSidebar from '../../../components/Admin/AdminSidebar.vue';
   import AdminDashboard from '../../../components/Admin/AdminDashboard.vue';
   export default {
-    name: 'Documents',
+    name: 'DocumentsEdit',
     components: {
       AdminSidebar,
       AdminDashboard
