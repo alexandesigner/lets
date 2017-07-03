@@ -40,6 +40,7 @@
 
 <script>
   export default {
+    name: 'auth-forgot-password',
     data: () => ({
       isLoading: false,
       forgotPasswordForm: {

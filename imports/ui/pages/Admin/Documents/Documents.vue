@@ -1,20 +1,110 @@
 <template>
-  <admin-dashboard>
+  <admin-content>
     <admin-sidebar></admin-sidebar>
-    <div class="admin-dashboard_content">
-      Documents
+    <div class="admin-content_main">
+      <header class="admin-content_main-header">
+        <h2 class="title">Documents</h2>
+        <div class="actions">
+          <el-button 
+            type="primary" 
+            :plain="true"
+            @click="handleNewDocument">
+            <svg class="icon">
+              <use xlink:href="#plus" />
+            </svg>
+            <span>New document</span>
+          </el-button>
+        </div>
+      </header> 
+      <el-table
+        :data="documents"
+        border
+        style="width: 100%"
+        class="admin-content_main-table">
+        <el-table-column
+          label="Created At"
+          width="220">
+          <template scope="scope">
+            <el-icon class="icon" name="time"></el-icon>
+            <span>{{ scope.row.createdAt | moment("L, LT") }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="Title">
+          <template scope="scope">
+            <span>{{ scope.row.title }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="Body">
+          <template scope="scope">
+            <span>{{ scope.row.body }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="Actions">
+          <template scope="scope">
+            <el-button
+              size="small"
+              @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+            <el-button
+              size="small"
+              type="danger"
+              @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
     </div>
-  </admin-dashboard>
+  </admin-content>
 </template>
 
 <script>
-  import AdminSidebar from '../../../components/Admin/AdminSidebar.vue';
-  import AdminDashboard from '../../../components/Admin/AdminDashboard.vue';
+  import AdminSidebar from '../../../components/Admin/AdminSidebar'
+  import AdminContent from '../../../components/Admin/AdminContent'
+  import Documents from '../../../../api/Documents/documents'
   export default {
-  	name: 'Documents',
+    name: 'admin-documents',
+    data: () => ({
+      documents: []
+    }),
+    meteor: {
+      subscribe: {
+        'documents': [],
+      },
+      documents() {
+        return Documents.find({})
+      },
+    },
+    methods: {
+      handleEdit (index, row) {
+        this.$router.push({
+          name: 'admin-documents-edit',
+          params: { documentId: row._id }
+        })
+      },
+      handleNewDocument () {
+        this.$router.push({name: 'admin-documents-new'})
+      },
+      async handleDelete (index, row) {
+        try {
+          await Meteor.callPromise('Documents.methods.remove', {
+            _id: row._id
+          })
+          this.$message({
+            type: 'info',
+            message: 'Document removed!'
+          })
+        } catch (error) {
+          this.$message({
+            type: 'error',
+            message: error.reason
+          })
+        }
+      }
+    },
     components: {
       AdminSidebar,
-      AdminDashboard
+      AdminContent
     }
   }
 </script>

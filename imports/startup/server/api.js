@@ -1,3 +1,7 @@
-import '../../api/Users/users.js'
-import '../../api/Users/methods.js'
-import '../../api/Users/publications.js'
+import '../../api/Users/users'
+import '../../api/Users/methods'
+import '../../api/Users/server/publications'
+
+import '../../api/Documents/documents'
+import '../../api/Documents/methods'
+import '../../api/Documents/server/publications'

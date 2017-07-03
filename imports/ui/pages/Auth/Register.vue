@@ -87,6 +87,7 @@
 
 <script>
   export default {
+    name: 'auth-register',
     data: () => ({
       isLoading: false,
       registerForm: {

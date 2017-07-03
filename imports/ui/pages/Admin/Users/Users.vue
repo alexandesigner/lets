@@ -1,17 +1,17 @@
 <template>
-  <admin-dashboard>
+  <admin-content>
     <admin-sidebar></admin-sidebar>
-    <div class="admin-dashboard_content">
-      <header class="admin-dashboard_content-header">
-      	<h2>Users</h2>
+    <div class="admin-content_main">
+      <header class="admin-content_main-header">
+      	<h2 class="title">Users</h2>
       </header>	
       <el-table
 		    :data="users"
 		    border
 		    style="width: 100%"
-		    class="admin-dashboard_content-table">
+		    class="admin-content_main-table">
 		    <el-table-column
-		      label="Date"
+		      label="Created At"
 		      width="220">
 		      <template scope="scope">
 		        <el-icon class="icon" name="time"></el-icon>
@@ -54,14 +54,14 @@
 		    </el-table-column>
 		  </el-table>
     </div>
-  </admin-dashboard>
+  </admin-content>
 </template>
 
 <script>
+  import AdminContent from '../../../components/Admin/AdminContent.vue'
   import AdminSidebar from '../../../components/Admin/AdminSidebar.vue'
-  import AdminDashboard from '../../../components/Admin/AdminDashboard.vue'
   export default {
-  	name: 'Users',
+  	name: 'admin-users',
   	data: () => ({
       users: []
     }),
@@ -74,35 +74,32 @@
       },
     },
     methods: {
-    	 handleEdit(index, row) {
+    	 handleEdit (index, row) {
         this.$router.push({
           name: 'admin-users-edit',
           params: { userId: row._id }
         })
       },
-      handleDelete(index, row) {
-        const userDataId = {
-          _id: row._id
-        };
-        Meteor.call('Users.methods.remove', userDataId, (error, response) => {
-          if (error) {
-            // this.$message({
-            //   type: 'danger',
-            //   message: `Sorry.. Problem!`
-            // });
-            console.log(error.reason);
-          } else {
-            this.$message({
-              type: 'info',
-              message: `User removed with success!`
-            });
-          }
-        });
+      async handleDelete (index, row) {
+        try {
+          await Meteor.callPromise('Users.methods.remove', {
+            _id: row._id
+          })
+          this.$message({
+            type: 'info',
+            message: 'User removed!'
+          })
+        } catch (error) {
+          this.$message({
+            type: 'error',
+            message: error
+          })
+        }
       },
     },
     components: {
-      AdminSidebar,
-      AdminDashboard
+      AdminContent,
+      AdminSidebar
     }
   }
 </script>

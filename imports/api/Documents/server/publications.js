@@ -1,13 +1,12 @@
-import { Meteor } from 'meteor/meteor';
-import { check } from 'meteor/check';
-import Documents from '../documents';
+import { Meteor } from 'meteor/meteor'
+import { check } from 'meteor/check'
+import Documents from '../documents'
 
-Meteor.publish('documents', function documents() {
-  return Documents.find({ owner: this.userId });
+Meteor.publish('documents', function() {
+    return Documents.find({ owner: this.userId })
 });
 
-// Note: documents.view is also used when editing an existing document.
 Meteor.publish('documents.view', function documentsView(documentId) {
-  check(documentId, String);
-  return Documents.find({ _id: documentId, owner: this.userId });
-});
+  check(documentId, String)
+  return Documents.find({ _id: documentId, owner: this.userId })
+})

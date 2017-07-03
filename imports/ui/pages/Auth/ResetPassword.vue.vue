@@ -33,6 +33,7 @@
 
 <script>
   export default {
+    name: 'auth-reset-password',
     data: () => ({
       isLoading: false,
       resetPasswordForm: {

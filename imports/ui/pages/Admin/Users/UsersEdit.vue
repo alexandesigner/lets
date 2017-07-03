@@ -1,12 +1,12 @@
 <template>
-  <admin-dashboard>
+  <admin-content>
     <admin-sidebar></admin-sidebar>
-    <div class="admin-dashboard_content">
-      <header class="admin-dashboard_content-header is-back-button">
+    <div class="admin-content_main">
+      <header class="admin-content_main-header is-back-button">
         <back-button></back-button>
-        <h2>User Edit <small>- {{ editUser.firstName }} {{ editUser.lastName }}</small></h2>
+        <h2 class="title">User Edit <small>- {{ editUser.firstName }} {{ editUser.lastName }}</small></h2>
       </header> 
-      <div class="admin-dashboard_content-form">
+      <div class="admin-content_main-form">
         <el-card class="box-card">
           <el-form :model="editUser" :rules="rules" ref="editUser" class="form-model">
             <el-row :gutter="10">
@@ -26,22 +26,22 @@
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-button size="large" type="success" @click="submitForm('editUser')" class="submit-button full-width">Save</el-button>
+                <el-button size="large" type="success" @click="handleSubmitForm('editUser')" class="submit-button full-width">Save</el-button>
               </el-col>
             </el-row>
           </el-form>
         </el-card>
       </div>
     </div>
-  </admin-dashboard>
+  </admin-content>
 </template>
 
 <script>
   import AdminSidebar from '../../../components/Admin/AdminSidebar.vue';
-  import AdminDashboard from '../../../components/Admin/AdminDashboard.vue';
+  import AdminContent from '../../../components/Admin/AdminContent.vue';
   import BackButton from '../../../components/BackButton/BackButton.vue';
   export default {
-    name: 'UsersEdit',
+    name: 'admin-users-edit',
     data: () => ({
       users: [],
       editUser: {
@@ -62,47 +62,52 @@
         ]
       },
     }),
-    mounted () {
-      this.editUser.firstName = this.users[0].profile.firstName;
-      this.editUser.lastName = this.users[0].profile.lastName;
-      this.editUser.email = this.users[0].emails[0].address;
-      this.editUser.verifyEmail = this.users[0].emails[0].verified;
+    async mounted () {
+      this.$nextTick(() => {
+        this.renderData()
+      })
     },
     methods: {
-      submitForm(formName) {
+      renderData () {
+        this.editUser.firstName = this.users[0].profile.firstName
+        this.editUser.lastName = this.users[0].profile.lastName
+        this.editUser.email = this.users[0].emails[0].address
+        this.editUser.verifyEmail = this.users[0].emails[0].verified
+      },
+      handleSubmitForm (formName) {
         this.$refs[formName].validate((valid) => {
-          if (valid) {
-            const dataForm = this.editUser
-            const user = this.users[0]
-            const userData = {
-              _id: user._id,
-              services: {
-                password: user.services.password
-              },
-              profile: {
-                firstName: dataForm.firstName,
-                lastName: dataForm.lastName,
-                phone: user.profile.phone
-              },
-              emails: [{
-                address: dataForm.email,
-                verified: this.editUser.verifyEmail
-              }],
-              roles: [user.roles[0]],
-              updatedAt: new Date()
+          try {
+            if (valid) {
+              let dataForm = this.editUser
+              let user = this.users[0]
+              Meteor.callPromise('Users.methods.update', {
+                _id: user._id,
+                services: {
+                  password: user.services.password
+                },
+                profile: {
+                  firstName: dataForm.firstName,
+                  lastName: dataForm.lastName,
+                  phone: user.profile.phone
+                },
+                emails: [{
+                  address: dataForm.email,
+                  verified: this.editUser.verifyEmail
+                }],
+                roles: [user.roles[0]],
+                updatedAt: new Date()
+              })
+              this.$message({
+                type: 'info',
+                message: `User update with success!`
+              })
+              this.$refs[formName].resetFields()
+              this.$router.push({ name: 'admin-users' })
             }
-            console.log(userData)
-            Meteor.call('Users.methods.update', userData, (error, response) => {
-              if (error) {
-                alert(error.reason)
-              } else {
-                this.$message({
-                  type: 'info',
-                  message: `Usuário alterado com sucesso!`
-                })
-                this.$refs[formName].resetFields()
-                this.$router.push({ name: 'admin-users' })
-              }
+          } catch (error) {
+            this.$message({
+              type: 'error',
+              message: error
             })
           }
         })
@@ -120,7 +125,7 @@
     },
     components: {
       AdminSidebar,
-      AdminDashboard,
+      AdminContent,
       BackButton
     }
   }

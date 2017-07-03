@@ -1,27 +1,20 @@
 <template>
-  <admin-dashboard>
+  <admin-content>
     <admin-sidebar></admin-sidebar>
-    <div class="admin-dashboard_content">
-      Dashboard Conteúdo 🚀
+    <div class="admin-content_main">
+      Dashboard Content 🚀
     </div>
-  </admin-dashboard>
+  </admin-content>
 </template>
 
 <script>
   import AdminSidebar from '../../../components/Admin/AdminSidebar'
-  import AdminDashboard from '../../../components/Admin/AdminDashboard'
+  import AdminContent from '../../../components/Admin/AdminContent'
   export default {
-  	name: 'Dashboard',
+  	name: 'admin-dashboard',
     components: {
       AdminSidebar,
-      AdminDashboard
+      AdminContent
     }
   }
 </script>
-
-<style lang="stylus" scoped>
-.admin-dashboard
-  padding-left 340px
-  &_content
-    padding 20px
-</style>

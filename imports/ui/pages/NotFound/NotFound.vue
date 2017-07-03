@@ -9,6 +9,12 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'not-found'
+  }
+</script>
+
 <style lang="stylus" scoped>
 .not-found
   margin-top 84px

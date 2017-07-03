@@ -7,6 +7,11 @@ export default [
     component: '/imports/ui/pages/Index/Index.vue'
   },
   {
+    path: '/static-page',
+    name: 'example-static',
+    component: '/imports/ui/pages/StaticPage/StaticPage.vue'
+  },
+  {
     path: '/documents',
     name: 'documents',
     component: '/imports/ui/pages/Documents/Documents.vue',
@@ -61,7 +66,7 @@ export default [
   {
     path: '/admin',
     component: '/imports/ui/layout/Admin.vue',
-    redirect: { name: 'admin' },
+    redirect: { name: 'admin-dashboard' },
     beforeEnter: (to, from, next) => {
       isUser().then(response => {
         response ? next() : next({name: 'login'})
@@ -70,7 +75,7 @@ export default [
     children: [
       {
         path: '/admin',
-        name: 'admin',
+        name: 'admin-dashboard',
         component: '/imports/ui/pages/Admin/Dashboard/Dashboard.vue'
       },
       {

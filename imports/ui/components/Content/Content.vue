@@ -7,8 +7,6 @@
 <script>
   export default {
     props: ['content'],
-    data () {
-      return {}
-    }
+    data: () => ({})
   }
 </script>

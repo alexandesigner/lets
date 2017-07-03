@@ -2,7 +2,7 @@
 	<aside class="admin-sidebar">
 	  <div class="sidebar-content">
 	    <header class="sidebar-content_header">
-	    	<router-link class="logo" :to="{name: 'admin'}" exact>
+	    	<router-link class="logo" :to="{name: 'admin-dashboard'}" exact>
 	    		<img src="/images/logo.svg" width="60" height="60" alt="" />
 	    	</router-link>
 	    	<div class="actions">
@@ -19,7 +19,7 @@
 	    	</div>
 	    </header>
 	    <div class="sidebar-content_nav">
-    		<router-link class="nav-item" :to="{name: 'admin'}" exact>
+    		<router-link class="nav-item" :to="{name: 'admin-dashboard'}" exact>
 	    		Dashboard
 	    		<svg class="icon">
             <use xlink:href="#arrow-right" />

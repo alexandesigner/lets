@@ -11,11 +11,9 @@
 
 <script>
 export default {
-  data () {
-    return {
-      canGoBack: window.history.length > 1
-    }
-  },
+  data: () => ({
+    canGoBack: window.history.length > 1
+  }),
   methods: {
     goBack () {
       window.history.go(-1)
@@ -28,7 +26,7 @@ export default {
 .button-back
   position absolute
   z-index 2
-  top 8px
+  top 16px
   left 0
   border 0
   background transparent

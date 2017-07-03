@@ -12,7 +12,7 @@
   import StaticPage from '../StaticPage/StaticPage'
   import TermsContent from './TermsContent'
   export default {
-    name: 'Terms',
+    name: 'terms',
     data () {
       return {
         currentView: TermsContent

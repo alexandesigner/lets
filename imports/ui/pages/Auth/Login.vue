@@ -54,6 +54,7 @@
 
 <script>
   export default {
+    name: 'auth-login',
     data: () => ({
       isLoading: false,
       loginForm: {
@@ -87,7 +88,7 @@
                 })
                 this.isLoading = false
   						} else {
-                this.$router.push({ name: 'admin' })
+                this.$router.push({ name: 'admin-dashboard' })
                 this.$notify.success({
                   title: 'Welcome',
                   message: `Good to see you!`,

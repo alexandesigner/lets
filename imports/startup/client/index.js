@@ -1,24 +1,22 @@
 // Libs
 import {Meteor} from 'meteor/meteor'
 import Vue from 'vue'
-import routerFactory from '../../routes'
-import '../../ui/stylesheets/main.styl'
+import VueRouter from 'vue-router'
+import routerFactory from '/imports/routes';
+import '/imports/ui/stylesheets/main'
 import ElementUI from 'element-ui'
 
 // App layout
-import AppLayout from '../../ui/layout/App.vue'
+import AppLayout from '/imports/ui/layout/App'
 
+// Data moment.js
 const moment = require('moment')
-
-Vue.use(require('vue-moment'), {
-    moment
-})
+Vue.use(require('vue-moment'), {moment})
 
 // App start
 Meteor.startup(() => {
-	// Start Worker
+	// Start Worker (WIP)
   navigator.serviceWorker.register('/sw.js').then().catch(error => console.log(error))
-  // Start the router
   const router = routerFactory.create()
   new Vue({
     router,

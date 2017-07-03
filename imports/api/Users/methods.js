@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { check } from 'meteor/check'
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 import { ValidatedMethod } from 'meteor/mdg:validated-method'
+import rateLimit from '../../modules/rate-limit'
 
 // Extend profile object field in Meteor Users
 export const ProfileSchema = new SimpleSchema({
@@ -18,7 +19,7 @@ export const removeUser = new ValidatedMethod({
   }).validator(),
   run(id) {
     try {
-      Meteor.users.remove(id)
+      return Meteor.users.remove(id)
     } catch (exception) {
       throw new Meteor.Error('500', exception.message)
     }
@@ -42,13 +43,15 @@ export const updateUser = new ValidatedMethod({
   }).validator(),
   run(user) {
     try {
-      Meteor.users.update(user._id, {
+      const userId = user._id
+      const userEmail = user.emails[0]
+      return Meteor.users.update(userId, {
         $set: {
           updatedAt: new Date(),
           password: user.services.password,
           emails: [{
-            address: user.emails[0].address,
-            verified: user.emails[0].verified
+            address: userEmail.address,
+            verified: userEmail.verified
           }],
           profile: {
             firstName: user.profile.firstName,
@@ -62,4 +65,13 @@ export const updateUser = new ValidatedMethod({
       throw new Meteor.Error('500', exception.message)
     }
   }
+})
+
+rateLimit({
+  methods: [
+    'Users.methods.remove',
+    'Users.methods.update'
+  ],
+  limit: 5,
+  timeRange: 1000
 })
