@@ -8,9 +8,9 @@ update:
 	meteor update
 	meteor update --all-packages
 dev:
-	meteor run -p 4000 --settings settings-development.json
+	meteor run -p 4000 --settings ./settings/settings-development.json
 production:
-	meteor run -p 4000 --production --settings settings-production.json
+	meteor run -p 4000 --production --settings ./settings/settings-production.json
 setup-deploy:
 	cd .deploy && mupx setup
 deploy:
