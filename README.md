@@ -9,13 +9,7 @@ In this project we are using a ui layer [Vue with Meteor](https://github.com/Akr
 $ make install
 ```
 
-After run, you can add the following ``.vueignore`` file to your app inorder to ignore ``.vue`` files in the ``node_modules`` folders:
-
-```
-node_modules/ 
-```
-
-[Needs Help?](https://github.com/Akryum/vue-meteor/tree/master/packages/vue-component#ignore-files)
+## Running 
 
 ``` bash
 # Now.. serve with hot reload at localhost:4000
@@ -52,7 +46,7 @@ $ make deploy
 
 ## Documentantion
 
-[Read the Documentation](https://alexandesigner.com.br/lets/docs)
+[Read the Documentation](https://lets.alexandesigner.com.br/docs)
 
 ## Versioning
 
