@@ -1,2 +1,3 @@
-# Realtime News Coverage - Docs
-> News in Real Time develop with Meteor + Vue
+![Lets - A minimalist boilerplate for products](arts/lets-brand.png)
+
+## Docs
