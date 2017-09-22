@@ -1,5 +1,18 @@
 import { Mongo } from 'meteor/mongo'
 
-export const Events = new Mongo.Collection('events')
-export const Coverages = new Mongo.Collection('coverages')
-export const Messages = new Mongo.Collection('messages')
+export const CollectionName = new Mongo.Collection('collectionName');
+
+const collections = Mongo.Collection.getAll()
+console.log(collections)
+
+// collections.allow({
+//   insert: () => false,
+//   update: () => false,
+//   remove: () => false,
+// })
+
+// collections.deny({
+//   insert: () => true,
+//   update: () => true,
+//   remove: () => true,
+// })
