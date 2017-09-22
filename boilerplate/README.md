@@ -1,4 +1,4 @@
-![Lets - A minimalist boilerplate for products](public/images/lets-brand.png)
+<a href="https://alexandesigner.github.io/lets" target="_blank"><img src="https://github.com/alexandesigner/lets/blob/master/arts/icon.png" height="120" /></a>
 
 In this project we are using a ui layer [Vue with Meteor](https://github.com/Akryum/vue-meteor) and Build data in the [Meteor with MongoDB](https://www.meteor.com/)
 
