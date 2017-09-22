@@ -45,3 +45,4 @@ audit-argument-checks@1.0.7
 mdg:validated-method@1.1.0
 mdg:validation-error
 ddp-rate-limiter
+dburles:mongo-collection-instances
