@@ -1,22 +1,22 @@
 import base from './base'
-import { Events } from '../api/collections'
+import { Documents } from '../api/collections'
 
 export default {
   extends: base,
 
   data () {
     return {
-      events: [],
+      documents: [],
     }
   },
 
   meteor: {
     $subscribe: {
-      'events': [],
+      'documents': [],
     },
 
-    events () {
-      return Events.find({})
+    documents () {
+      return Documents.find({})
     },
   },
 }

@@ -18,4 +18,4 @@ deploy:
 reset:
 	meteor reset
 generate-styles:
-	et --config client/element-variables.css --out client/theme
+	et --config src/element-variables.css --out src/theme
