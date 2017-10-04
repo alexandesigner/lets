@@ -42,12 +42,7 @@
   "content": [
     {
       "component": "nav",
-      "links": [
-        {
-          "href": "https://github.com/alexandesigner/lets",
-          "text": "GitHub"
-        }
-      ]
+      "links": []
     },
     {
       "component": "header",
@@ -64,7 +59,8 @@
           "user": "alexandesigner",
           "repo": "lets"
         }
-      ]
+      ],
+      "slug": "lets"
     },
     {
       "component": "article",
