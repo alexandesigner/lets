@@ -45,6 +45,19 @@
       "links": []
     },
     {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/alexandesigner/lets",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/alexandesigner",
+          "text": "alexandesigner"
+        }
+      ]
+    },
+    {
       "component": "header",
       "heading": "lets",
       "subhead": "⚡️ A minimalist boilerplate for products ",
@@ -68,19 +81,6 @@
         "source": "github.readme"
       },
       "html": "<p><a href=\"https://alexandesigner.github.io/lets\" target=\"_blank\"><img src=\"https://github.com/alexandesigner/lets/blob/master/arts/icon.png\"></a></p>\n<p>A minimalist boilerplate for products</p>\n<p><a href=\"https://github.com/alexandesigner/lets/tree/master/boilerplate\" target=\"_blank\">Boilerplate</a> / <a href=\"https://github.com/alexandesigner/lets/tree/master/docs\" target=\"_blank\">Documentation</a></p>\n\n<h2>What is this and why should I use it?</h2>\n<p>In this project we are using a ui layer <a href=\"https://github.com/Akryum/vue-meteor\">Vue with Meteor</a> and Build data in the <a href=\"https://www.meteor.com/\">Meteor with MongoDB</a></p>\n<p>Designed with &#x2665; by <a target=\"_blank\" href=\"http://alexandesigner.com.br\">Allan Alexandre</a>. Licensed under the <a target=\"_blank\" href=\"https://github.com/alexandesigner/lets#license\">MIT License</a>.</p>\n"
-    },
-    {
-      "component": "footer",
-      "links": [
-        {
-          "href": "https://github.com/alexandesigner/lets",
-          "text": "GitHub"
-        },
-        {
-          "href": "https://github.com/alexandesigner",
-          "text": "alexandesigner"
-        }
-      ]
     }
   ]
 }
