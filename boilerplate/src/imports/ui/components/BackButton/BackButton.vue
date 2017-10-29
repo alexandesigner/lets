@@ -4,7 +4,7 @@
     @click="goBack"
     class="button-back">
     <svg class="icon">
-      <use xlink:href="#arrow-left-alt" />
+      <use xlink:href="/icons.svg#arrow-left-alt" />
     </svg>
   </button>
 </template>

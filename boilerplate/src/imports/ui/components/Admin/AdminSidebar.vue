@@ -10,25 +10,25 @@
     		<router-link class="nav-item" :to="{name: 'admin-dashboard'}" exact>
 	    		Dashboard
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />
           </svg>
 	    	</router-link>
 	    	<router-link class="nav-item" :to="{name: 'admin-users'}">
 	    		Users
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />
           </svg>
 	    	</router-link>
 	    	<router-link class="nav-item" :to="{name: 'admin-documents'}">
 	    		Documents
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />
           </svg>
 	    	</router-link>
 	    	<div class="nav-logout" @click="logout">
 	    		Logout
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />
           </svg>
 	    	</div>
 	    </div>

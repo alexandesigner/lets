@@ -35,7 +35,7 @@
 		      width="220">
 		      <template scope="scope">
 		        <svg class="icon">
-	            <use xlink:href="#mobile" />
+	            <use xlink:href="/icons.svg#mobile" />
 	          </svg>
 		        <span>{{ scope.row.profile.phone }}</span>
 		      </template>
