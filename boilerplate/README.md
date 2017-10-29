@@ -9,11 +9,14 @@ In this project we are using a ui layer [Vue with Meteor](https://github.com/Akr
 $ make install
 ```
 
-## Running 
+## Command utils
 
 ``` bash
-# Now.. serve with hot reload at localhost:4000
+# Serve with hot reload at localhost port 3000
 $ make dev
+
+# Update meteor version and all packages
+$ make update
 
 # Running in --production flag, after configure .deploy/settings-production.json file
 $ make production
@@ -21,8 +24,17 @@ $ make production
 # Reset database
 $ make reset
 
-# lint code
-$ make lint
+# Reset database and Running server
+$ make rebuild
+
+# Setup deploy in your server
+$ make setup-deploy
+
+# Command to deployment see section Deployment
+$ make deploy
+
+# This project uses the Element UI library so you need to take a look at the (element-variables.css)[https://github.com/alexandesigner/lets/blob/master/boilerplate/src/element-variables.css] variables and change them according to the color palette of your project
+$ make generate-styles
 ```
 
 ## Deployment
@@ -46,11 +58,7 @@ $ make deploy
 
 ## Documentantion
 
-[Read the Documentation](https://lets.alexandesigner.com.br/docs)
-
-## Versioning
-
-To keep better organization of releases we follow the [Semantic Versioning 2.0.0](http://semver.org/) guidelines.
+[Read the Documentation](https://github.com/alexandesigner/lets/tree/master/docs)
 
 ## Contributors
 
