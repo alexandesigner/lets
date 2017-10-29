@@ -3,7 +3,7 @@ import Documents from '../documents'
 Documents.schema = new SimpleSchema({
   owner: {
     type: String,
-    label: 'The ID of the user this document belongs to.',
+    label: 'The ID of the user this document belongs to.'
   },
   createdAt: {
     type: String,

@@ -47,7 +47,7 @@
       font-size 42px
       padding 0
       text-align left
-      font-weight 300
+      font-weight 400
       letter-spacing -0.05em
       small
         font-size 16px

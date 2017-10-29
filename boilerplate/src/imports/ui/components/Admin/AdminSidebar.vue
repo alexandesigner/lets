@@ -27,9 +27,6 @@
 	    	</router-link>
 	    	<div class="nav-logout" @click="logout">
 	    		Logout
-	    		<svg class="icon">
-            <use xlink:href="/icons.svg#arrow-right" />
-          </svg>
 	    	</div>
 	    </div>
 	  </div>
@@ -101,12 +98,13 @@
 				height 16px
 				position absolute
 				right 12px
-				top 10px
+				top 12px
 				opacity 0
 				fill var(--color-primary)
 				transition var(--fade-transition)
 		.router-link-exact-active
 			color var(--color-primary)
+			font-weight 600
 			.icon
 				opacity 1
 		.nav-logout

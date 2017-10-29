@@ -99,7 +99,8 @@
               })
               this.$message({
                 type: 'info',
-                message: `User update with success!`
+                message: `User update with success!`,
+                duration: 9999
               })
               this.$refs[formName].resetFields()
               this.$router.push({ name: 'admin-users' })
