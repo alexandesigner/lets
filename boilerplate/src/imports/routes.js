@@ -1,15 +1,9 @@
-import Vue from 'vue'
-
 import isUser from './modules/is-user'
 
-import NotFound from './ui/pages/NotFound.vue'
-import Events from './ui/pages/Events.vue'
-import Coverages from './ui/pages/Coverages.vue'
-import StaticPage from './ui/pages/StaticPage/StaticPage.vue'
+import NotFound from './ui/pages/NotFound/NotFound.vue'
 import Documents from './ui/pages/Documents/Documents.vue'
 import DocumentDetails from './ui/pages/Documents/DocumentsDetails.vue'
 import Index from './ui/pages/Index/Index.vue'
-import Terms from './ui/pages/Terms/Terms.vue'
 import Auth from './ui/layout/Auth.vue'
 import Login from './ui/pages/Auth/Login.vue'
 import Register from './ui/pages/Auth/Register.vue'
@@ -36,11 +30,6 @@ export default [
     component: Index
   },
   {
-    path: '/static-page',
-    name: 'example-static',
-    component: StaticPage
-  },
-  {
     path: '/documents',
     name: 'documents',
     component: Documents,
@@ -59,11 +48,6 @@ export default [
         response ? next() : next({name: 'login'})
       })
     }
-  },
-  {
-    path: '/terms',
-    name: 'terms',
-    component: Terms
   },
   {
     path: '/login',

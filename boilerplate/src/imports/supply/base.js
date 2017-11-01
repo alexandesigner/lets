@@ -10,10 +10,10 @@ export default {
 
     deactivate () {
       this.$stopMeteor()
-    },
+    }
   },
 
   meteor: {
     $lazy: true,
-  },
+  }
 }

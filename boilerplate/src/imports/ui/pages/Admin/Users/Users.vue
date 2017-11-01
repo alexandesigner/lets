@@ -13,36 +13,30 @@
 		    <el-table-column
 		      label="Created At"
 		      width="220">
-		      <template scope="scope">
+		      <template slot-scope="scope">
 		        <el-icon class="icon" name="time"></el-icon>
 		        <span>{{ scope.row.createdAt | date("L, LT") }}</span>
 		      </template>
 		    </el-table-column>
 		    <el-table-column
 		      label="Name">
-		      <template scope="scope">
-		        <el-popover trigger="hover" placement="top">
-		          <p>Email: {{ scope.row.emails[0].address }}</p>
-		          <p>Verified: {{ scope.row.emails[0].verified }}</p>
-		          <div slot="reference" class="name-wrapper">
-		            <el-tag>{{ scope.row.profile.firstName }} {{ scope.row.profile.lastName }}</el-tag>
-		          </div>
-		        </el-popover>
+		      <template slot-scope="scope">
+						<span>{{ scope.row.profile.firstName }} {{ scope.row.profile.lastName }}</span>
 		      </template>
 		    </el-table-column>
 		    <el-table-column
 		      label="Phone"
 		      width="220">
-		      <template scope="scope">
+		      <template slot-scope="scope">
 		        <svg class="icon">
-	            <use xlink:href="#mobile" />
+	            <use xlink:href="/icons.svg#mobile" />
 	          </svg>
 		        <span>{{ scope.row.profile.phone }}</span>
 		      </template>
 		    </el-table-column>
 		    <el-table-column
 		      label="Actions">
-		      <template scope="scope">
+		      <template slot-scope="scope">
 		        <el-button
 		          size="small"
 		          @click="handleEdit(scope.$index, scope.row)">Edit</el-button>

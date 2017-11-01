@@ -1,4 +1,3 @@
-import './api/publications'
 import './startup/server'
 
 import { VueSSR } from 'meteor/akryum:vue-ssr'

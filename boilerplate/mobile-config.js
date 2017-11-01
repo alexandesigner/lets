@@ -7,35 +7,35 @@ App.info({
   version: '0.1.0',
 });
 
-// App.icons({
-//   // iOS
-//   'iphone_2x': 'resources/icons/icon-60x60@2x.png',
-//   'ipad': 'resources/icons/icon-76x76.png',
-//   'ipad_2x': 'resources/icons/icon-76x76@2x.png',
+App.icons({
+  // iOS
+  'iphone_2x': 'resources/icons/iphone_2x.png',
+  'ipad': 'resources/icons/ipad.png',
+  'ipad_2x': 'resources/icons/ipad_2x.png',
 
-//   // Android
-//   'android_mdpi': 'resources/icons/icon-48x48.png',
-//   'android_hdpi': 'resources/icons/icon-72x72.png',
-//   'android_xhdpi': 'resources/icons/icon-96x96.png',
-// });
+  // Android
+  'android_mdpi': 'resources/icons/android_mdpi.png',
+  'android_hdpi': 'resources/icons/android_hdpi.png',
+  'android_xhdpi': 'resources/icons/android_xhdpi.png'
+});
 
-// App.launchScreens({
-//   // iOS
-//   'iphone_2x': 'resources/splash/splash-320x480@2x.png',
-//   'iphone5': 'resources/splash/splash-320x568@2x.png',
-//   'ipad_portrait': 'resources/splash/splash-768x1024.png',
-//   'ipad_portrait_2x': 'resources/splash/splash-768x1024@2x.png',
-//   'ipad_landscape': 'resources/splash/splash-1024x768.png',
-//   'ipad_landscape_2x': 'resources/splash/splash-1024x768@2x.png',
+App.launchScreens({
+  // iOS
+  'iphone_2x': 'resources/splash/iphone_2x.png',
+  'iphone5': 'resources/splash/iphone5.png',
+  'ipad_portrait': 'resources/splash/ipad_portrait.png',
+  'ipad_portrait_2x': 'resources/splash/ipad_portrait_2x.png',
+  'ipad_landscape': 'resources/splash/ipad_landscape.png',
+  'ipad_landscape_2x': 'resources/splash/ipad_landscape_2x.png',
 
-//   // Android
-//   'android_mdpi_portrait': 'resources/splash/splash-320x480.png',
-//   'android_mdpi_landscape': 'resources/splash/splash-480x320.png',
-//   'android_hdpi_portrait': 'resources/splash/splash-480x800.png',
-//   'android_hdpi_landscape': 'resources/splash/splash-800x480.png',
-//   'android_xhdpi_portrait': 'resources/splash/splash-720x1280.png',
-//   'android_xhdpi_landscape': 'resources/splash/splash-1280x720.png',
-// });
+  // Android
+  'android_mdpi_portrait': 'resources/splash/android_mdpi_portrait.png',
+  'android_mdpi_landscape': 'resources/splash/android_mdpi_landscape.png',
+  'android_hdpi_portrait': 'resources/splash/android_hdpi_portrait.png',
+  'android_hdpi_landscape': 'resources/splash/android_hdpi_landscape.png',
+  'android_xhdpi_portrait': 'resources/splash/android_xhdpi_portrait.png',
+  'android_xhdpi_landscape': 'resources/splash/android_xhdpi_landscape.png'
+});
 
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#674CD8');

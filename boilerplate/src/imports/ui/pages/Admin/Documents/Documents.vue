@@ -10,7 +10,7 @@
             :plain="true"
             @click="handleNewDocument">
             <svg class="icon">
-              <use xlink:href="#plus" />
+              <use xlink:href="/icons.svg#plus" />
             </svg>
             <span>New document</span>
           </el-button>
@@ -24,26 +24,26 @@
         <el-table-column
           label="Created At"
           width="220">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-icon class="icon" name="time"></el-icon>
             <span>{{ scope.row.createdAt | date("L, LT") }}</span>
           </template>
         </el-table-column>
         <el-table-column
           label="Title">
-          <template scope="scope">
+          <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
         </el-table-column>
         <el-table-column
           label="Body">
-          <template scope="scope">
+          <template slot-scope="scope">
             <span>{{ scope.row.body }}</span>
           </template>
         </el-table-column>
         <el-table-column
           label="Actions">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button
               size="small"
               @click="handleEdit(scope.$index, scope.row)">Edit</el-button>

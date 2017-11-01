@@ -92,7 +92,8 @@
                 this.$notify.success({
                   title: 'Welcome',
                   message: `Good to see you!`,
-                  offset: 100
+                  offset: 100,
+                  duration: 9000
                 })
   						}
   					})
