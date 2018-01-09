@@ -1,6 +1,23 @@
 {
   "public": {},
   "private": {
-    "MAIL_URL": "smtp://postmaster@sandbox4b8ea8c6d94a4d8ea68c0ed39e523442.mailgun.org:9c459f332bbdfb6185a477c0e6a8143b@smtp.mailgun.org:587"
+    "MAIL_URL": "",
+    "OAuth": {
+      "facebook": {
+        "appId": "",
+        "secret": "",
+        "loginStyle": "popup"
+      },
+      "google": {
+        "clientId": "",
+        "secret": "",
+        "loginStyle": "popup"
+      },
+      "github": {
+        "clientId": "",
+        "secret": "",
+        "loginStyle": "popup"
+      }
+    }
   }
 }
