@@ -10,7 +10,6 @@ Vue.use(Vuex)
 import VueMeteorTracker from 'vue-meteor-tracker'
 Vue.use(VueMeteorTracker)
 Vue.config.meteor.freeze = true
-console.log('tracker installed')
 
 import VueSupply from 'vue-supply'
 Vue.use(VueSupply)
