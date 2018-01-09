@@ -1,0 +1,35 @@
+# enable ES6
+parserOptions:
+  ecmaVersion: 6
+  sourceType: "module"
+
+# register plugins
+plugins:
+  - meteor
+
+# use the rules of eslint-config-airbnb
+# and the recommended rules of eslint-plugin-meteor
+extends:
+  - standard
+  - plugin:meteor/recommended
+
+# registerenvironments
+env:
+  meteor: true
+  browser: true
+  node: true
+  
+
+rules:
+  # overwrite some rules (avoid semicolons) 
+  semi: [2, 'never']
+  no-unexpected-multiline: 2
+  no-throw-literal: 0
+
+  # eslint-plugin-meteor
+  meteor/no-session: [0] # allow Session
+  meteor/prefer-session-equals: [2] # prefer Session.equals instead
+
+globals:
+  # packages
+  moment: false # momentjs:moment
