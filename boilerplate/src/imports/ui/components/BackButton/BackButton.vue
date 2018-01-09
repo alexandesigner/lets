@@ -11,12 +11,12 @@
 
 <script>
 export default {
-  data: () => ({
-    canGoBack: window.history.length > 1
-  }),
   methods: {
+    canGoBack () {
+      window.history.length > 1
+    },
     goBack () {
-      window.history.go(-1)
+      this.$router.go(-1)
     }
   }
 }
