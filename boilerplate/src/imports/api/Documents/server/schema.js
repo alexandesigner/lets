@@ -1,5 +1,5 @@
 import Documents from '../documents'
-import { SimpleSchema } from 'meteor/aldeed:simple-schema'
+import SimpleSchema from 'simpl-schema'
 
 Documents.schema = new SimpleSchema({
   owner: {
