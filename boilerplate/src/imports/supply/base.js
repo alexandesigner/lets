@@ -14,6 +14,6 @@ export default {
   },
 
   meteor: {
-    $lazy: true,
+    $lazy: true
   }
 }

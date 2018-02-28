@@ -11,7 +11,7 @@ VueSSR.createApp = function (context) {
 
   return new Promise((resolve, reject) => {
     const { app, router, store } = CreateApp({
-      ssr: true,
+      ssr: true
     })
 
     // set router's location
@@ -36,7 +36,7 @@ VueSSR.createApp = function (context) {
         // Store prefetch
         ...matchedComponents.map(component => {
           return component.preFetch && component.preFetch(store)
-        }),
+        })
       ]).then(() => {
         isDev && console.log(`[SSR] data pre-fetch: ${Date.now() - s}ms`)
 
@@ -51,7 +51,7 @@ VueSSR.createApp = function (context) {
 
         resolve({
           app,
-          js,
+          js
         })
       }).catch(reject)
     })

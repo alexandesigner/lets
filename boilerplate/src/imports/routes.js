@@ -19,10 +19,10 @@ import AdminUsers from './ui/pages/Admin/Users/Users.vue'
 import AdminUsersEdit from './ui/pages/Admin/Users/UsersEdit.vue'
 
 export default [
-  { 
-    path: '*', 
-    name: 'not-found', 
-    component: NotFound 
+  {
+    path: '*',
+    name: 'not-found',
+    component: NotFound
   },
   {
     path: '/',

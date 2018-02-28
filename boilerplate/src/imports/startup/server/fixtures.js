@@ -7,14 +7,14 @@ const documentsSeed = userId => ({
   environments: ['development', 'staging'],
   noLimit: true,
   modelCount: 5,
-  model(dataIndex) {
+  model (dataIndex) {
     return {
       owner: userId,
       title: `Document #${dataIndex + 1}`,
       body: `This is the body of document #${dataIndex + 1}`
     }
   }
-});
+})
 
 seeder(Meteor.users, {
   environments: ['development', 'staging'],
@@ -28,12 +28,12 @@ seeder(Meteor.users, {
       phone: '1-739-346-4124'
     },
     roles: ['admin'],
-    data(userId) {
+    data (userId) {
       return documentsSeed(userId)
     }
   }],
   modelCount: 5,
-  model(index, faker) {
+  model (index, faker) {
     const userCount = index + 1
     return {
       email: `user+${userCount}@test.com`,
@@ -44,7 +44,7 @@ seeder(Meteor.users, {
         phone: faker.phone.phoneNumber()
       },
       roles: ['user'],
-      data(userId) {
+      data (userId) {
         return documentsSeed(userId)
       }
     }

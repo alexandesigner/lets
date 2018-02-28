@@ -1,4 +1,5 @@
 import Documents from '../documents'
+import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 
 Documents.schema = new SimpleSchema({
   owner: {
@@ -8,14 +9,14 @@ Documents.schema = new SimpleSchema({
   createdAt: {
     type: String,
     label: 'The date this document was created.',
-    autoValue() {
+    autoValue () {
       if (this.isInsert) return (new Date()).toISOString()
     }
   },
   updatedAt: {
     type: String,
     label: 'The date this document was last updated.',
-    autoValue() {
+    autoValue () {
       if (this.isInsert || this.isUpdate) return (new Date()).toISOString()
     }
   },
@@ -26,7 +27,7 @@ Documents.schema = new SimpleSchema({
   body: {
     type: String,
     label: 'The body of the document.'
-  },
+  }
 })
 
 Documents.attachSchema(Documents.schema)

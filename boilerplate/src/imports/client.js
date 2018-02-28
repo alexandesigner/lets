@@ -5,6 +5,6 @@ import CreateApp from './app'
 
 Meteor.startup(() => {
   CreateApp({
-    ssr: false,
+    ssr: false
   })
 })

@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor'
-import { check } from 'meteor/check'
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 import { ValidatedMethod } from 'meteor/mdg:validated-method'
 import rateLimit from '../../modules/rate-limit'
@@ -17,7 +16,7 @@ export const removeUser = new ValidatedMethod({
   validate: new SimpleSchema({
     _id: { type: String }
   }).validator(),
-  run(id) {
+  run (id) {
     try {
       return Meteor.users.remove(id)
     } catch (exception) {
@@ -33,15 +32,15 @@ export const updateUser = new ValidatedMethod({
     _id: { type: String },
     updatedAt: { type: Date, optional: true },
     emails: { type: Array },
-      'emails.$': { type: Object },
-      'emails.$.address': { type: String, regEx: SimpleSchema.RegEx.Email },
-      'emails.$.verified': { type: Boolean },
+    'emails.$': { type: Object },
+    'emails.$.address': { type: String, regEx: SimpleSchema.RegEx.Email },
+    'emails.$.verified': { type: Boolean },
     profile: { type: ProfileSchema, optional: true },
     services: { type: Object, optional: true, blackbox: true },
     roles: { type: Array, optional: true, blackbox: true },
-      'roles.$': { type: String }
+    'roles.$': { type: String }
   }).validator(),
-  run(user) {
+  run (user) {
     try {
       const userId = user._id
       const userEmail = user.emails[0]
@@ -55,8 +54,8 @@ export const updateUser = new ValidatedMethod({
           }],
           profile: {
             firstName: user.profile.firstName,
-    				lastName: user.profile.lastName,
-    				phone: user.profile.phone
+            lastName: user.profile.lastName,
+            phone: user.profile.phone
           },
           roles: user.roles
         }

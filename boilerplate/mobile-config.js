@@ -4,8 +4,8 @@ App.info({
   author: 'Allan Alexandre',
   email: 'dev@alexandesigner.com.br',
   website: 'https://alexandesigner.com.br/lets',
-  version: '0.1.0',
-});
+  version: '0.1.0'
+})
 
 App.icons({
   // iOS
@@ -17,7 +17,7 @@ App.icons({
   'android_mdpi': 'resources/icons/android_mdpi.png',
   'android_hdpi': 'resources/icons/android_hdpi.png',
   'android_xhdpi': 'resources/icons/android_xhdpi.png'
-});
+})
 
 App.launchScreens({
   // iOS
@@ -35,7 +35,7 @@ App.launchScreens({
   'android_hdpi_landscape': 'resources/splash/android_hdpi_landscape.png',
   'android_xhdpi_portrait': 'resources/splash/android_xhdpi_portrait.png',
   'android_xhdpi_landscape': 'resources/splash/android_xhdpi_landscape.png'
-});
+})
 
-App.setPreference('StatusBarOverlaysWebView', 'false');
-App.setPreference('StatusBarBackgroundColor', '#674CD8');
+App.setPreference('StatusBarOverlaysWebView', 'false')
+App.setPreference('StatusBarBackgroundColor', '#674CD8')

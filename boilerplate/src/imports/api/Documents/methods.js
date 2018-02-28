@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor'
-import { check } from 'meteor/check'
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 import { ValidatedMethod } from 'meteor/mdg:validated-method'
 import rateLimit from '../../modules/rate-limit'
@@ -11,22 +10,22 @@ export const insertDocument = new ValidatedMethod({
   validate: new SimpleSchema({
     createdAt: {
       type: Date,
-      label: 'The date this document was created.',
+      label: 'The date this document was created.'
     },
     owner: {
       type: String,
-      label: 'The ID of the user this document belongs to.',
+      label: 'The ID of the user this document belongs to.'
     },
     title: {
       type: String,
-      label: 'The title of the document.',
+      label: 'The title of the document.'
     },
     body: {
       type: String,
-      label: 'The body of the document.',
+      label: 'The body of the document.'
     }
   }).validator(),
-  run(doc) {
+  run (doc) {
     try {
       return Documents.insert({ owner: this.userId, ...doc })
     } catch (exception) {
@@ -42,22 +41,22 @@ export const updateDocument = new ValidatedMethod({
     _id: { type: String },
     updatedAt: {
       type: Date,
-      label: 'The date this document was created.',
+      label: 'The date this document was created.'
     },
     owner: {
       type: String,
-      label: 'The ID of the user this document belongs to.',
+      label: 'The ID of the user this document belongs to.'
     },
     title: {
       type: String,
-      label: 'The title of the document.',
+      label: 'The title of the document.'
     },
     body: {
       type: String,
-      label: 'The body of the document.',
+      label: 'The body of the document.'
     }
   }).validator(),
-  run(doc) {
+  run (doc) {
     try {
       const documentId = doc._id
       return Documents.update(documentId, {
@@ -80,7 +79,7 @@ export const removeDocument = new ValidatedMethod({
   validate: new SimpleSchema({
     _id: { type: String }
   }).validator(),
-  run(id) {
+  run (id) {
     try {
       return Documents.remove(id)
     } catch (exception) {
@@ -96,5 +95,5 @@ rateLimit({
     'Documents.methods.remove'
   ],
   limit: 5,
-  timeRange: 1000,
+  timeRange: 1000
 })

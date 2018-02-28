@@ -15,9 +15,9 @@ export default () => {
 }
 
 /*
-  
+
   Usage in vue router
-  
+
   beforeEnter: (to, from, next) => {
     isUser().then(response => {
       // if true, continue, else redirect to Login page

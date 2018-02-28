@@ -9,10 +9,10 @@ const assignLimits = ({ methods, limit, timeRange }) => {
 
   if (Meteor.isServer) {
     DDPRateLimiter.addRule({
-      name(name) { return _.contains(methodNames, name) },
-      connectionId() { return true },
+      name (name) { return _.contains(methodNames, name) },
+      connectionId () { return true }
     }, limit, timeRange)
   }
-};
+}
 
-export default function rateLimit(options) { return assignLimits(options) }
+export default function rateLimit (options) { return assignLimits(options) }

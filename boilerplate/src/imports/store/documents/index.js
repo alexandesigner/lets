@@ -5,12 +5,12 @@ export default {
     use: ['Documents'],
     inject: ({ Documents }) => ({
       getters: {
-        'all-documents': () => Documents.events,
+        'all-documents': () => Documents.events
       }
     })
   },
 
   getters: {
-    'count': (state, getters) => getters['all-documents'].length,
+    'count': (state, getters) => getters['all-documents'].length
   }
 }

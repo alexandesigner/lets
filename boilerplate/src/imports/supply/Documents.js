@@ -1,5 +1,5 @@
 import base from './base'
-import { Documents } from '../api/Documents/documents'
+import Documents from '../api/Documents/documents'
 
 export default {
   extends: base,

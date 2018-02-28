@@ -1,11 +1,15 @@
 # enable ES6
+parser: 'babel-eslint'
 parserOptions:
   ecmaVersion: 6
   sourceType: "module"
+  allowImportExportEverywhere: true
 
 # register plugins
 plugins:
   - meteor
+  - html
+  - import
 
 # use the rules of eslint-config-airbnb
 # and the recommended rules of eslint-plugin-meteor
@@ -18,13 +22,21 @@ env:
   meteor: true
   browser: true
   node: true
-  
 
 rules:
   # overwrite some rules (avoid semicolons) 
   semi: [2, 'never']
   no-unexpected-multiline: 2
   no-throw-literal: 0
+  arrow-parens: 0
+  one-var: 0
+  import/first: 0
+  import/named: 2
+  import/default: 2
+  import/export: 2
+  prefer-promise-reject-errors:
+    - 'off'
+    - allowEmptyReject: true
 
   # eslint-plugin-meteor
   meteor/no-session: [0] # allow Session

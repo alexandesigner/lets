@@ -11,7 +11,6 @@ import { injectSupply } from 'vue-supply'
 import App from './ui/App.vue'
 import routes from './routes'
 import storeOptions from './store'
-import ElementUI from 'element-ui'
 
 function createApp (context) {
   const router = new VueRouter({
@@ -33,7 +32,7 @@ function createApp (context) {
       router,
       store,
       supplyCache,
-      ...App,
+      ...App
     }),
     router,
     store

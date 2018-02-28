@@ -11,10 +11,10 @@ emailTemplates.from = from
 
 // Reset Password
 emailTemplates.resetPassword = {
-  subject() {
+  subject () {
     return `[${name}] Reset Your Password`
   },
-  text(user, url) {
+  text (user, url) {
     const userEmail = user.emails[0].address
     const urlWithoutHash = url.replace('#/', '')
     if (Meteor.isDevelopment) console.info(`Reset Password Link: ${urlWithoutHash}`)
@@ -23,15 +23,15 @@ emailTemplates.resetPassword = {
     \n\n${urlWithoutHash}\n\n If you did not request this reset, please ignore
     this email. If you feel something is wrong, please contact our support team:
     ${email}.`
-  },
+  }
 }
 
 // Verify Email
 emailTemplates.verifyEmail = {
-   subject() {
-      return `[${name}] Reset Your Password`
-   },
-   text(user, url) {
-      return `Hey ${user}! Verify your e-mail by following this link: ${url}`;
-   }
-};
+  subject () {
+    return `[${name}] Reset Your Password`
+  },
+  text (user, url) {
+    return `Hey ${user}! Verify your e-mail by following this link: ${url}`
+  }
+}
