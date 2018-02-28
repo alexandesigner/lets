@@ -9,9 +9,6 @@
             type="primary" 
             :plain="true"
             @click="handleNewDocument">
-            <svg class="icon">
-              <use xlink:href="/icons.svg#plus" />
-            </svg>
             <span>New document</span>
           </el-button>
         </div>
