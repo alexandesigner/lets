@@ -1,6 +1,5 @@
-<template src="App.html" />
+<template src="App.html"></template>
 
-<script src="App.js">
-</script>
+<script src="App.js"></script>
 
-<style lang="stylus" src="style/main.styl" />
+<style lang="stylus" src="style/main.styl"></style>

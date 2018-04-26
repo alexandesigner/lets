@@ -1,4 +1,4 @@
-import isUser from './modules/is-user'
+import { isBasicAuth } from './modules/check-auth'
 
 import NotFound from './ui/pages/NotFound/NotFound.vue'
 import Documents from './ui/pages/Documents/Documents.vue'
@@ -33,21 +33,13 @@ export default [
     path: '/documents',
     name: 'documents',
     component: Documents,
-    beforeEnter: (to, from, next) => {
-      isUser().then(response => {
-        response ? next() : next({name: 'login'})
-      })
-    }
+    beforeEnter: isBasicAuth
   },
   {
     path: '/documents/:documentId',
     name: 'documents-details',
     component: DocumentDetails,
-    beforeEnter: (to, from, next) => {
-      isUser().then(response => {
-        response ? next() : next({name: 'login'})
-      })
-    }
+    beforeEnter: isBasicAuth
   },
   {
     path: '/login',
@@ -80,11 +72,7 @@ export default [
     path: '/admin',
     component: Admin,
     redirect: { name: 'admin-dashboard' },
-    beforeEnter: (to, from, next) => {
-      isUser().then(response => {
-        response ? next() : next({name: 'login'})
-      })
-    },
+    beforeEnter: isBasicAuth,
     children: [
       {
         path: '/admin',

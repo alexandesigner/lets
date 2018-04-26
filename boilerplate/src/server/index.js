@@ -1,7 +1,7 @@
-import './startup/server'
+import '../imports/startup/server'
 
 import { VueSSR } from 'meteor/akryum:vue-ssr'
-import CreateApp from './app'
+import CreateApp from '../imports/app'
 
 const isDev = process.env.NODE_ENV !== 'production'
 

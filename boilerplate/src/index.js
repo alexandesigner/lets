@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-  import './imports/client'
+  import './client'
 } else if (Meteor.isServer) {
-  import './imports/server'
+  import './server'
 }
