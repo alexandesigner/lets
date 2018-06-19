@@ -32,14 +32,12 @@ export default [
   {
     path: '/documents',
     name: 'documents',
-    component: Documents,
-    beforeEnter: isBasicAuth
+    component: Documents
   },
   {
     path: '/documents/:documentId',
     name: 'documents-details',
-    component: DocumentDetails,
-    beforeEnter: isBasicAuth
+    component: DocumentDetails
   },
   {
     path: '/login',
