@@ -648,6 +648,9 @@
   .el-button.is-round {
     border-radius: 20px;
     padding: 12px 23px; }
+  .el-button.is-circle {
+    border-radius: 50%;
+    padding: 12px; }
   .el-button--primary {
     color: #fff;
     background-color: #674CD8;
@@ -844,18 +847,24 @@
     border-radius: 4px; }
     .el-button--medium.is-round {
       padding: 10px 20px; }
+    .el-button--medium.is-circle {
+      padding: 10px; }
   .el-button--small {
     padding: 9px 15px;
     font-size: 12px;
     border-radius: 3px; }
     .el-button--small.is-round {
       padding: 9px 15px; }
+    .el-button--small.is-circle {
+      padding: 9px; }
   .el-button--mini {
     padding: 7px 15px;
     font-size: 12px;
     border-radius: 3px; }
     .el-button--mini.is-round {
       padding: 7px 15px; }
+    .el-button--mini.is-circle {
+      padding: 7px; }
   .el-button--text {
     border-color: transparent;
     color: #674CD8;
@@ -876,7 +885,8 @@
 .el-button-group {
   display: inline-block;
   vertical-align: middle; }
-  .el-button-group::before, .el-button-group::after {
+  .el-button-group::before,
+  .el-button-group::after {
     display: table;
     content: ""; }
   .el-button-group::after {

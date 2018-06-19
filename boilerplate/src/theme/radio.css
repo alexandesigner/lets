@@ -454,10 +454,10 @@
       top: 50%;
       -webkit-transform: translate(-50%, -50%) scale(0);
       transform: translate(-50%, -50%) scale(0);
-      -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.71, -0.46, 0.88, 0.6);
-      transition: -webkit-transform 0.15s cubic-bezier(0.71, -0.46, 0.88, 0.6);
-      transition: transform 0.15s cubic-bezier(0.71, -0.46, 0.88, 0.6);
-      transition: transform 0.15s cubic-bezier(0.71, -0.46, 0.88, 0.6), -webkit-transform 0.15s cubic-bezier(0.71, -0.46, 0.88, 0.6); }
+      -webkit-transition: -webkit-transform .15s ease-in;
+      transition: -webkit-transform .15s ease-in;
+      transition: transform .15s ease-in;
+      transition: transform .15s ease-in, -webkit-transform .15s ease-in; }
   .el-radio__original {
     opacity: 0;
     outline: none;
@@ -468,9 +468,9 @@
     right: 0;
     bottom: 0;
     margin: 0; }
-  .el-radio:focus:not(.is-focus):not(:active) {
+  .el-radio:focus:not(.is-focus):not(:active):not(.is-disabled) {
     /*获得焦点时 样式提醒*/ }
-    .el-radio:focus:not(.is-focus):not(:active) .el-radio__inner {
+    .el-radio:focus:not(.is-focus):not(:active):not(.is-disabled) .el-radio__inner {
       -webkit-box-shadow: 0 0 2px 2px #674CD8;
       box-shadow: 0 0 2px 2px #674CD8; }
   .el-radio__label {

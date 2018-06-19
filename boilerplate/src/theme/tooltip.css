@@ -237,8 +237,10 @@
   padding: 10px;
   z-index: 2000;
   font-size: 12px;
-  line-height: 1.2; }
-  .el-tooltip__popper .popper__arrow, .el-tooltip__popper .popper__arrow::after {
+  line-height: 1.2;
+  min-width: 10px; }
+  .el-tooltip__popper .popper__arrow,
+  .el-tooltip__popper .popper__arrow::after {
     position: absolute;
     display: block;
     width: 0;

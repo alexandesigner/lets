@@ -228,6 +228,42 @@
 --------------------------*/
 /* Break-point
 --------------------------*/
+.el-color-predefine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  margin-top: 8px;
+  width: 280px; }
+  .el-color-predefine__colors {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .el-color-predefine__color-selector {
+    margin: 0 0 8px 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer; }
+    .el-color-predefine__color-selector:nth-child(10n + 1) {
+      margin-left: 0; }
+    .el-color-predefine__color-selector.selected {
+      -webkit-box-shadow: 0 0 3px 2px #674CD8;
+      box-shadow: 0 0 3px 2px #674CD8; }
+    .el-color-predefine__color-selector > div {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      height: 100%;
+      border-radius: 3px; }
+    .el-color-predefine__color-selector.is-alpha {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==); }
+
 .el-color-hue-slider {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -283,8 +319,8 @@
     background: -webkit-gradient(linear, left top, right top, from(#fff), to(rgba(255, 255, 255, 0)));
     background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0)); }
   .el-color-svpanel__black {
-    background: -webkit-gradient(linear, left bottom, left top, from(#000), to(transparent));
-    background: linear-gradient(to top, #000, transparent); }
+    background: -webkit-gradient(linear, left bottom, left top, from(#000), to(rgba(0, 0, 0, 0)));
+    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0)); }
   .el-color-svpanel__cursor {
     position: absolute; }
     .el-color-svpanel__cursor > div {
@@ -401,7 +437,8 @@
     .el-color-picker--small .el-color-picker__mask {
       height: 30px;
       width: 30px; }
-    .el-color-picker--small .el-color-picker__icon, .el-color-picker--small .el-color-picker__empty {
+    .el-color-picker--small .el-color-picker__icon,
+    .el-color-picker--small .el-color-picker__empty {
       -webkit-transform: translate3d(-50%, -50%, 0) scale(0.8);
       transform: translate3d(-50%, -50%, 0) scale(0.8); }
   .el-color-picker--mini {
@@ -412,7 +449,8 @@
     .el-color-picker--mini .el-color-picker__mask {
       height: 26px;
       width: 26px; }
-    .el-color-picker--mini .el-color-picker__icon, .el-color-picker--mini .el-color-picker__empty {
+    .el-color-picker--mini .el-color-picker__icon,
+    .el-color-picker--mini .el-color-picker__empty {
       -webkit-transform: translate3d(-50%, -50%, 0) scale(0.8);
       transform: translate3d(-50%, -50%, 0) scale(0.8); }
   .el-color-picker__mask {

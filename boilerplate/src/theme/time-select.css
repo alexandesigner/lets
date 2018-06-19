@@ -574,6 +574,9 @@
     width: 350px; }
   .el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner {
     width: 400px; }
+  .el-date-editor--dates .el-input__inner {
+    text-overflow: ellipsis;
+    white-space: nowrap; }
   .el-date-editor .el-icon-circle-close {
     cursor: pointer; }
   .el-date-editor .el-range__icon {
@@ -623,7 +626,16 @@
     line-height: 32px; }
 
 .el-range-editor.el-input__inner {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 3px 10px; }
+
+.el-range-editor .el-range-input {
+  line-height: 1; }
 
 .el-range-editor.is-active {
   border-color: #674CD8; }
@@ -640,7 +652,8 @@
 .el-range-editor--medium .el-range-input {
   font-size: 14px; }
 
-.el-range-editor--medium .el-range__icon, .el-range-editor--medium .el-range__close-icon {
+.el-range-editor--medium .el-range__icon,
+.el-range-editor--medium .el-range__close-icon {
   line-height: 28px; }
 
 .el-range-editor--small.el-input__inner {
@@ -653,7 +666,8 @@
 .el-range-editor--small .el-range-input {
   font-size: 13px; }
 
-.el-range-editor--small .el-range__icon, .el-range-editor--small .el-range__close-icon {
+.el-range-editor--small .el-range__icon,
+.el-range-editor--small .el-range__close-icon {
   line-height: 24px; }
 
 .el-range-editor--mini.el-input__inner {
@@ -666,7 +680,8 @@
 .el-range-editor--mini .el-range-input {
   font-size: 12px; }
 
-.el-range-editor--mini .el-range__icon, .el-range-editor--mini .el-range__close-icon {
+.el-range-editor--mini .el-range__icon,
+.el-range-editor--mini .el-range__close-icon {
   line-height: 20px; }
 
 .el-range-editor.is-disabled {

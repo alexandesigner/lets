@@ -229,6 +229,7 @@
 /* Break-point
 --------------------------*/
 .el-tree {
+  position: relative;
   cursor: default;
   background: #fff;
   color: #606266; }
@@ -245,6 +246,12 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: #83486c; }
+  .el-tree__drop-indicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #674CD8; }
 
 .el-tree-node {
   white-space: nowrap;
@@ -253,6 +260,9 @@
     /* focus */ }
     .el-tree-node:focus > .el-tree-node__content {
       background-color: #f5f7fa; }
+  .el-tree-node.is-drop-inner > .el-tree-node__content .el-tree-node__label {
+    background-color: #674CD8;
+    color: #fff; }
   .el-tree-node__content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -268,6 +278,12 @@
       margin-right: 8px; }
     .el-tree-node__content:hover {
       background-color: #f5f7fa; }
+    .el-tree.is-dragging .el-tree-node__content {
+      cursor: move; }
+      .el-tree.is-dragging .el-tree-node__content * {
+        pointer-events: none; }
+    .el-tree.is-dragging.is-drop-not-allow .el-tree-node__content {
+      cursor: not-allowed; }
   .el-tree-node__expand-icon {
     cursor: pointer;
     color: #c0c4cc;

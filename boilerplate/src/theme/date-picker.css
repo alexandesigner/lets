@@ -311,6 +311,17 @@
       opacity: 1;
       cursor: not-allowed;
       color: #c0c4cc; }
+    .el-date-table td.selected div {
+      margin-left: 5px;
+      margin-right: 5px;
+      background-color: #f2f6fc;
+      border-radius: 15px; }
+      .el-date-table td.selected div:hover {
+        background-color: #f2f6fc; }
+    .el-date-table td.selected span {
+      background-color: #674CD8;
+      color: #fff;
+      border-radius: 15px; }
     .el-date-table td.week {
       font-size: 80%;
       color: #606266; }
@@ -706,9 +717,6 @@
 --------------------------*/
 .el-time-spinner.has-seconds .el-time-spinner__wrapper {
   width: 33.3%; }
-
-.el-time-spinner.has-seconds .el-time-spinner__wrapper:nth-child(2) {
-  margin-left: 1%; }
 
 .el-time-spinner__wrapper {
   max-height: 190px;
@@ -1247,6 +1255,9 @@
     width: 350px; }
   .el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner {
     width: 400px; }
+  .el-date-editor--dates .el-input__inner {
+    text-overflow: ellipsis;
+    white-space: nowrap; }
   .el-date-editor .el-icon-circle-close {
     cursor: pointer; }
   .el-date-editor .el-range__icon {
@@ -1296,7 +1307,16 @@
     line-height: 32px; }
 
 .el-range-editor.el-input__inner {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 3px 10px; }
+
+.el-range-editor .el-range-input {
+  line-height: 1; }
 
 .el-range-editor.is-active {
   border-color: #674CD8; }
@@ -1313,7 +1333,8 @@
 .el-range-editor--medium .el-range-input {
   font-size: 14px; }
 
-.el-range-editor--medium .el-range__icon, .el-range-editor--medium .el-range__close-icon {
+.el-range-editor--medium .el-range__icon,
+.el-range-editor--medium .el-range__close-icon {
   line-height: 28px; }
 
 .el-range-editor--small.el-input__inner {
@@ -1326,7 +1347,8 @@
 .el-range-editor--small .el-range-input {
   font-size: 13px; }
 
-.el-range-editor--small .el-range__icon, .el-range-editor--small .el-range__close-icon {
+.el-range-editor--small .el-range__icon,
+.el-range-editor--small .el-range__close-icon {
   line-height: 24px; }
 
 .el-range-editor--mini.el-input__inner {
@@ -1339,7 +1361,8 @@
 .el-range-editor--mini .el-range-input {
   font-size: 12px; }
 
-.el-range-editor--mini .el-range__icon, .el-range-editor--mini .el-range__close-icon {
+.el-range-editor--mini .el-range__icon,
+.el-range-editor--mini .el-range__close-icon {
   line-height: 20px; }
 
 .el-range-editor.is-disabled {
@@ -2657,7 +2680,7 @@
     display: inline-block;
     font-size: inherit;
     height: 40px;
-    line-height: 1;
+    line-height: 40px;
     outline: none;
     padding: 0 15px;
     -webkit-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -2737,19 +2760,22 @@
   .el-input--medium {
     font-size: 14px; }
     .el-input--medium .el-input__inner {
-      height: 36px; }
+      height: 36px;
+      line-height: 36px; }
     .el-input--medium .el-input__icon {
       line-height: 36px; }
   .el-input--small {
     font-size: 13px; }
     .el-input--small .el-input__inner {
-      height: 32px; }
+      height: 32px;
+      line-height: 32px; }
     .el-input--small .el-input__icon {
       line-height: 32px; }
   .el-input--mini {
     font-size: 12px; }
     .el-input--mini .el-input__inner {
-      height: 28px; }
+      height: 28px;
+      line-height: 28px; }
     .el-input--mini .el-input__icon {
       line-height: 28px; }
 
@@ -2774,16 +2800,24 @@
     white-space: nowrap; }
     .el-input-group__append:focus, .el-input-group__prepend:focus {
       outline: none; }
-    .el-input-group__append .el-select, .el-input-group__append .el-button, .el-input-group__prepend .el-select, .el-input-group__prepend .el-button {
+    .el-input-group__append .el-select,
+    .el-input-group__append .el-button, .el-input-group__prepend .el-select,
+    .el-input-group__prepend .el-button {
       display: inline-block;
       margin: -10px -20px; }
-    .el-input-group__append button.el-button, .el-input-group__append div.el-select .el-input__inner, .el-input-group__append div.el-select:hover .el-input__inner, .el-input-group__prepend button.el-button, .el-input-group__prepend div.el-select .el-input__inner, .el-input-group__prepend div.el-select:hover .el-input__inner {
+    .el-input-group__append button.el-button,
+    .el-input-group__append div.el-select .el-input__inner,
+    .el-input-group__append div.el-select:hover .el-input__inner, .el-input-group__prepend button.el-button,
+    .el-input-group__prepend div.el-select .el-input__inner,
+    .el-input-group__prepend div.el-select:hover .el-input__inner {
       border-color: transparent;
       background-color: transparent;
       color: inherit;
       border-top: 0;
       border-bottom: 0; }
-    .el-input-group__append .el-button, .el-input-group__append .el-input, .el-input-group__prepend .el-button, .el-input-group__prepend .el-input {
+    .el-input-group__append .el-button,
+    .el-input-group__append .el-input, .el-input-group__prepend .el-button,
+    .el-input-group__prepend .el-input {
       font-size: inherit; }
   .el-input-group__prepend {
     border-right: 0;

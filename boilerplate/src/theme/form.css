@@ -255,7 +255,8 @@
 
 .el-form-item {
   margin-bottom: 22px; }
-  .el-form-item::before, .el-form-item::after {
+  .el-form-item::before,
+  .el-form-item::after {
     display: table;
     content: ""; }
   .el-form-item::after {
@@ -298,11 +299,14 @@
     line-height: 40px;
     position: relative;
     font-size: 14px; }
-    .el-form-item__content::before, .el-form-item__content::after {
+    .el-form-item__content::before,
+    .el-form-item__content::after {
       display: table;
       content: ""; }
     .el-form-item__content::after {
       clear: both; }
+    .el-form-item__content .el-input-group {
+      vertical-align: middle; }
   .el-form-item__error {
     color: #f56c6c;
     font-size: 12px;
