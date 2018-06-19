@@ -3,6 +3,10 @@ import { check } from 'meteor/check'
 import Documents from '../documents'
 
 Meteor.publish('documents', function () {
+  return Documents.find({})
+})
+
+Meteor.publish('documents.owner', function () {
   return Documents.find({ owner: this.userId })
 })
 
