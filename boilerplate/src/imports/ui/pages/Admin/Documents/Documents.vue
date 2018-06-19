@@ -65,8 +65,8 @@
       documents: []
     }),
     meteor: {
-      subscribe: {
-        'documents': [],
+      $subscribe: {
+        'documents.owner': [],
       },
       documents() {
         return Documents.find({})

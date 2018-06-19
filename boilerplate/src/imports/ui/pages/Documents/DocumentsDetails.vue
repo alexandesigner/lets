@@ -5,6 +5,7 @@
     	<h2>Document Details</h2>
     </header>
     <h4>{{ documents[0].title }}</h4>
+    <strong>{{ documents[0].owner }}</strong>
     <p>{{ documents[0].body }}</p>
   </div>
 </template>
@@ -19,7 +20,7 @@
     	documents: []
     }),
     meteor: {
-      subscribe: {
+      $subscribe: {
         'documents': [],
       },
       users() {

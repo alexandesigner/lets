@@ -95,8 +95,8 @@
       }
     },
     meteor: {
-      subscribe: {
-        'documents': [],
+      $subscribe: {
+        'documents.owner': [],
       },
       users() {
         return Meteor.users.find({})

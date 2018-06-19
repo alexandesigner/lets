@@ -53,7 +53,7 @@
       },
     }),
     meteor: {
-      subscribe: {
+      $subscribe: {
         'users': [],
       },
       users() {

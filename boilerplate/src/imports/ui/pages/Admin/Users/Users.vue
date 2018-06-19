@@ -60,7 +60,7 @@
       users: []
     }),
   	meteor: {
-      subscribe: {
+      $subscribe: {
         'users': [],
       },
       users() {
