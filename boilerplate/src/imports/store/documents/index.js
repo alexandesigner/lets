@@ -5,7 +5,7 @@ export default {
     use: ['Documents'],
     inject: ({ Documents }) => ({
       getters: {
-        'all-documents': () => Documents.events
+        'all-documents': () => Documents.documents
       }
     })
   },
