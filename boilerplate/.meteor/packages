@@ -48,3 +48,4 @@ dburles:mongo-collection-instances@0.3.5  # This package augments Mongo.Collecti
 # Testing
 meteortesting:mocha@1.0.0                 # A Mocha test driver package for Meteor
 msavin:mongol@0.5.5                       # In-App MongoDB Editor
+underscore
