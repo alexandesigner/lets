@@ -22,7 +22,7 @@
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "marked": "^0.3.19",
-    "meteor-node-stubs": "^0.2.11",
+    "meteor-node-stubs": "^0.4.1",
     "moment": "^2.22.2",
     "simpl-schema": "^1.5.0",
     "vue": "^2.5.16",
