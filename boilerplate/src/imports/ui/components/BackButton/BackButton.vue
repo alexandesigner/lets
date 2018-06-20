@@ -26,7 +26,7 @@ export default {
 .button-back
   position absolute
   z-index 2
-  top 16px
+  top 20px
   left 0
   border 0
   background transparent
@@ -35,6 +35,7 @@ export default {
 .icon
   width 32px
   height 32px
+  fill #606266
 .mobile
   .button-back
     top 14px
