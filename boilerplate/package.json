@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "install": "rm -rf node_modules/ && meteor npm i",
-    "dev": "./node_modules/.bin/eslint . && meteor run -p 3000 --settings ./settings/settings-development.json",
-    "dev:production": "./node_modules/.bin/eslint . && meteor run -p 3000 --production --settings ./settings/settings-production.json",
+    "dev": "./node_modules/.bin/eslint . && meteor --settings ./settings/settings-development.json",
+    "dev:production": "./node_modules/.bin/eslint . && meteor --production --settings ./settings/settings-production.json",
     "setup:deploy": "cd .deploy && mupx setup",
     "deploy": "cd .deploy && mupx deploy",
-    "generate:styles": "et --config src/element-variables.scss --out src/theme"
+    "generate:styles": "et --config src/element-variables.scss --out src/theme",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --settings ./settings/settings-production.json --extra-packages bundle-visualizer"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.51",
@@ -42,5 +45,13 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0"
+  },
+  "meteor": {
+    "vueVersion": 2,
+    "mainModule": {
+      "client": "src/client/index.js",
+      "server": "src/server/index.js"
+    },
+    "testModule": "tests/index.js"
   }
 }

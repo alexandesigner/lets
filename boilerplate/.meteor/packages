@@ -44,3 +44,7 @@ mdg:validated-method@1.1.0                # Define Meteor methods in a structure
 mdg:validation-error@0.5.1                # Validation error to indicate that a method call has failed and the client can fix it by changing specific arguments 
 ddp-rate-limiter@1.0.7                    # A rate limiter added directly to DDP that provides an API to add rules to Meteor methods and collections.
 dburles:mongo-collection-instances@0.3.5  # This package augments Mongo.Collection (and the deprecated Meteor.Collection) and allows you to later lookup a Mongo Collection instance by the collection name
+
+# Testing
+meteortesting:mocha@1.0.0                 # A Mocha test driver package for Meteor
+msavin:mongol@0.5.5                       # In-App MongoDB Editor

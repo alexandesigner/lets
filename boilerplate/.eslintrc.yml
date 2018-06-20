@@ -22,6 +22,7 @@ env:
   meteor: true
   browser: true
   node: true
+  mocha: true
 
 rules:
   # overwrite some rules (avoid semicolons) 
