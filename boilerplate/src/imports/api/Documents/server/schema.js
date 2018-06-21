@@ -27,6 +27,11 @@ Documents.schema = new SimpleSchema({
   body: {
     type: String,
     label: 'The body of the document.'
+  },
+  imageId: {
+    type: String,
+    label: 'The ID of the image.',
+    optional: true
   }
 })
 

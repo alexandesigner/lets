@@ -15,11 +15,16 @@
                     class="avatar-uploader"
                     action="http://localhost:3000/"
                     :show-file-list="false"
-                    :on-success="handleAvatarSuccess"
-                    :before-upload="beforeAvatarUpload">
+                    :on-success="handleImageSuccess"
+                    :before-upload="beforeImageUpload">
                     <img v-if="imageUrl" :src="imageUrl" class="avatar">
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                   </el-upload>
+              </el-col>
+              <el-col :lg="24">
+                <el-form-item prop="imageId">
+                  <el-input size="large" v-model="editDocument.imageId" auto-complete="off" :disabled="true"></el-input>
+                </el-form-item>
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="owner">
@@ -48,21 +53,24 @@
 </template>
 
 <script>
+  import { Session } from 'meteor/session';
   import AdminSidebar from '../../../components/Admin/AdminSidebar.vue'
   import AdminContent from '../../../components/Admin/AdminContent.vue'
   import BackButton from '../../../components/BackButton/BackButton.vue'
   import Documents from '../../../../api/Documents/documents'
+  import Images from '../../../../api/Images/images'
   export default {
     name: 'admin-documents-edit',
     data: () => ({
       documents: [],
       users: [],
       imageUrl: '',
-      imgBase64: '',
+      imageFile: '',
       editDocument: {
         owner: '',
         title: '',
-        body: ''
+        body: '',
+        imageId: ''
       },
       rules: {
         title: [
@@ -73,64 +81,93 @@
         ]
       },
     }),
+    mounted () {
+      Session.setDefault('imageId', '')
+    },
     watch: {
       'documents': function(doc) {
         this.$nextTick(function() {
           this.editDocument = {
-            owner: doc[0].owner,
-            title: doc[0].title,
-            body: doc[0].body
+            owner: doc[0].owner || '',
+            title: doc[0].title || '',
+            body: doc[0].body || '',
+            imageId: doc[0].imageId || ''
           }
         })
       }
     },
     methods: {
       handleSubmitForm (formName) {
-        this.$refs[formName].validate((valid) => {
-          try {
-            if (valid) {
-              let dataForm = this.editDocument
-              let document = this.documents[0]
-              let user = this.users[0]
-              Meteor.callPromise('Documents.methods.update', {
-                _id: document._id,
-                owner: user._id,
-                title: dataForm.title,
-                body: dataForm.body,
-                updatedAt: new Date()
-              })
-              this.$message({
-                type: 'info',
-                message: `Document update with success!`
-              })
-              this.$refs[formName].resetFields()
-              this.$router.push({ name: 'admin-documents' })
-            }
-          } catch (error) {
-            this.$message({
-              type: 'error',
-              message: error.reason
-            })
+
+        let self = this
+
+        // Create upload instance
+        let uploadInstance = Images.insert({
+          file: self.imageFile.raw, // Get the raw file
+          streams: 'dynamic',
+          chunkSize: 'dynamic'
+        }, false)
+
+        // When upload status 'end' 
+        uploadInstance.on('end', function(error, fileObj) {
+
+          // Check image upload
+          if (error) {
+            console.log('Error during upload: ' + error.reason)
+          } else {
+            Session.set('imageId', fileObj._id)
+            console.log('File "' + fileObj.name + '" successfully uploaded')
           }
+
+          // Form Update
+          self.$refs[formName].validate((valid) => {
+            try {
+              if (valid) {
+                let dataForm = self.editDocument
+                let document = self.documents[0]
+                let user = self.users[0]
+
+                // Send updated data
+                Meteor.callPromise('Documents.methods.update', {
+                  _id: document._id,
+                  owner: user._id,
+                  title: dataForm.title,
+                  body: dataForm.body,
+                  imageId: Session.get('imageId'),
+                  updatedAt: new Date()
+                })
+                self.$message({
+                  type: 'info',
+                  message: `Document update with success!`
+                })
+                self.$refs[formName].resetFields()
+                self.$router.push({ name: 'admin-documents' })
+              }
+            } catch (error) {
+              self.$message({
+                type: 'error',
+                message: error.reason
+              })
+            }
+          })
         })
+
+        uploadInstance.start()
+
       },
-      handleAvatarSuccess(res, file) {
+      handleImageSuccess(res, file) {
+        this.imageFile = file
         this.imageUrl = URL.createObjectURL(file.raw)
-        let reader = new FileReader()
-        reader.readAsDataURL(file.raw)
-        reader.onload = () => {
-          this.imgBase64 = reader.result
-        }
       },
-      beforeAvatarUpload(file) {
+      beforeImageUpload(file) {
         const isJPG = file.type === 'image/jpeg'
         const isLt2M = file.size / 1024 / 1024 < 2
 
         if (!isJPG) {
-          this.$message.error('Avatar picture must be JPG format!')
+          this.$message.error('Image must be JPG format!')
         }
         if (!isLt2M) {
-          this.$message.error('Avatar picture size can not exceed 2MB!')
+          this.$message.error('Image size can not exceed 2MB!')
         }
         return isJPG && isLt2M
       }

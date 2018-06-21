@@ -23,6 +23,11 @@ export const insertDocument = new ValidatedMethod({
     body: {
       type: String,
       label: 'The body of the document.'
+    },
+    imageId: {
+      type: String,
+      label: 'The ID of the image.',
+      optional: true
     }
   }).validator(),
   run (doc) {
@@ -54,6 +59,11 @@ export const updateDocument = new ValidatedMethod({
     body: {
       type: String,
       label: 'The body of the document.'
+    },
+    imageId: {
+      type: String,
+      label: 'The ID of the image.',
+      optional: true
     }
   }).validator(),
   run (doc) {
@@ -64,7 +74,8 @@ export const updateDocument = new ValidatedMethod({
           updatedAt: new Date(),
           owner: doc.owner,
           title: doc.title,
-          body: doc.body
+          body: doc.body,
+          imageId: doc.imageId
         }
       })
     } catch (exception) {
