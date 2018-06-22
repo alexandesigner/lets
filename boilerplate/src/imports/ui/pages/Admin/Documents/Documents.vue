@@ -76,7 +76,10 @@
       handleEdit (index, row) {
         this.$router.push({
           name: 'admin-documents-edit',
-          params: { documentId: row._id }
+          params: { 
+            documentId: row._id, 
+            documentImageId: row.imageId 
+          }
         })
       },
       handleNewDocument () {

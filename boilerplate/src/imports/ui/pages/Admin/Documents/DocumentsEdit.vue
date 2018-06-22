@@ -13,11 +13,11 @@
               <el-col :lg="24">
                   <el-upload
                     class="avatar-uploader"
-                    action="http://localhost:3000/"
+                    :action="baseUrl"
                     :show-file-list="false"
                     :on-success="handleImageSuccess"
                     :before-upload="beforeImageUpload">
-                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                    <img v-if="renderImage" :src="imageUrl" class="avatar">
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                   </el-upload>
               </el-col>
@@ -64,8 +64,10 @@
     data: () => ({
       documents: [],
       users: [],
+      images: [],
       imageUrl: '',
-      imageFile: '',
+      imageFileUpload: '',
+      imageFile: [],
       editDocument: {
         owner: '',
         title: '',
@@ -82,7 +84,7 @@
       },
     }),
     mounted () {
-      Session.setDefault('imageId', '')
+      Session.setDefault('imageId')
     },
     watch: {
       'documents': function(doc) {
@@ -96,16 +98,32 @@
         })
       }
     },
+    computed: {
+      baseUrl () {
+        return Meteor.settings.public.BASE_URL
+      },
+      renderImage () {
+        this.imageFile = this.images[0]
+        if (this.imageFile) {
+          return this.imageUrl = `${Meteor.settings.public.BASE_URL}${this.imageFile._downloadRoute}/Images/${this.imageFile._id}/original/${this.imageFile._id}${this.imageFile.extensionWithDot}`
+        } else {
+          return this.imageUrl = '/images/thumb.jpg'
+        }
+      }
+    },
     methods: {
+      // Form submit
       handleSubmitForm (formName) {
 
         let self = this
 
         // Create upload instance
         let uploadInstance = Images.insert({
-          file: self.imageFile.raw, // Get the raw file
+          file: self.imageUrl, // Get the raw file
           streams: 'dynamic',
-          chunkSize: 'dynamic'
+          chunkSize: 'dynamic',
+          isBase64: true,
+          fileName: self.imageFileUpload.name
         }, false)
 
         // When upload status 'end' 
@@ -156,8 +174,12 @@
 
       },
       handleImageSuccess(res, file) {
-        this.imageFile = file
-        this.imageUrl = URL.createObjectURL(file.raw)
+        this.imageFileUpload = file
+        let reader = new FileReader()
+        reader.readAsDataURL(file.raw)
+        reader.onload = () => {
+          this.imageUrl = reader.result
+        }
       },
       beforeImageUpload(file) {
         const isJPG = file.type === 'image/jpeg'
@@ -174,7 +196,8 @@
     },
     meteor: {
       $subscribe: {
-        'documents.owner': []
+        'documents.owner': [],
+        'files.images.all': []
       },
       users() {
         return Meteor.users.find({})
@@ -184,6 +207,11 @@
           _id: this.$route.params.documentId
         })
       },
+      images() {
+        return Images.find({
+          _id: this.$route.params.documentImageId
+        })
+      }
     },
     components: {
       AdminSidebar,
