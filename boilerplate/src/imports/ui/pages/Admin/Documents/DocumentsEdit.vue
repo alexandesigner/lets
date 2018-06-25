@@ -12,18 +12,18 @@
             <el-row :gutter="10">
               <el-col :lg="24">
                   <el-upload
-                    class="avatar-uploader"
+                    class="image-uploader"
                     :action="baseUrl"
                     :show-file-list="false"
                     :on-success="handleImageSuccess"
                     :before-upload="beforeImageUpload">
-                    <img v-if="renderImage" :src="imageUrl" class="avatar">
-                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                    <img v-if="imageUrl" :src="imageUrl" class="image">
+                    <i v-else class="el-icon-plus image-uploader-icon"></i>
                   </el-upload>
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="imageId">
-                  <el-input size="large" v-model="editDocument.imageId" auto-complete="off" :disabled="true"></el-input>
+                  <el-input size="large" v-model="editDocument.image.imageId" auto-complete="off" :disabled="true"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
@@ -53,26 +53,34 @@
 </template>
 
 <script>
-  import { Session } from 'meteor/session';
+  
+  // Components
   import AdminSidebar from '../../../components/Admin/AdminSidebar.vue'
   import AdminContent from '../../../components/Admin/AdminContent.vue'
   import BackButton from '../../../components/BackButton/BackButton.vue'
+  // Collections
   import Documents from '../../../../api/Documents/documents'
   import Images from '../../../../api/Images/images'
+
   export default {
     name: 'admin-documents-edit',
     data: () => ({
       documents: [],
       users: [],
-      images: [],
       imageUrl: '',
       imageFileUpload: '',
-      imageFile: [],
+      image: [],
       editDocument: {
         owner: '',
         title: '',
         body: '',
-        imageId: ''
+        image: {
+          name: '',
+          type: '',
+          extension: '',
+          path: '',
+          imageId: ''
+        }
       },
       rules: {
         title: [
@@ -83,17 +91,21 @@
         ]
       },
     }),
-    mounted () {
-      Session.setDefault('imageId')
-    },
     watch: {
       'documents': function(doc) {
         this.$nextTick(function() {
+          this.imageUrl = doc[0].image.path
           this.editDocument = {
             owner: doc[0].owner || '',
             title: doc[0].title || '',
             body: doc[0].body || '',
-            imageId: doc[0].imageId || ''
+            image: {
+              name: doc[0].image.name || '',
+              type: doc[0].image.type || '',
+              extension: doc[0].image.extension || '',
+              path: doc[0].image.path || '',
+              imageId: doc[0].image.imageId || ''
+            }
           }
         })
       }
@@ -101,14 +113,6 @@
     computed: {
       baseUrl () {
         return Meteor.settings.public.BASE_URL
-      },
-      renderImage () {
-        this.imageFile = this.images[0]
-        if (this.imageFile) {
-          return this.imageUrl = `${Meteor.settings.public.BASE_URL}${this.imageFile._downloadRoute}/Images/${this.imageFile._id}/original/${this.imageFile._id}${this.imageFile.extensionWithDot}`
-        } else {
-          return this.imageUrl = '/images/thumb.jpg'
-        }
       }
     },
     methods: {
@@ -133,7 +137,13 @@
           if (error) {
             console.log('Error during upload: ' + error.reason)
           } else {
-            Session.set('imageId', fileObj._id)
+            this.image = {
+              name: fileObj.name,
+              type: 'document',
+              extension: fileObj.extension,
+              path: `${Meteor.settings.public.BASE_URL}${fileObj._downloadRoute}/Images/${fileObj._id}/original/${fileObj._id}${fileObj.extensionWithDot}`,
+              imageId: fileObj._id
+            }
             console.log('File "' + fileObj.name + '" successfully uploaded')
           }
 
@@ -144,6 +154,7 @@
                 let dataForm = self.editDocument
                 let document = self.documents[0]
                 let user = self.users[0]
+                let image = this.image
 
                 // Send updated data
                 Meteor.callPromise('Documents.methods.update', {
@@ -151,7 +162,13 @@
                   owner: user._id,
                   title: dataForm.title,
                   body: dataForm.body,
-                  imageId: Session.get('imageId'),
+                  image: {
+                    name: image.name,
+                    type: image.type,
+                    extension: image.extension,
+                    path: image.path,
+                    imageId: image.imageId
+                  },
                   updatedAt: new Date()
                 })
                 self.$message({
@@ -196,8 +213,7 @@
     },
     meteor: {
       $subscribe: {
-        'documents.owner': [],
-        'files.images.all': []
+        'documents.owner': []
       },
       users() {
         return Meteor.users.find({})
@@ -205,11 +221,6 @@
       documents() {
         return Documents.find({
           _id: this.$route.params.documentId
-        })
-      },
-      images() {
-        return Images.find({
-          _id: this.$route.params.documentImageId
         })
       }
     },
@@ -222,7 +233,7 @@
 </script>
 
 <style>
-  .avatar-uploader .el-upload {
+  .image-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
     cursor: pointer;
@@ -230,10 +241,10 @@
     overflow: hidden;
     float: left;
   }
-  .avatar-uploader .el-upload:hover {
+  .image-uploader .el-upload:hover {
     border-color: #409EFF;
   }
-  .avatar-uploader-icon {
+  .image-uploader-icon {
     font-size: 28px;
     color: #8c939d;
     width: 178px;
@@ -241,7 +252,7 @@
     line-height: 178px;
     text-align: center;
   }
-  .avatar {
+  .image {
     width: 178px;
     height: 178px;
     display: block;

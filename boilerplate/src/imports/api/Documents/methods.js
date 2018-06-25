@@ -24,10 +24,30 @@ export const insertDocument = new ValidatedMethod({
       type: String,
       label: 'The body of the document.'
     },
-    imageId: {
+    image: {
+      optional: true,
+      type: Object,
+      label: 'The Image of the document.'
+    },
+    'image.name': {
       type: String,
-      label: 'The ID of the image.',
-      optional: true
+      label: 'The name of Image of the document.'
+    },
+    'image.type': {
+      type: String,
+      label: 'The type of Image of the document.'
+    },
+    'image.extension': {
+      type: String,
+      label: 'The extension of Image of the document.'
+    },
+    'image.path': {
+      type: String,
+      label: 'The path of Image of the document.'
+    },
+    'image.imageId': {
+      type: String,
+      label: 'The ID of the image.'
     }
   }).validator(),
   run (doc) {
@@ -60,10 +80,30 @@ export const updateDocument = new ValidatedMethod({
       type: String,
       label: 'The body of the document.'
     },
-    imageId: {
+    image: {
+      optional: true,
+      type: Object,
+      label: 'The Image of the document.'
+    },
+    'image.name': {
       type: String,
-      label: 'The ID of the image.',
-      optional: true
+      label: 'The name of Image of the document.'
+    },
+    'image.type': {
+      type: String,
+      label: 'The type of Image of the document.'
+    },
+    'image.extension': {
+      type: String,
+      label: 'The extension of Image of the document.'
+    },
+    'image.path': {
+      type: String,
+      label: 'The path of Image of the document.'
+    },
+    'image.imageId': {
+      type: String,
+      label: 'The ID of the image.'
     }
   }).validator(),
   run (doc) {
@@ -75,7 +115,13 @@ export const updateDocument = new ValidatedMethod({
           owner: doc.owner,
           title: doc.title,
           body: doc.body,
-          imageId: doc.imageId
+          image: {
+            name: doc.image.name,
+            type: doc.image.type,
+            extension: doc.image.extension,
+            path: doc.image.path,
+            imageId: doc.image.imageId
+          }
         }
       })
     } catch (exception) {

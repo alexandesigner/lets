@@ -12,7 +12,13 @@ const documentsSeed = userId => ({
       owner: userId,
       title: `Document #${dataIndex + 1}`,
       body: `This is the body of document #${dataIndex + 1}`,
-      imageId: ''
+      image: [{
+        name: '',
+        type: '',
+        extension: '',
+        path: '',
+        imageId: ''
+      }]
     }
   }
 })

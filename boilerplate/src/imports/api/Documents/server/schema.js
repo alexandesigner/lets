@@ -28,10 +28,30 @@ Documents.schema = new SimpleSchema({
     type: String,
     label: 'The body of the document.'
   },
-  imageId: {
+  image: {
+    optional: true,
+    type: Object,
+    label: 'The Image of the document.'
+  },
+  'image.name': {
     type: String,
-    label: 'The ID of the image.',
-    optional: true
+    label: 'The name of Image of the document.'
+  },
+  'image.type': {
+    type: String,
+    label: 'The type of Image of the document.'
+  },
+  'image.extension': {
+    type: String,
+    label: 'The extension of Image of the document.'
+  },
+  'image.path': {
+    type: String,
+    label: 'The path of Image of the document.'
+  },
+  'image.imageId': {
+    type: String,
+    label: 'The ID of the image.'
   }
 })
 
