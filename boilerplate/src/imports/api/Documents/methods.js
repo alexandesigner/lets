@@ -25,29 +25,34 @@ export const insertDocument = new ValidatedMethod({
       label: 'The body of the document.'
     },
     image: {
-      optional: true,
       type: Object,
-      label: 'The Image of the document.'
+      label: 'The Image of the document.',
+      optional: true
     },
     'image.name': {
       type: String,
-      label: 'The name of Image of the document.'
+      label: 'The name of Image of the document.',
+      optional: true
     },
     'image.type': {
       type: String,
-      label: 'The type of Image of the document.'
+      label: 'The type of Image of the document.',
+      optional: true
     },
     'image.extension': {
       type: String,
-      label: 'The extension of Image of the document.'
+      label: 'The extension of Image of the document.',
+      optional: true
     },
     'image.path': {
       type: String,
-      label: 'The path of Image of the document.'
+      label: 'The path of Image of the document.',
+      optional: true
     },
     'image.imageId': {
       type: String,
-      label: 'The ID of the image.'
+      label: 'The ID of the image.',
+      optional: true
     }
   }).validator(),
   run (doc) {
