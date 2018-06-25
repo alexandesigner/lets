@@ -6,11 +6,11 @@ update:
 	meteor update
 	meteor update --all-packages
 dev:
-	./node_modules/.bin/eslint . && meteor run -p 3000 --settings ./settings/settings-development.json
+	./node_modules/.bin/eslint . && meteor run -p 1337 --settings ./settings/settings-development.json
 rebuild:
-	meteor reset && meteor run -p 3000 --settings ./settings/settings-development.json
+	meteor reset && meteor run -p 1337 --settings ./settings/settings-development.json
 production:
-	./node_modules/.bin/eslint . && meteor run -p 3000 --production --settings ./settings/settings-production.json
+	./node_modules/.bin/eslint . && meteor run -p 1337 --production --settings ./settings/settings-production.json
 setup-deploy:
 	cd .deploy && mupx setup
 deploy:
