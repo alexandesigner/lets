@@ -20,7 +20,7 @@
         class="admin-content_main-table">
         <el-table-column
           label="Created At"
-          width="220">
+          width="140">
           <template slot-scope="scope">
             <el-icon class="icon" name="time"></el-icon>
             <span>{{ scope.row.createdAt | date("L, LT") }}</span>

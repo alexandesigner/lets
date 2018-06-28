@@ -50,3 +50,5 @@ meteortesting:mocha@1.0.0                 # A Mocha test driver package for Mete
 msavin:mongol@0.5.5                       # In-App MongoDB Editor
 underscore
 ostrio:files
+froala:editor
+jquery                                    # Helpful client-side library

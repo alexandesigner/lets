@@ -20,6 +20,10 @@ export const insertDocument = new ValidatedMethod({
       type: String,
       label: 'The title of the document.'
     },
+    subtitle: {
+      type: String,
+      label: 'The subtitle of the document.'
+    },
     body: {
       type: String,
       label: 'The body of the document.'
@@ -81,6 +85,10 @@ export const updateDocument = new ValidatedMethod({
       type: String,
       label: 'The title of the document.'
     },
+    subtitle: {
+      type: String,
+      label: 'The subtitle of the document.'
+    },
     body: {
       type: String,
       label: 'The body of the document.'
@@ -119,6 +127,7 @@ export const updateDocument = new ValidatedMethod({
           updatedAt: new Date(),
           owner: doc.owner,
           title: doc.title,
+          subtitle: doc.subtitle,
           body: doc.body,
           image: {
             name: doc.image.name,

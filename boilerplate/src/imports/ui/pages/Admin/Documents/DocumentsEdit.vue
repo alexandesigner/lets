@@ -37,8 +37,16 @@
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-form-item prop="body">
-                  <el-input placeholder="Please input document body" size="large" v-model="editDocument.body" auto-complete="off"></el-input>
+                <el-form-item prop="subtitle">
+                  <el-input placeholder="Please input document subtitle" size="large" v-model="editDocument.subtitle" auto-complete="off"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :lg="24">
+                <el-form-item prop="title">
+                  <textarea
+                    id="FormEditor"
+                    name="documentBody"
+                    :value="editDocument.body"></textarea>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
@@ -73,6 +81,7 @@
       editDocument: {
         owner: '',
         title: '',
+        subtitle: '',
         body: '',
         image: {
           name: '',
@@ -85,12 +94,29 @@
       rules: {
         title: [
           { required: true, message: 'Please input title', trigger: 'blur' },
-        ],
-        body: [
-          { required: true, message: 'Please input body text', trigger: 'blur' },
         ]
       },
     }),
+    mounted () {
+      $('#FormEditor').froalaEditor({
+        editorClass: 'TextInputEditor',
+        height: 180,
+        placeholderText: 'Start typing something...',
+        toolbarButtons: [
+          'bold',
+          'italic',
+          'underline',
+          'insertLink',
+          'insertImage',
+          'formatBlock',
+          'align',
+          'formatOL',
+          'formatUL',
+          'insertHR'
+        ],
+        quickInsertButtons: []
+      });
+    },
     watch: {
       'documents': function(doc) {
         this.$nextTick(function() {
@@ -98,6 +124,7 @@
           this.editDocument = {
             owner: doc[0].owner || '',
             title: doc[0].title || '',
+            subtitle: doc[0].subtitle || '',
             body: doc[0].body || '',
             image: {
               name: doc[0].image.name || '',
@@ -161,7 +188,8 @@
                   _id: document._id,
                   owner: user._id,
                   title: dataForm.title,
-                  body: dataForm.body,
+                  subtitle: doc[0].subtitle || '',
+                  body: document.querySelector('[name="documentBody"]').value || '',
                   image: {
                     name: image.name,
                     type: image.type,
@@ -194,21 +222,23 @@
         this.imageFileUpload = file
         let reader = new FileReader()
         reader.readAsDataURL(file.raw)
+        console.log(file.raw)
         reader.onload = () => {
           this.imageUrl = reader.result
         }
       },
       beforeImageUpload(file) {
         const isJPG = file.type === 'image/jpeg'
+        const isPNG = file.type === 'image/png'
         const isLt2M = file.size / 1024 / 1024 < 2
 
-        if (!isJPG) {
-          this.$message.error('Image must be JPG format!')
+        if (!isJPG && !isPNG) {
+          this.$message.error('Image must be JPG or PNG format!')
         }
         if (!isLt2M) {
           this.$message.error('Image size can not exceed 2MB!')
         }
-        return isJPG && isLt2M
+        return isJPG || isPNG && isLt2M
       }
     },
     meteor: {
@@ -240,9 +270,10 @@
     position: relative;
     overflow: hidden;
     float: left;
+    transition: border 0.2s ease-in-out;
   }
   .image-uploader .el-upload:hover {
-    border-color: #409EFF;
+    border-color: #674CD8;
   }
   .image-uploader-icon {
     font-size: 28px;

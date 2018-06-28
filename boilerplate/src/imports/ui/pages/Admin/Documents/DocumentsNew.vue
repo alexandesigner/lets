@@ -27,8 +27,15 @@
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-form-item prop="body">
-                  <el-input placeholder="Please input document body" size="large" v-model="newDocument.body" auto-complete="off"></el-input>
+                <el-form-item prop="subtitle">
+                  <el-input placeholder="Please input document subtitle" size="large" v-model="newDocument.subtitle" auto-complete="off"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :lg="24">
+                <el-form-item prop="title">
+                  <textarea
+                    id="FormEditor"
+                    name="documentBody"></textarea>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
@@ -61,7 +68,7 @@
       image: [],
       newDocument: {
         title: '',
-        body: '',
+        subtitle: '',
         image: {
           name: '',
           type: '',
@@ -73,12 +80,29 @@
       rules: {
         title: [
           { required: true, message: 'Please input title', trigger: 'blur' },
-        ],
-        body: [
-          { required: true, message: 'Please input body text', trigger: 'blur' },
         ]
       },
     }),
+    mounted () {
+      $('#FormEditor').froalaEditor({
+        editorClass: 'TextInputEditor',
+        height: 180,
+        placeholderText: 'Start typing something...',
+        toolbarButtons: [
+          'bold',
+          'italic',
+          'underline',
+          'insertLink',
+          'insertImage',
+          'formatBlock',
+          'align',
+          'formatOL',
+          'formatUL',
+          'insertHR'
+        ],
+        quickInsertButtons: []
+      });
+    },
     computed: {
       baseUrl () {
         return Meteor.settings.public.BASE_URL
@@ -132,7 +156,8 @@
                     createdAt: new Date(),
                     owner: user._id,
                     title: dataForm.title,
-                    body: dataForm.body,
+                    subtitle: dataForm.subtitle,
+                    body: document.querySelector('[name="documentBody"]').value || '',
                     image: {
                       name: image.name,
                       type: image.type,
@@ -168,12 +193,12 @@
                 let dataForm = self.newDocument
                 let user = self.users[0]
 
-                // Send insert data
-                Meteor.callPromise('Documents.methods.insert', {
+                console.log({
                   createdAt: new Date(),
                   owner: user._id,
                   title: dataForm.title,
-                  body: dataForm.body,
+                  subtitle: dataForm.subtitle,
+                  body: document.querySelector('[name="documentBody"]').value || '',
                   image: {
                     name: '',
                     type: '',
@@ -182,6 +207,22 @@
                     imageId: ''
                   }
                 })
+
+                // Send insert data
+                // Meteor.callPromise('Documents.methods.insert', {
+                //   createdAt: new Date(),
+                //   owner: user._id,
+                //   title: dataForm.title,
+                //   subtitle: dataForm.subtitle,
+                //   body: document.querySelector('[name="documentBody"]').value || '',
+                //   image: {
+                //     name: '',
+                //     type: '',
+                //     extension: '',
+                //     path: '',
+                //     imageId: ''
+                //   }
+                // })
                 self.$message({
                   type: 'info',
                   message: `Document created with success!`
@@ -208,15 +249,16 @@
       },
       beforeImageUpload(file) {
         const isJPG = file.type === 'image/jpeg'
+        const isPNG = file.type === 'image/png'
         const isLt2M = file.size / 1024 / 1024 < 2
 
-        if (!isJPG) {
-          this.$message.error('Image must be JPG format!')
+        if (!isJPG && !isPNG) {
+          this.$message.error('Image must be JPG or PNG format!')
         }
         if (!isLt2M) {
           this.$message.error('Image size can not exceed 2MB!')
         }
-        return isJPG && isLt2M
+        return isJPG || isPNG && isLt2M
       }
     },
     meteor: {
@@ -234,3 +276,48 @@
     }
   }
 </script>
+
+<style lang="stylus">
+.TextInputEditor
+  .fr-top
+    border-top 0
+    margin-bottom 10px
+    box-shadow 0 0 -6px 4px rgba(0,0,0,0.08)
+    border-radius 4px
+  .fr-wrapper
+    box-shadow 0 0 0 0!important
+  .fr-toolbar,
+  .fr-wrapper
+    border-radius 4px
+    .fr-placeholder
+      font-weight 400!important
+      font-size 15px
+      line-height 22px
+      color rgba(0, 0, 0, 0.298039)!important
+  .fr-toolbar
+    background #f1f1f1
+    border-radius 0 0 0 0
+    margin-top 10px
+    max-height 38px
+  .fr-element
+    border 1px solid #e5e5e5
+    text-align left
+    transition border 0.2s ease-in-out
+    box-shadow 0 0 0 0 !important
+    border-radius 4px
+    ol, ul
+      padding-left 15px
+    &:hover
+      border-color #c0c4cc
+    &:focus, &:active
+      border-color #674CD8
+      
+.fr-quick-insert
+  display none!important
+.labelTitle
+  font-size 18px
+  display block
+  width 100%
+  color #37474F!important
+  font-weight 400  
+</style>
