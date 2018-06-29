@@ -20,6 +20,10 @@ export const insertDocument = new ValidatedMethod({
       type: String,
       label: 'The title of the document.'
     },
+    subtitle: {
+      type: String,
+      label: 'The subtitle of the document.'
+    },
     body: {
       type: String,
       label: 'The body of the document.'
@@ -81,6 +85,10 @@ export const updateDocument = new ValidatedMethod({
       type: String,
       label: 'The title of the document.'
     },
+    subtitle: {
+      type: String,
+      label: 'The subtitle of the document.'
+    },
     body: {
       type: String,
       label: 'The body of the document.'
@@ -115,19 +123,7 @@ export const updateDocument = new ValidatedMethod({
     try {
       const documentId = doc._id
       return Documents.update(documentId, {
-        $set: {
-          updatedAt: new Date(),
-          owner: doc.owner,
-          title: doc.title,
-          body: doc.body,
-          image: {
-            name: doc.image.name,
-            type: doc.image.type,
-            extension: doc.image.extension,
-            path: doc.image.path,
-            imageId: doc.image.imageId
-          }
-        }
+        $set: { ...doc }
       })
     } catch (exception) {
       throw new Meteor.Error('500', exception.message)
