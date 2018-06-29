@@ -1,6 +1,6 @@
 <p align="center"><a href="https://alexandesigner.github.io/lets" target="_blank"><img src="https://github.com/alexandesigner/lets/blob/master/arts/icon.png"height="285" /></a></p>
 <p align="center">⚡️ A minimalist boilerplate for products</p>
-<p align="center"><a href="https://github.com/alexandesigner/lets/tree/master/boilerplate" target="_blank">Boilerplate</a> / <a href="https://github.com/alexandesigner/lets/tree/master/docs" target="_blank">Documentation</a></p>
+<p align="center"><a href="https://github.com/alexandesigner/lets/tree/master/boilerplate" target="_blank">Boilerplate</a> / <a href="https://github.com/alexandesigner/lets/tree/master/docs" target="_blank">Documentation</a> / <a href="https://lets.alexandesigner.com" target="_blank">Live Demo</a></p>
 
 ## What is this and why should I use it?
 
