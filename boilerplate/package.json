@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "install": "rm -rf node_modules/ && meteor npm i",
     "dev": "./node_modules/.bin/eslint . && meteor --settings ./settings/settings-development.json",
     "dev:production": "./node_modules/.bin/eslint . && meteor --production --settings ./settings/settings-production.json",
     "setup:deploy": "cd .deploy && mupx setup",

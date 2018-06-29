@@ -254,6 +254,11 @@
   .fr-toolbar,
   .fr-wrapper
     border-radius 4px
+    a[href="https://froala.com/wysiwyg-editor"], 
+    a[href="https://www.froala.com/wysiwyg-editor?k=u"]
+      display none !important
+      position absolute
+      top -99999999px
     .fr-placeholder
       font-weight 400!important
       font-size 15px

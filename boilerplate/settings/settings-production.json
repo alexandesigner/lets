@@ -1,7 +1,9 @@
 {
-  "public": {},
+  "public": {
+    "BASE_URL": "https://lets.alexandesigner.com:1338"
+  },
   "private": {
-    "MAIL_URL": "",
+    "MAIL_URL": "smtp://postmaster@sandbox4b8ea8c6d94a4d8ea68c0ed39e523442.mailgun.org:9c459f332bbdfb6185a477c0e6a8143b@smtp.mailgun.org:587",
     "OAuth": {
       "facebook": {
         "appId": "",
