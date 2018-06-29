@@ -165,7 +165,6 @@
               let checkUpload = self.imageFileUpload !== null
 
               if (checkUpload) {
-                console.log('if', doc)
                 // Create upload instance
                 let uploadInstance = Images.insert({
                   file: self.imageUrl, // Get the raw file
@@ -270,7 +269,6 @@
         this.imageFileUpload = file
         let reader = new FileReader()
         reader.readAsDataURL(file.raw)
-        console.log(file.raw)
         reader.onload = () => {
           this.imageUrl = reader.result
         }
