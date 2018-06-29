@@ -25,6 +25,11 @@
                   </el-upload>
               </el-col>
               <el-col :lg="24">
+                <el-form-item prop="fullName">
+                  <el-input size="large" v-model="this.fullName" auto-complete="off" :disabled="true"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :lg="24">
                 <el-form-item prop="owner">
                   <el-input size="large" v-model="editDocument.owner" auto-complete="off" :disabled="true"></el-input>
                 </el-form-item>
