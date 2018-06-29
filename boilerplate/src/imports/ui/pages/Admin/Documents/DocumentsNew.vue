@@ -4,7 +4,7 @@
     <div class="admin-content_main">
       <header class="admin-content_main-header is-back-button">
         <back-button></back-button>
-        <h2 class="title">Documents New <small>- {{ newDocument.title }}</small></h2>
+        <h2 class="title">New Document</h2>
       </header> 
       <div class="admin-content_main-form">
         <el-card class="box-card">
@@ -114,42 +114,39 @@
 
         let self = this
 
-        // Check if upload image
-        if (self.imageUrl !== null) {
+        self.$refs[formName].validate((valid) => {
+          try {
+            if (valid) {
 
-          // Create upload instance
-          let uploadInstance = Images.insert({
-            file: self.imageUrl, // Get the raw file
-            streams: 'dynamic',
-            chunkSize: 'dynamic',
-            isBase64: true,
-            fileName: self.imageFileUpload.name
-          }, false)
+              let dataForm = self.newDocument
+              let user = self.users[0]
 
-          // When upload status 'end' 
-          uploadInstance.on('end', function(error, fileObj) {
+              // Create upload instance
+              if (self.imageUrl !== null) {
+                let uploadInstance = Images.insert({
+                  file: self.imageUrl, // Get the raw file
+                  streams: 'dynamic',
+                  chunkSize: 'dynamic',
+                  isBase64: true,
+                  fileName: self.imageFileUpload.name
+                }, false)
 
-            // Check image upload
-            if (error) {
-              console.log('Error during upload: ' + error.reason)
-            } else {
-              this.image = {
-                name: fileObj.name,
-                type: 'document',
-                extension: fileObj.extension,
-                path: `${Meteor.settings.public.BASE_URL}${fileObj._downloadRoute}/Images/${fileObj._id}/original/${fileObj._id}${fileObj.extensionWithDot}`,
-                imageId: fileObj._id
-              }
-              console.log('File "' + fileObj.name + '" successfully uploaded')
-            }
+                // When upload status 'end' 
+                uploadInstance.on('end', function(error, fileObj) {
 
-            // Form Update
-            self.$refs[formName].validate((valid) => {
-              try {
-                if (valid) {
-                  let dataForm = self.newDocument
-                  let user = self.users[0]
-                  let image = this.image
+                  // Check image upload
+                  if (error) {
+                    console.log('Error during upload: ' + error.reason)
+                  } else {
+                    self.image = {
+                      name: fileObj.name,
+                      type: 'document',
+                      extension: fileObj.extension,
+                      path: `${Meteor.settings.public.BASE_URL}${fileObj._downloadRoute}/Images/${fileObj._id}/original/${fileObj._id}${fileObj.extensionWithDot}`,
+                      imageId: fileObj._id
+                    }
+                    console.log('File "' + fileObj.name + '" successfully uploaded')
+                  }
 
                   // Send insert data
                   Meteor.callPromise('Documents.methods.insert', {
@@ -159,11 +156,11 @@
                     subtitle: dataForm.subtitle,
                     body: document.querySelector('[name="documentBody"]').value || '',
                     image: {
-                      name: image.name,
-                      type: image.type,
-                      extension: image.extension,
-                      path: image.path,
-                      imageId: image.imageId
+                      name: self.image.name,
+                      type: self.image.type,
+                      extension: self.image.extension,
+                      path: self.image.path,
+                      imageId: self.image.imageId
                     }
                   })
                   self.$message({
@@ -172,28 +169,12 @@
                   })
                   self.$refs[formName].resetFields()
                   self.$router.push({ name: 'admin-documents' })
-                }
-              } catch (error) {
-                self.$message({
-                  type: 'error',
-                  message: error.reason
+                  
                 })
-              }
-            })
-            
-          })
 
-          uploadInstance.start()
-
-        } else {
-          // Form Created
-          self.$refs[formName].validate((valid) => {
-            try {
-              if (valid) {
-                let dataForm = self.newDocument
-                let user = self.users[0]
-
-                console.log({
+                uploadInstance.start()
+              } else {
+                Meteor.callPromise('Documents.methods.insert', {
                   createdAt: new Date(),
                   owner: user._id,
                   title: dataForm.title,
@@ -207,22 +188,6 @@
                     imageId: ''
                   }
                 })
-
-                // Send insert data
-                // Meteor.callPromise('Documents.methods.insert', {
-                //   createdAt: new Date(),
-                //   owner: user._id,
-                //   title: dataForm.title,
-                //   subtitle: dataForm.subtitle,
-                //   body: document.querySelector('[name="documentBody"]').value || '',
-                //   image: {
-                //     name: '',
-                //     type: '',
-                //     extension: '',
-                //     path: '',
-                //     imageId: ''
-                //   }
-                // })
                 self.$message({
                   type: 'info',
                   message: `Document created with success!`
@@ -230,14 +195,14 @@
                 self.$refs[formName].resetFields()
                 self.$router.push({ name: 'admin-documents' })
               }
-            } catch (error) {
-              self.$message({
-                type: 'error',
-                message: error.reason
-              })
             }
-          })
-        }
+          } catch (error) {
+            self.$message({
+              type: 'error',
+              message: error.reason
+            })
+          }
+        })
       },
       handleImageSuccess(res, file) {
         this.imageFileUpload = file
