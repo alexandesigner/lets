@@ -167,8 +167,3 @@
     }
   }
 </script>
-
-<style lang="stylus" scoped>
-.register
-  width 600px
-</style>
