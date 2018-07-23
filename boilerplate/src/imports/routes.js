@@ -1,4 +1,4 @@
-import { isBasicAuth } from './modules/check-auth'
+import { isBasicAuth } from './utils/check-auth'
 
 import NotFound from './ui/pages/NotFound/NotFound.vue'
 import Documents from './ui/pages/Documents/Documents.vue'
