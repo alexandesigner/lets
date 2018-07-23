@@ -2,4 +2,4 @@
 
 <script src="App.js"></script>
 
-<style lang="stylus" src="style/main.styl"></style>
+<style lang="stylus" src="../startup/client/styles/main.styl"></style>
