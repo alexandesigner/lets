@@ -28,9 +28,7 @@
 		      label="Phone"
 		      width="220">
 		      <template slot-scope="scope">
-		        <svg class="icon">
-	            <use xlink:href="/icons.svg#mobile" />
-	          </svg>
+		        <i class="el-icon-mobile-phone"></i>
 		        <span>{{ scope.row.profile.phone }}</span>
 		      </template>
 		    </el-table-column>

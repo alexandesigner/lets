@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "./node_modules/.bin/eslint . && meteor --settings ./settings/settings-development.json",
-    "dev:production": "./node_modules/.bin/eslint . && meteor --production --settings ./settings/settings-production.json",
+    "dev": "./node_modules/.bin/eslint . && meteor -p 1337 --settings ./settings/settings-development.json",
+    "dev:production": "./node_modules/.bin/eslint . && meteor -p 1337 --production --settings ./settings/settings-production.json",
     "setup:deploy": "cd .deploy && mupx setup",
     "deploy": "cd .deploy && mupx deploy",
     "generate:styles": "et --config src/element-variables.scss --out src/theme",
     "test": "meteor test --once --driver-package meteortesting:mocha",
-    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --settings ./settings/settings-production.json --extra-packages bundle-visualizer"
+    "test-app": "TEST_WATCH=1 meteor -p 1337 test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor -p 1337 --production --settings ./settings/settings-production.json --extra-packages bundle-visualizer"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.54",
@@ -27,7 +27,6 @@
     "marked": "^0.3.19",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.22.2",
-    "rupture": "^0.7.1",
     "simpl-schema": "^1.5.3",
     "vue": "^2.5.16",
     "vue-meteor-tracker": "^1.2.3",
@@ -53,15 +52,7 @@
   },
   "postcss": {
     "plugins": {
-      "postcss-easy-import": {
-        "extensions": [
-          ".css",
-          ".scss",
-          ".import.css",
-          ".styl",
-          ".import.styl"
-        ]
-      },
+      "postcss-easy-import": {},
       "autoprefixer": {
         "browsers": [
           "last 2 versions"

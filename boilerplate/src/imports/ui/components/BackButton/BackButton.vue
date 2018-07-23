@@ -3,9 +3,7 @@
     v-if="canGoBack"
     @click="goBack"
     class="button-back">
-    <svg class="icon">
-      <use xlink:href="/icons.svg#arrow-left-alt" />
-    </svg>
+    <i class="el-icon-back"></i>
   </button>
 </template>
 
@@ -32,14 +30,10 @@ export default {
   background transparent
   border-radius 50%
   cursor pointer
-.icon
-  width 32px
-  height 32px
-  fill #606266
+  i 
+    font-size 30px
+    color #606266
 .mobile
   .button-back
     top 14px
-  .icon
-    width 26px
-    height 26px
 </style>

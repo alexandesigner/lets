@@ -9,21 +9,15 @@
 	    <div class="sidebar-content_nav">
     		<router-link class="nav-item" :to="{name: 'admin-dashboard'}" exact>
 	    		Dashboard
-	    		<svg class="icon">
-            <use xlink:href="/icons.svg#arrow-right" />
-          </svg>
+	    		<i class="el-icon-arrow-right"></i>
 	    	</router-link>
 	    	<router-link class="nav-item" :to="{name: 'admin-users'}">
 	    		Users
-	    		<svg class="icon">
-            <use xlink:href="/icons.svg#arrow-right" />
-          </svg>
+	    		<i class="el-icon-arrow-right"></i>
 	    	</router-link>
 	    	<router-link class="nav-item" :to="{name: 'admin-documents'}">
 	    		Documents
-	    		<svg class="icon">
-            <use xlink:href="/icons.svg#arrow-right" />
-          </svg>
+	    		<i class="el-icon-arrow-right"></i>
 	    	</router-link>
 	    	<div class="nav-logout" @click="logout">
 	    		Logout

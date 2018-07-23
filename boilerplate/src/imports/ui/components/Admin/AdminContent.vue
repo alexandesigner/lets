@@ -30,6 +30,7 @@
     justify-content space-between 
     display flex
     padding 10px 0
+    margin-bottom 20px
     .el-button
       &:hover
         .icon
@@ -49,6 +50,7 @@
       text-align left
       font-weight 400
       letter-spacing -0.05em
+      margin-top 0
       small
         font-size 16px
         font-weight 400

@@ -10,7 +10,4 @@
   }
 </script>
 
-<style lang="stylus" scoped>
-.admin-layout
-  text-align center
-</style>
+<style lang="stylus" src="../../startup/client/styles/layouts/admin.styl" />
