@@ -1,7 +1,7 @@
 install:
 	rm -rf node_modules/
-	meteor npm i -S @babel/runtime@latest meteor-node-stubs@latest babel-runtime vue vue-meteor-tracker vue-router element-ui element-theme-chalk bcrypt @cleverbeagle/seeder intersection-observer isomorphic-fetch vuex vue-supply moment vuex-router-sync marked core-js simpl-schema
-	meteor npm i -SD babel-eslint eslint eslint-plugin-meteor eslint-config-standard eslint-plugin-html eslint-plugin-promise eslint-plugin-standard eslint-plugin-import eslint-plugin-node
+	meteor npm i -S @babel/runtime@latest meteor-node-stubs@latest babel-runtime autoprefixer vue vue-meteor-tracker vue-router element-ui element-theme-chalk bcrypt @cleverbeagle/seeder intersection-observer isomorphic-fetch vuex vue-supply moment vuex-router-sync marked core-js simpl-schema
+	meteor npm i -SD babel-eslint eslint eslint-plugin-meteor eslint-config-standard eslint-plugin-html eslint-plugin-promise eslint-plugin-standard eslint-plugin-import eslint-plugin-node postcss postcss-easy-import postcss-load-config postcss-safe-parser
 update:
 	meteor update
 	meteor update --all-packages
