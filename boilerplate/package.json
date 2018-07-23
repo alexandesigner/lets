@@ -53,7 +53,15 @@
   },
   "postcss": {
     "plugins": {
-      "postcss-easy-import": {},
+      "postcss-easy-import": {
+        "extensions": [
+          ".css",
+          ".scss",
+          ".import.css",
+          ".styl",
+          ".import.styl"
+        ]
+      },
       "autoprefixer": {
         "browsers": [
           "last 2 versions"
