@@ -21,6 +21,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../../startup/client/styles/base/custom-properties.styl'
 .button-back
   position absolute
   z-index 2
@@ -30,9 +31,13 @@ export default {
   background transparent
   border-radius 50%
   cursor pointer
+  transition var(--all-transition)
+  &:hover
+    left -2px
+  &:active
+    left -4px
   i 
     font-size 30px
-    color #606266
 .mobile
   .button-back
     top 14px
