@@ -11,7 +11,7 @@ static-html@1.2.2								          # Define static page content in .html files
 
 # JS/Styles minifier
 standard-minifier-js@2.3.4    	          # JS minifier run for production mode
-juliancwirko:postcss                      # Meteor CSS Minifier with PostCSS processing
+standard-minifier-css@1.4.1               # Reduces amount of white-space parsing CSS with ParseCSS
 
 # Reactive
 reactive-var@1.0.11                       # Reactive variable for tracker

@@ -44,22 +44,7 @@
     "eslint-plugin-meteor": "^4.2.2",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "postcss": "^6.0.23",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-load-config": "^1.2.0",
-    "postcss-safe-parser": "^4.0.1"
-  },
-  "postcss": {
-    "plugins": {
-      "postcss-easy-import": {},
-      "autoprefixer": {
-        "browsers": [
-          "last 2 versions"
-        ]
-      }
-    },
-    "parser": "postcss-safe-parser"
+    "eslint-plugin-standard": "^3.1.0"
   },
   "meteor": {
     "vueVersion": 2,
