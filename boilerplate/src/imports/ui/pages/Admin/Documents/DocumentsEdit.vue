@@ -18,10 +18,7 @@
                     :on-success="handleImageSuccess"
                     :before-upload="beforeImageUpload">
                     <img v-if="imageUrl" :src="imageUrl" class="image">
-                    <div v-else>
-                      <i class="el-icon-plus image-uploader-icon"></i>
-                      <small>add a featured image</small>
-                    </div>
+                    <img v-else src="/images/thumb.jpg" width="230" />
                   </el-upload>
               </el-col>
               <el-col :lg="24">
@@ -313,39 +310,36 @@
   }
 </script>
 
-<style>
-  .image-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    float: left;
-    transition: border 0.2s ease-in-out;
-  }
-  .image-uploader .el-upload small {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      font-size: 12px;
-      background: #f5f7fa;
-      padding: 8px 0;
-  }
-  .image-uploader .el-upload:hover {
-    border-color: #674CD8;
-  }
-  .image-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    min-width: 180px;
-    height: 180px;
-    line-height: 180px;
-    text-align: center;
-  }
-  .image {
-    min-width: 180px;
-    height: 180px;
-    display: block;
-  }
+<style lang="stylus">
+@import '../../../../startup/client/styles/base/custom-properties'
+.image-uploader 
+  .el-upload
+    border 1px dashed #d9d9d9
+    border-radius 6px
+    cursor pointer
+    position relative
+    overflow hidden
+    float left
+    transition border 0.2s ease-in-out
+  &:hover
+    border-color var(--color-primary)
+  small
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    font-size 12px
+    background #f5f7fa
+    padding 8px 0
+  .image-uploader-icon
+    font-size 28px
+    color #8c939d
+    min-width 180px
+    height 180px
+    line-height 180px
+    text-align center
+  .image
+    min-width 180px
+    height 180px
+    display block
 </style>

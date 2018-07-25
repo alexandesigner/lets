@@ -39,7 +39,7 @@
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-button size="large" type="success" @click="handleSubmitForm('newDocument')" class="submit-button full-width">Save</el-button>
+                <el-button size="large" type="success" @click="handleSubmitForm('newDocument')" class="submit-button">Save</el-button>
               </el-col>
             </el-row>
           </el-form>

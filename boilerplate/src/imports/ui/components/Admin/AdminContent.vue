@@ -11,6 +11,7 @@
 </script>
 
 <style lang="stylus">
+@import '../../../startup/client/styles/base/custom-properties'
 .admin-content
   padding-left 220px
   position relative
@@ -21,6 +22,13 @@
     justify-content center
     flex-direction column
     padding 20px 20px 0 20px
+    &-table
+      box-shadow 0 0 6px 0px rgba(0,0,0,.10)
+      border-radius 4px
+      img
+        box-shadow 0 0 6px 0px rgba(0, 0, 0, 0.25)
+        border-radius 3px
+        margin 3px
     &-form
       .el-col
         margin-bottom 10px
@@ -29,7 +37,6 @@
     align-items center
     justify-content space-between 
     display flex
-    padding 10px 0
     margin-bottom 20px
     .el-button
       &:hover

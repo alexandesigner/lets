@@ -27,26 +27,33 @@
           </template>
         </el-table-column>
         <el-table-column
+          label="Image"
+          width="70">
+          <template slot-scope="scope">
+            <template v-if="isImage(scope.row.image)">
+              <img :src="scope.row.image.path" width="42" height="42" />
+            </template>
+            <template v-else>
+              <img src="/images/thumb.jpg" width="42" height="42" />
+            </template>
+          </template>
+        </el-table-column>
+        <el-table-column
           label="Title">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
         </el-table-column>
         <el-table-column
-          label="Body">
-          <template slot-scope="scope">
-            <span>{{ scope.row.body }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Actions">
+          label="Actions"
+          width="180">
           <template slot-scope="scope">
             <el-button
               size="small"
               @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
             <el-button
               size="small"
-              type="danger"
+              type="danger" 
               @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
           </template>
         </el-table-column>
@@ -73,6 +80,9 @@
       },
     },
     methods: {
+      isImage (obj) {
+        return Object.keys(obj).length !== 0
+      },
       handleEdit (index, row) {
         this.$router.push({
           name: 'admin-documents-edit',
