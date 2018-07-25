@@ -11,6 +11,7 @@
           <el-form :model="newDocument" :rules="rules" ref="newDocument" class="form-model">
             <el-row :gutter="10">
               <el-col :lg="24">
+                  <strong class="form-label">Image Featured</strong>
                   <el-upload
                     class="image-uploader"
                     :action="baseUrl"
@@ -23,16 +24,19 @@
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="title">
+                  <strong class="form-label">Title</strong>
                   <el-input placeholder="Please input document title" size="large" v-model="newDocument.title" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="subtitle">
+                  <strong class="form-label">Subtitle</strong>
                   <el-input placeholder="Please input document subtitle" size="large" v-model="newDocument.subtitle" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="title">
+                  <strong class="form-label">Content</strong>
                   <textarea
                     id="FormEditor"
                     name="documentBody"></textarea>
@@ -241,53 +245,3 @@
     }
   }
 </script>
-
-<style lang="stylus">
-.TextInputEditor
-  .fr-top
-    border-top 0
-    margin-bottom 10px
-    box-shadow 0 0 -6px 4px rgba(0,0,0,0.08)
-    border-radius 4px
-  .fr-wrapper
-    box-shadow 0 0 0 0!important
-  .fr-toolbar,
-  .fr-wrapper
-    border-radius 4px
-    a[href="https://froala.com/wysiwyg-editor"], 
-    a[href="https://www.froala.com/wysiwyg-editor?k=u"]
-      display none !important
-      position absolute
-      top -99999999px
-    .fr-placeholder
-      font-weight 400!important
-      font-size 15px
-      line-height 22px
-      color rgba(0, 0, 0, 0.298039)!important
-  .fr-toolbar
-    background #f1f1f1
-    border-radius 0 0 0 0
-    margin-top 10px
-    max-height 38px
-  .fr-element
-    border 1px solid #e5e5e5
-    text-align left
-    transition border 0.2s ease-in-out
-    box-shadow 0 0 0 0 !important
-    border-radius 4px
-    ol, ul
-      padding-left 15px
-    &:hover
-      border-color #c0c4cc
-    &:focus, &:active
-      border-color #674CD8
-      
-.fr-quick-insert
-  display none!important
-.labelTitle
-  font-size 18px
-  display block
-  width 100%
-  color #37474F!important
-  font-weight 400  
-</style>

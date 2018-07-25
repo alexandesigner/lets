@@ -11,6 +11,7 @@
           <el-form :model="editDocument" :rules="rules" ref="editDocument" class="form-model">
             <el-row :gutter="10">
               <el-col :lg="24">
+                  <strong class="form-label">Image Featured</strong>
                   <el-upload
                     class="image-uploader"
                     :action="baseUrl"
@@ -23,26 +24,25 @@
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="fullName">
+                  <strong class="form-label">Owner</strong>
                   <el-input size="large" v-model="this.fullName" auto-complete="off" :disabled="true"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-form-item prop="owner">
-                  <el-input size="large" v-model="editDocument.owner" auto-complete="off" :disabled="true"></el-input>
-                </el-form-item>
-              </el-col>
-              <el-col :lg="24">
                 <el-form-item prop="title">
+                  <strong class="form-label">Title</strong>
                   <el-input placeholder="Please input document title" size="large" v-model="editDocument.title" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="subtitle">
+                  <strong class="form-label">Subtitle</strong>
                   <el-input placeholder="Please input document subtitle" size="large" v-model="editDocument.subtitle" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="title">
+                  <strong class="form-label">Content</strong>
                   <textarea
                     id="DocEditor"
                     name="documentBody"
@@ -50,7 +50,7 @@
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-button size="large" type="success" @click="handleSubmitForm('editDocument')" class="submit-button full-width">Save</el-button>
+                <el-button size="large" type="success" @click="handleSubmitForm('editDocument')" class="submit-button">Save</el-button>
               </el-col>
             </el-row>
           </el-form>

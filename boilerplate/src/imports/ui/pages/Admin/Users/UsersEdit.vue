@@ -12,21 +12,24 @@
             <el-row :gutter="10">
               <el-col :lg="12">
                 <el-form-item prop="email">
+                  <strong class="form-label">Email</strong>
                   <el-input placeholder="Your first email" size="large" v-model="editUser.email" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
-              <el-col :lg="12">
+              <el-col :lg="6">
                 <el-form-item prop="firstName">
+                  <strong class="form-label">First Name</strong>
                   <el-input placeholder="Your first name" size="large" v-model="editUser.firstName" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
-              <el-col :lg="12">
+              <el-col :lg="6">
                 <el-form-item prop="lastName">
+                  <strong class="form-label">Last Name</strong>
                   <el-input placeholder="Your last name" size="large" v-model="editUser.lastName" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-button size="large" type="success" @click="handleSubmitForm('editUser')" class="submit-button full-width">Save</el-button>
+                <el-button size="large" type="success" @click="handleSubmitForm('editUser')" class="submit-button">Save</el-button>
               </el-col>
             </el-row>
           </el-form>

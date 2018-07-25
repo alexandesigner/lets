@@ -6,7 +6,7 @@
     <div class="documents-item" v-for="document in documents" :key="document._id" @click="handleDocumentDetails(document._id)">
     	<h2>{{ document.title }}</h2>
     	<strong>{{ document.owner }}</strong>
-    	<p>{{ document.body }}</p>
+    	<div v-html="document.body"></div>
     </div>
   </div>
 </template>
