@@ -319,8 +319,8 @@
     background: -webkit-gradient(linear, left top, right top, from(#fff), to(rgba(255, 255, 255, 0)));
     background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0)); }
   .el-color-svpanel__black {
-    background: -webkit-gradient(linear, left bottom, left top, from(#000), to(rgba(0, 0, 0, 0)));
-    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0)); }
+    background: -webkit-gradient(linear, left bottom, left top, from(#000), to(transparent));
+    background: linear-gradient(to top, #000, transparent); }
   .el-color-svpanel__cursor {
     position: absolute; }
     .el-color-svpanel__cursor > div {
@@ -437,8 +437,7 @@
     .el-color-picker--small .el-color-picker__mask {
       height: 30px;
       width: 30px; }
-    .el-color-picker--small .el-color-picker__icon,
-    .el-color-picker--small .el-color-picker__empty {
+    .el-color-picker--small .el-color-picker__icon, .el-color-picker--small .el-color-picker__empty {
       -webkit-transform: translate3d(-50%, -50%, 0) scale(0.8);
       transform: translate3d(-50%, -50%, 0) scale(0.8); }
   .el-color-picker--mini {
@@ -449,8 +448,7 @@
     .el-color-picker--mini .el-color-picker__mask {
       height: 26px;
       width: 26px; }
-    .el-color-picker--mini .el-color-picker__icon,
-    .el-color-picker--mini .el-color-picker__empty {
+    .el-color-picker--mini .el-color-picker__icon, .el-color-picker--mini .el-color-picker__empty {
       -webkit-transform: translate3d(-50%, -50%, 0) scale(0.8);
       transform: translate3d(-50%, -50%, 0) scale(0.8); }
   .el-color-picker__mask {

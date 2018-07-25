@@ -655,8 +655,7 @@
 .el-button-group {
   display: inline-block;
   vertical-align: middle; }
-  .el-button-group::before,
-  .el-button-group::after {
+  .el-button-group::before, .el-button-group::after {
     display: table;
     content: ""; }
   .el-button-group::after {
@@ -677,6 +676,10 @@
       border-bottom-right-radius: 4px;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px; }
+      .el-button-group .el-button:first-child:last-child.is-round {
+        border-radius: 20px; }
+      .el-button-group .el-button:first-child:last-child.is-circle {
+        border-radius: 50%; }
     .el-button-group .el-button:not(:first-child):not(:last-child) {
       border-radius: 0; }
     .el-button-group .el-button:not(:last-child) {

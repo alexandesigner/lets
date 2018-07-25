@@ -1012,7 +1012,7 @@
     color: #674CD8;
     background-color: #fff; }
     .el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover {
-      background-color: #f5f7fa; }
+      background-color: #e6ecf0; }
     .el-select-dropdown.is-multiple .el-select-dropdown__item.selected::after {
       position: absolute;
       right: 20px;
@@ -1030,7 +1030,7 @@
   margin: 0;
   text-align: center;
   color: #999;
-  font-size: 14px; }
+  font-size: 16px; }
 
 .el-select-dropdown__wrap {
   max-height: 274px; }
@@ -1276,7 +1276,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -1307,7 +1307,7 @@
       outline: none;
       border-color: #674CD8; }
   .el-textarea.is-disabled .el-textarea__inner {
-    background-color: #f5f7fa;
+    background-color: #e6ecf0;
     border-color: #e4e7ed;
     color: #c0c4cc;
     cursor: not-allowed; }
@@ -1322,7 +1322,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -1343,7 +1343,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -1421,7 +1421,7 @@
     outline: none;
     border-color: #674CD8; }
   .el-input.is-disabled .el-input__inner {
-    background-color: #f5f7fa;
+    background-color: #e6ecf0;
     border-color: #e4e7ed;
     color: #c0c4cc;
     cursor: not-allowed; }
@@ -1470,7 +1470,7 @@
     vertical-align: middle;
     display: table-cell; }
   .el-input-group__append, .el-input-group__prepend {
-    background-color: #f5f7fa;
+    background-color: #e6ecf0;
     color: #909399;
     vertical-align: middle;
     display: table-cell;
@@ -1482,24 +1482,16 @@
     white-space: nowrap; }
     .el-input-group__append:focus, .el-input-group__prepend:focus {
       outline: none; }
-    .el-input-group__append .el-select,
-    .el-input-group__append .el-button, .el-input-group__prepend .el-select,
-    .el-input-group__prepend .el-button {
+    .el-input-group__append .el-select, .el-input-group__append .el-button, .el-input-group__prepend .el-select, .el-input-group__prepend .el-button {
       display: inline-block;
       margin: -10px -20px; }
-    .el-input-group__append button.el-button,
-    .el-input-group__append div.el-select .el-input__inner,
-    .el-input-group__append div.el-select:hover .el-input__inner, .el-input-group__prepend button.el-button,
-    .el-input-group__prepend div.el-select .el-input__inner,
-    .el-input-group__prepend div.el-select:hover .el-input__inner {
+    .el-input-group__append button.el-button, .el-input-group__append div.el-select .el-input__inner, .el-input-group__append div.el-select:hover .el-input__inner, .el-input-group__prepend button.el-button, .el-input-group__prepend div.el-select .el-input__inner, .el-input-group__prepend div.el-select:hover .el-input__inner {
       border-color: transparent;
       background-color: transparent;
       color: inherit;
       border-top: 0;
       border-bottom: 0; }
-    .el-input-group__append .el-button,
-    .el-input-group__append .el-input, .el-input-group__prepend .el-button,
-    .el-input-group__prepend .el-input {
+    .el-input-group__append .el-button, .el-input-group__append .el-input, .el-input-group__prepend .el-button, .el-input-group__prepend .el-input {
       font-size: inherit; }
   .el-input-group__prepend {
     border-right: 0;
@@ -2084,7 +2076,7 @@
 /* Break-point
 --------------------------*/
 .el-select-dropdown__item {
-  font-size: 14px;
+  font-size: 16px;
   padding: 0 20px;
   position: relative;
   white-space: nowrap;
@@ -2102,7 +2094,7 @@
     .el-select-dropdown__item.is-disabled:hover {
       background-color: #fff; }
   .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
-    background-color: #f5f7fa; }
+    background-color: #e6ecf0; }
   .el-select-dropdown__item.selected {
     color: #674CD8;
     font-weight: bold; }
@@ -2665,7 +2657,7 @@
       -webkit-transform: rotateZ(0deg);
       transform: rotateZ(0deg); }
     .el-select .el-input .el-select__caret.is-show-close {
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
       -webkit-transform: rotateZ(180deg);
       transform: rotateZ(180deg);
@@ -2689,7 +2681,7 @@
     padding: 0;
     margin-left: 15px;
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -2749,8 +2741,7 @@
   padding: 2px 5px;
   color: #303133;
   font-weight: bold; }
-  .el-pagination::before,
-  .el-pagination::after {
+  .el-pagination::before, .el-pagination::after {
     display: table;
     content: ""; }
   .el-pagination::after {
@@ -2778,8 +2769,7 @@
     margin: 0 5px; }
     .el-pagination .el-select .el-input .el-input__inner {
       padding-right: 25px;
-      border-radius: 3px;
-      height: 28px; }
+      border-radius: 3px; }
   .el-pagination button {
     border: none;
     padding: 0 6px;
@@ -2812,12 +2802,7 @@
   .el-pagination .el-pager li.disabled {
     color: #c0c4cc;
     cursor: not-allowed; }
-  .el-pagination--small .btn-prev,
-  .el-pagination--small .btn-next,
-  .el-pagination--small .el-pager li,
-  .el-pagination--small .el-pager li.btn-quicknext,
-  .el-pagination--small .el-pager li.btn-quickprev,
-  .el-pagination--small .el-pager li:last-child {
+  .el-pagination--small .btn-prev, .el-pagination--small .btn-next, .el-pagination--small .el-pager li, .el-pagination--small .el-pager li.btn-quicknext, .el-pagination--small .el-pager li.btn-quickprev, .el-pagination--small .el-pager li:last-child {
     border-color: transparent;
     font-size: 12px;
     line-height: 22px;
@@ -2825,11 +2810,9 @@
     min-width: 22px; }
   .el-pagination--small .arrow.disabled {
     visibility: hidden; }
-  .el-pagination--small .more::before,
-  .el-pagination--small li.more::before {
+  .el-pagination--small .more::before, .el-pagination--small li.more::before {
     line-height: 24px; }
-  .el-pagination--small span:not([class*=suffix]),
-  .el-pagination--small button {
+  .el-pagination--small span:not([class*=suffix]), .el-pagination--small button {
     height: 22px;
     line-height: 22px; }
   .el-pagination--small .el-pagination__editor {
@@ -2870,8 +2853,7 @@
       width: 50px; }
     .el-pagination__editor.el-input .el-input__inner {
       height: 28px; }
-    .el-pagination__editor .el-input__inner::-webkit-inner-spin-button,
-    .el-pagination__editor .el-input__inner::-webkit-outer-spin-button {
+    .el-pagination__editor .el-input__inner::-webkit-inner-spin-button, .el-pagination__editor .el-input__inner::-webkit-outer-spin-button {
       -webkit-appearance: none;
       margin: 0; }
   .el-pagination.is-background .btn-prev,

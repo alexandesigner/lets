@@ -239,8 +239,7 @@
   font-size: 12px;
   line-height: 1.2;
   min-width: 10px; }
-  .el-tooltip__popper .popper__arrow,
-  .el-tooltip__popper .popper__arrow::after {
+  .el-tooltip__popper .popper__arrow, .el-tooltip__popper .popper__arrow::after {
     position: absolute;
     display: block;
     width: 0;

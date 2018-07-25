@@ -21,7 +21,7 @@
     display flex
     justify-content center
     flex-direction column
-    padding 20px 20px 0 20px
+    padding 40px 40px 0 40px
     &-table
       box-shadow 0 0 6px 0px rgba(0,0,0,.10)
       border-radius 4px

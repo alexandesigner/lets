@@ -231,8 +231,7 @@
 .el-breadcrumb {
   font-size: 14px;
   line-height: 1; }
-  .el-breadcrumb::before,
-  .el-breadcrumb::after {
+  .el-breadcrumb::before, .el-breadcrumb::after {
     display: table;
     content: ""; }
   .el-breadcrumb::after {
@@ -257,9 +256,7 @@
         .el-breadcrumb__inner.is-link:hover, .el-breadcrumb__inner a:hover {
           color: #674CD8;
           cursor: pointer; }
-    .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover,
-    .el-breadcrumb__item:last-child .el-breadcrumb__inner a,
-    .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover {
+    .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover {
       font-weight: normal;
       color: #606266;
       cursor: text; }

@@ -20,11 +20,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus" scoped>
 .button-back
   position absolute
   z-index 2
-  top 20px
+  top 12px
   left 0
   border 0
   background transparent

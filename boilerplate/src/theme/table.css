@@ -462,7 +462,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -1292,8 +1292,7 @@
   font-size: 12px;
   line-height: 1.2;
   min-width: 10px; }
-  .el-tooltip__popper .popper__arrow,
-  .el-tooltip__popper .popper__arrow::after {
+  .el-tooltip__popper .popper__arrow, .el-tooltip__popper .popper__arrow::after {
     position: absolute;
     display: block;
     width: 0;
@@ -1497,17 +1496,21 @@
   font-size: 14px;
   color: #606266; }
   .el-table__empty-block {
-    position: relative;
     min-height: 60px;
     text-align: center;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
   .el-table__empty-text {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    width: 50%;
     color: #909399; }
   .el-table__expand-column .cell {
     padding: 0;
@@ -1550,7 +1553,7 @@
     color: #909399;
     font-weight: 500; }
     .el-table thead.is-group th {
-      background: #f5f7fa; }
+      background: #e6ecf0; }
   .el-table th, .el-table td {
     padding: 12px 0;
     min-width: 0;
@@ -1707,9 +1710,7 @@
     top: 0;
     left: auto;
     right: 0; }
-    .el-table__fixed-right .el-table__fixed-header-wrapper,
-    .el-table__fixed-right .el-table__fixed-body-wrapper,
-    .el-table__fixed-right .el-table__fixed-footer-wrapper {
+    .el-table__fixed-right .el-table__fixed-header-wrapper, .el-table__fixed-right .el-table__fixed-body-wrapper, .el-table__fixed-right .el-table__fixed-footer-wrapper {
       left: auto;
       right: 0; }
   .el-table__fixed-header-wrapper {
@@ -1724,7 +1725,7 @@
     z-index: 3; }
     .el-table__fixed-footer-wrapper tbody td {
       border-top: 1px solid #ebeef5;
-      background-color: #f5f7fa;
+      background-color: #e6ecf0;
       color: #606266; }
   .el-table__fixed-body-wrapper {
     position: absolute;
@@ -1744,13 +1745,12 @@
   .el-table__header-wrapper, .el-table__footer-wrapper {
     overflow: hidden; }
     .el-table__header-wrapper tbody td, .el-table__footer-wrapper tbody td {
-      background-color: #f5f7fa;
+      background-color: #e6ecf0;
       color: #606266; }
   .el-table__body-wrapper {
     overflow: hidden;
     position: relative; }
-    .el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed,
-    .el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed-right {
+    .el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed, .el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed-right {
       -webkit-box-shadow: none;
       box-shadow: none; }
     .el-table__body-wrapper.is-scrolling-left ~ .el-table__fixed {
@@ -1829,8 +1829,7 @@
     -webkit-transition: background-color .25s ease;
     transition: background-color .25s ease; }
   .el-table--enable-row-hover .el-table__body tr:hover > td {
-    background-color: #f5f7fa; }
-  .el-table--fluid-height .el-table__fixed,
-  .el-table--fluid-height .el-table__fixed-right {
+    background-color: #e6ecf0; }
+  .el-table--fluid-height .el-table__fixed, .el-table--fluid-height .el-table__fixed-right {
     bottom: 0;
     overflow: hidden; }

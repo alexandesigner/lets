@@ -462,7 +462,7 @@
 .el-checkbox {
   color: #606266;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -1184,7 +1184,7 @@
     line-height: 36px;
     padding: 0 10px;
     cursor: pointer;
-    font-size: 14px; }
+    font-size: 16px; }
     .el-table-filter__list-item:hover {
       background-color: #f0edfb;
       color: #8570e0; }

@@ -12,9 +12,9 @@ html, body
 	height 100%
 
 body
-  font-family -apple-system, BlinkMacSystemFont, Avenir, Avenir Next, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background #e6ecf0
-  color $colorDark
+  font-family var(--font-base);
+  background var(--color-light)
+  color var(--color-dark)
   -webkit-text-size-adjust 100%
   -ms-text-size-adjust 100%
   -webkit-font-smoothing antialiased
@@ -122,18 +122,18 @@ hr
   height 0
   margin 15px 0
   border 0
-  border-top 1px solid #e5e5e5
+  border-top 1px solid var(--color-divider)
 
 address
   font-style normal
-  color #777
+  color var(--color-text)
   
 pre
   padding 10px
   margin 0 0 20px 0
   background #000
   font 12px / 18px Consolas, monospace, serif
-  color #444444
+  color var(--color-text)
   -moz-tab-size 1
   tab-size 1
   overflow auto
@@ -142,7 +142,7 @@ pre
 progress
   vertical-align baseline
 
-iframe
+iframes
   border 0
 
 table,
@@ -213,7 +213,7 @@ img[height]
 .icon
   width 16px
   height 16px
-  fill $colorDark
+  fill var(--color-dark)
 
 #app, 
 #app > main, 
@@ -228,4 +228,4 @@ img[height]
     align-items center
   .icon
     margin-right 5px
-    fill $colorDark
+    fill var(--color-dark)

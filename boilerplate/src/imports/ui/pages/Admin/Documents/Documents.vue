@@ -46,10 +46,14 @@
         </el-table-column>
         <el-table-column
           label="Actions"
-          width="180">
+          width="240">
           <template slot-scope="scope">
             <el-button
               size="small"
+              @click="handleViewDetails(scope.row._id)">View</el-button>
+            <el-button
+              size="small"
+              type="warning"
               @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
             <el-button
               size="small"
@@ -91,6 +95,9 @@
             documentImageId: row.imageId 
           }
         })
+      },
+      handleViewDetails (id) {
+        this.$router.push(`/documents/${id}`)
       },
       handleNewDocument () {
         this.$router.push({name: 'admin-documents-new'})

@@ -1045,8 +1045,7 @@
 .el-button-group {
   display: inline-block;
   vertical-align: middle; }
-  .el-button-group::before,
-  .el-button-group::after {
+  .el-button-group::before, .el-button-group::after {
     display: table;
     content: ""; }
   .el-button-group::after {
@@ -1067,6 +1066,10 @@
       border-bottom-right-radius: 4px;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px; }
+      .el-button-group .el-button:first-child:last-child.is-round {
+        border-radius: 20px; }
+      .el-button-group .el-button:first-child:last-child.is-circle {
+        border-radius: 50%; }
     .el-button-group .el-button:not(:first-child):not(:last-child) {
       border-radius: 0; }
     .el-button-group .el-button:not(:last-child) {
@@ -1345,7 +1348,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px; }
+  font-size: 16px; }
   .el-textarea__inner {
     display: block;
     resize: vertical;
@@ -1376,7 +1379,7 @@
       outline: none;
       border-color: #674CD8; }
   .el-textarea.is-disabled .el-textarea__inner {
-    background-color: #f5f7fa;
+    background-color: #e6ecf0;
     border-color: #e4e7ed;
     color: #c0c4cc;
     cursor: not-allowed; }
@@ -1391,7 +1394,7 @@
 
 .el-input {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   width: 100%; }
   .el-input::-webkit-scrollbar {
@@ -1412,7 +1415,7 @@
         width: 6px; }
   .el-input .el-input__clear {
     color: #c0c4cc;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 16px;
     cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -1490,7 +1493,7 @@
     outline: none;
     border-color: #674CD8; }
   .el-input.is-disabled .el-input__inner {
-    background-color: #f5f7fa;
+    background-color: #e6ecf0;
     border-color: #e4e7ed;
     color: #c0c4cc;
     cursor: not-allowed; }
@@ -1539,7 +1542,7 @@
     vertical-align: middle;
     display: table-cell; }
   .el-input-group__append, .el-input-group__prepend {
-    background-color: #f5f7fa;
+    background-color: #e6ecf0;
     color: #909399;
     vertical-align: middle;
     display: table-cell;
@@ -1551,24 +1554,16 @@
     white-space: nowrap; }
     .el-input-group__append:focus, .el-input-group__prepend:focus {
       outline: none; }
-    .el-input-group__append .el-select,
-    .el-input-group__append .el-button, .el-input-group__prepend .el-select,
-    .el-input-group__prepend .el-button {
+    .el-input-group__append .el-select, .el-input-group__append .el-button, .el-input-group__prepend .el-select, .el-input-group__prepend .el-button {
       display: inline-block;
       margin: -10px -20px; }
-    .el-input-group__append button.el-button,
-    .el-input-group__append div.el-select .el-input__inner,
-    .el-input-group__append div.el-select:hover .el-input__inner, .el-input-group__prepend button.el-button,
-    .el-input-group__prepend div.el-select .el-input__inner,
-    .el-input-group__prepend div.el-select:hover .el-input__inner {
+    .el-input-group__append button.el-button, .el-input-group__append div.el-select .el-input__inner, .el-input-group__append div.el-select:hover .el-input__inner, .el-input-group__prepend button.el-button, .el-input-group__prepend div.el-select .el-input__inner, .el-input-group__prepend div.el-select:hover .el-input__inner {
       border-color: transparent;
       background-color: transparent;
       color: inherit;
       border-top: 0;
       border-bottom: 0; }
-    .el-input-group__append .el-button,
-    .el-input-group__append .el-input, .el-input-group__prepend .el-button,
-    .el-input-group__prepend .el-input {
+    .el-input-group__append .el-button, .el-input-group__append .el-input, .el-input-group__prepend .el-button, .el-input-group__prepend .el-input {
       font-size: inherit; }
   .el-input-group__prepend {
     border-right: 0;
@@ -1651,7 +1646,7 @@
     position: relative;
     padding: 10px 15px;
     color: #606266;
-    font-size: 14px; }
+    font-size: 16px; }
   .el-message-box__input {
     padding-top: 15px; }
     .el-message-box__input input.invalid {
