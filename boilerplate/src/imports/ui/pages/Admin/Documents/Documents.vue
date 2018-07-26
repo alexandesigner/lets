@@ -14,6 +14,7 @@
         </div>
       </header> 
       <el-table
+        v-if="documents.length > 0"
         :data="documents"
         border
         style="width: 100%"
@@ -62,6 +63,9 @@
           </template>
         </el-table-column>
       </el-table>
+      <div v-else class="not-found">
+        ...loading
+      </div>
     </div>
   </admin-content>
 </template>

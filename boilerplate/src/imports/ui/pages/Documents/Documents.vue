@@ -39,3 +39,5 @@
     }
   }
 </script>
+
+<style lang="stylus" src="../../../startup/client/styles/pages/documents.styl" />

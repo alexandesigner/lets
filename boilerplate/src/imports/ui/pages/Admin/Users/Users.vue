@@ -6,6 +6,7 @@
       	<h2 class="title">Users</h2>
       </header>	
       <el-table
+        v-if="users.length > 0"
 		    :data="users"
 		    border
 		    style="width: 100%"
@@ -33,10 +34,12 @@
 		      </template>
 		    </el-table-column>
 		    <el-table-column
-		      label="Actions">
+		      label="Actions"
+          width="190">
 		      <template slot-scope="scope">
 		        <el-button
 		          size="small"
+              type="warning"
 		          @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
 		        <el-button
 		          size="small"
@@ -45,6 +48,9 @@
 		      </template>
 		    </el-table-column>
 		  </el-table>
+      <div v-else class="not-found">
+        ...loading
+      </div>
     </div>
   </admin-content>
 </template>

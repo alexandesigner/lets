@@ -11,11 +11,15 @@
 	    		Dashboard
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
-	    	<router-link class="nav-item" :to="{name: 'admin-users'}">
+				<router-link class="nav-item" :to="{path: '/admin/images'}" exact>
+	    		Images
+	    		<i class="icon el-icon-arrow-right"></i>
+	    	</router-link>
+	    	<router-link class="nav-item" :to="{path: '/admin/users'}" exact>
 	    		Users
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
-	    	<router-link class="nav-item" :to="{name: 'admin-documents'}">
+	    	<router-link class="nav-item" :to="{path: '/admin/documents'}" exact>
 	    		Documents
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
