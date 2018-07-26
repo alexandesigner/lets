@@ -56,9 +56,9 @@
 <script>
 
   // Components
-  import AdminSidebar from '../../../components/Admin/AdminSidebar.vue';
-  import AdminContent from '../../../components/Admin/AdminContent.vue';
-  import BackButton from '../../../components/BackButton/BackButton.vue';
+  import AdminSidebar from '../../../components/Admin/AdminSidebar';
+  import AdminContent from '../../../components/Admin/AdminContent';
+  import BackButton from '../../../components/BackButton/BackButton';
 
   // Collections
   import Images from '../../../../api/Images/images'

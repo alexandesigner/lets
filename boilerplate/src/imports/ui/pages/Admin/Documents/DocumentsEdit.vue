@@ -63,9 +63,9 @@
 <script>
   
   // Components
-  import AdminSidebar from '../../../components/Admin/AdminSidebar.vue'
-  import AdminContent from '../../../components/Admin/AdminContent.vue'
-  import BackButton from '../../../components/BackButton/BackButton.vue'
+  import AdminSidebar from '../../../components/Admin/AdminSidebar'
+  import AdminContent from '../../../components/Admin/AdminContent'
+  import BackButton from '../../../components/BackButton/BackButton'
   // Collections
   import Documents from '../../../../api/Documents/documents'
   import Images from '../../../../api/Images/images'
@@ -115,7 +115,7 @@
           'formatUL',
           'insertHR'
         ],
-        quickInsertButtons: []
+        quickInsertButtons: [],
       });
     },
     watch: {
@@ -320,9 +320,13 @@
     position relative
     overflow hidden
     float left
-    transition border 0.2s ease-in-out
-  &:hover
-    border-color var(--color-primary)
+    transition var(--all-transition)
+    &:hover
+      border-color var(--color-primary)
+      i
+        color var(--color-primary)
+    i
+      transition var(--all-transition)
   small
     position absolute
     bottom 0
