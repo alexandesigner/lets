@@ -44,7 +44,7 @@
                 <el-form-item prop="title">
                   <strong class="form-label">Content</strong>
                   <textarea
-                    id="DocEditor"
+                    id="DocEdit"
                     name="documentBody"
                     :value="editDocument.body"></textarea>
                 </el-form-item>
@@ -99,7 +99,7 @@
       },
     }),
     mounted () {
-      $('#DocEditor').froalaEditor({
+      $('#DocEdit').froalaEditor({
         editorClass: 'TextInputEditor',
         height: 180,
         placeholderText: 'Start typing something...',
@@ -109,14 +109,30 @@
           'underline',
           'insertLink',
           'insertImage',
+          'embedly',
           'formatBlock',
+          'quote',
           'align',
           'formatOL',
           'formatUL',
-          'insertHR'
+          'insertHR',
+          'html'
         ],
-        quickInsertButtons: [],
-      });
+        fileUploadParam: 'file_name',
+        imageMaxSize: 5 * 1024 * 1024,
+        imageAllowedTypes: ['jpeg', 'jpg', 'png']
+      }).on('froalaEditor.image.beforeUpload', function (e, editor, files) {
+        if (files.length) {
+          let reader = new FileReader()
+          reader.onload = function (e) {
+            let result = e.target.result
+            editor.image.insert(result, null, null, editor.image.get())
+          }
+          reader.readAsDataURL(files[0])
+        }
+        editor.popups.hideAll()
+        return false
+      })
     },
     watch: {
       'users': function (user) {
@@ -126,7 +142,7 @@
         })
       },
       'documents': function(doc) {
-        $('#DocEditor').froalaEditor('html.set', doc[0].body)
+        $('#DocEdit').froalaEditor('html.set', doc[0].body)
         this.$nextTick(function() {
           this.imageUrl = doc[0].image.path
           this.editDocument = {
@@ -199,7 +215,7 @@
                     owner: user._id,
                     title: dataForm.title,
                     subtitle: dataForm.subtitle || '',
-                    body: $('#DocEditor').froalaEditor('html.get') || '',
+                    body: $('#DocEdit').froalaEditor('html.get') || '',
                     image: {
                       name: self.image.name,
                       type: self.image.type,
@@ -226,7 +242,7 @@
                   owner: user._id,
                   title: dataForm.title,
                   subtitle: dataForm.subtitle,
-                  body: $('#DocEditor').froalaEditor('html.get') || '',
+                  body: $('#DocEdit').froalaEditor('html.get') || '',
                   image: {
                     name: doc.name,
                     type: doc.type,
@@ -248,7 +264,7 @@
                   owner: user._id,
                   title: dataForm.title,
                   subtitle: dataForm.subtitle || '',
-                  body: $('#DocEditor').froalaEditor('html.get') || '',
+                  body: $('#DocEdit').froalaEditor('html.get') || '',
                   updatedAt: new Date()
                 })
                 self.$message({

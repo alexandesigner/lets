@@ -38,7 +38,7 @@
                 <el-form-item prop="title">
                   <strong class="form-label">Content</strong>
                   <textarea
-                    id="FormEditor"
+                    id="DocNew"
                     name="documentBody"></textarea>
                 </el-form-item>
               </el-col>
@@ -88,7 +88,7 @@
       },
     }),
     mounted () {
-      $('#FormEditor').froalaEditor({
+      $('#DocNew').froalaEditor({
         editorClass: 'TextInputEditor',
         height: 180,
         placeholderText: 'Start typing something...',
@@ -98,13 +98,29 @@
           'underline',
           'insertLink',
           'insertImage',
+          'embedly',
           'formatBlock',
+          'quote',
           'align',
           'formatOL',
           'formatUL',
-          'insertHR'
+          'insertHR',
+          'html'
         ],
-        quickInsertButtons: []
+        fileUploadParam: 'file_name',
+        imageMaxSize: 5 * 1024 * 1024,
+        imageAllowedTypes: ['jpeg', 'jpg', 'png']
+      }).on('froalaEditor.image.beforeUpload', function (e, editor, files) {
+        if (files.length) {
+          let reader = new FileReader()
+          reader.onload = function (e) {
+            let result = e.target.result
+            editor.image.insert(result, null, null, editor.image.get())
+          }
+          reader.readAsDataURL(files[0])
+        }
+        editor.popups.hideAll()
+        return false
       });
     },
     computed: {
