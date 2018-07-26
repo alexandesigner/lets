@@ -62,7 +62,7 @@
         </el-table-column>
       </el-table>
       <div v-else class="not-found">
-        ...loading
+        <h3>Not Found</h3>
       </div>
     </div>
   </admin-content>
