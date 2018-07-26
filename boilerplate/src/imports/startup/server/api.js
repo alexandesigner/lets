@@ -3,6 +3,7 @@ import '../../api/Users/methods'
 import '../../api/Users/server/publications'
 
 import '../../api/Images/images'
+import '../../api/Images/methods'
 
 import '../../api/Documents/documents'
 import '../../api/Documents/methods'

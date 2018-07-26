@@ -12,6 +12,8 @@ import ResetPassword from './ui/pages/Auth/ResetPassword.vue'
 
 import Admin from './ui/layouts/Admin.vue'
 import AdminDashboard from './ui/pages/Admin/Dashboard/Dashboard.vue'
+import AdminImages from './ui/pages/Admin/Images/Images.vue'
+import AdminImagesNew from './ui/pages/Admin/Images/ImagesNew.vue'
 import AdminDocuments from './ui/pages/Admin/Documents/Documents.vue'
 import AdminDocumentsNew from './ui/pages/Admin/Documents/DocumentsNew.vue'
 import AdminDocumentsEdit from './ui/pages/Admin/Documents/DocumentsEdit.vue'
@@ -76,6 +78,16 @@ export default [
         path: '/admin',
         name: 'admin-dashboard',
         component: AdminDashboard
+      },
+      {
+        path: '/admin/images',
+        name: 'admin-images',
+        component: AdminImages
+      },
+      {
+        path: '/admin/images/new',
+        name: 'admin-images-new',
+        component: AdminImagesNew
       },
       {
         path: '/admin/documents',
