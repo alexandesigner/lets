@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { FilesCollection } from 'meteor/ostrio:files'
 
 const Images = new FilesCollection({
-  debug: true,
+  debug: false,
   collectionName: 'Images',
   allowClientCode: false, // Disallow remove files from Client
   onBeforeUpload: function (file) {
@@ -16,11 +16,6 @@ const Images = new FilesCollection({
 
 if (Meteor.isServer) {
   Images.denyClient()
-  Meteor.publish('files.images.all', function () {
-    return Images.find().cursor
-  })
-} else {
-  Meteor.subscribe('files.images.all')
 }
 
 export default Images

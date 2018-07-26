@@ -4,6 +4,7 @@ import '../../api/Users/server/publications'
 
 import '../../api/Images/images'
 import '../../api/Images/methods'
+import '../../api/Images/server/publications'
 
 import '../../api/Documents/documents'
 import '../../api/Documents/methods'

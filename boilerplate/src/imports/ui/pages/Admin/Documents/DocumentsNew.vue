@@ -158,11 +158,13 @@
                   if (error) {
                     console.log('Error during upload: ' + error.reason)
                   } else {
+                    // Get image path
+                    let imagePath = Images.link(fileObj)
                     self.image = {
                       name: fileObj.name,
                       type: 'document',
                       extension: fileObj.extension,
-                      path: `${Meteor.settings.public.BASE_URL}${fileObj._downloadRoute}/Images/${fileObj._id}/original/${fileObj._id}${fileObj.extensionWithDot}`,
+                      path: imagePath,
                       imageId: fileObj._id
                     }
                     console.log('File "' + fileObj.name + '" successfully uploaded')
