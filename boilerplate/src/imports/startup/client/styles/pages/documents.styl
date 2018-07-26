@@ -1,0 +1,47 @@
+@import '../../../startup/client/styles/base/custom-properties.styl'
+.documents
+  &-item
+    background #fff
+    margin 10px
+    border 2px solid transparent
+    padding 10px
+    cursor pointer
+    transition var(--all-transition)
+    &:hover
+      border-color var(--color-primary)
+      h2
+        color var(--color-primary)
+    h2
+      font-weight 600
+      font-size 20px
+      transition var(--all-transition)
+    p
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+    strong
+      margin 5px 0 10px 0
+      display flex
+  &-details
+    width 100%
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    img
+      max-width 480px
+      border-radius var(--base-radius)
+      margin-bottom 10px
+    h1
+      font-size 52px
+      font-weight 600
+    strong
+      font-size 16px
+      margin 5px 0 15px 0
+      display flex
+    p
+      font-size 16px
+  
+  .col
+    flex-basis 33.333%
+    max-width 33.333%

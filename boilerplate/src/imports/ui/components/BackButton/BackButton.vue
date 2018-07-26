@@ -2,7 +2,7 @@
   <button
     v-if="canGoBack"
     @click="goBack"
-    class="button-back">
+    class="back-button">
     <i class="el-icon-back"></i>
   </button>
 </template>
@@ -22,7 +22,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../../../startup/client/styles/base/custom-properties.styl'
-.button-back
+.back-button
   position absolute
   z-index 2
   top 12px

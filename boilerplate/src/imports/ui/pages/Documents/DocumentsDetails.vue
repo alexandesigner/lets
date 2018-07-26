@@ -1,24 +1,37 @@
 <template>
-  <div class="documents-details">
-    <header>
-    	<back-button></back-button>
-    	<h2>Document Details</h2>
-    </header>
-    <h4>{{ documents[0].title }}</h4>
-    <strong>{{ documents[0].owner }}</strong>
-    <p>{{ documents[0].body }}</p>
+  <div class="documents">
+    <Toolbar :isBack="true" />
+    <div class="wrapper">
+      <div class="documents-details">
+        <template v-if="isImage(documents[0].image)">
+          <img  :src="documents[0].image.path" :alt="documents[0].title" />
+        </template>
+        <template v-else />
+        <h1>{{ documents[0].title }}</h1>
+        <strong>{{ documents[0].owner }}</strong>
+        <p v-html="documents[0].body"></p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-	import BackButton from '../../../ui/components/BackButton/BackButton.vue'
+  import Toolbar from '../../components/Toolbar'
 	import Documents from '../../../api/Documents/documents'
   export default {
     name: 'documents-details',
+    components: {
+      Toolbar
+    },
     data: () => ({
     	users: [],
     	documents: []
     }),
+    methods: {
+      isImage (obj) {
+        return Object.keys(obj).length !== 0
+      }
+    },
     meteor: {
       $subscribe: {
         'documents': [],
@@ -31,24 +44,6 @@
           _id: this.$route.params.documentId
         });
       },
-    },
-    components: {
-    	BackButton
     }
   }
 </script>
-
-<style lang="stylus" scoped>
-.documents-details
-  text-align left
-  padding 20px 60px
-  header
-  	padding 0 0 20px 0
-  	h2
-  		font-size 32px
-  h4
-  	font-size 18px
-.button-back
-	top 20px
-	left 8px
-</style>
