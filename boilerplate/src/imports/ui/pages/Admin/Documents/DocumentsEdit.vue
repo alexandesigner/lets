@@ -101,7 +101,7 @@
     mounted () {
       $('#DocEdit').froalaEditor({
         editorClass: 'TextInputEditor',
-        height: 180,
+        height: 380,
         placeholderText: 'Start typing something...',
         toolbarButtons: [
           'bold',
@@ -185,10 +185,9 @@
               if (checkUpload) {
                 // Create upload instance
                 let uploadInstance = Images.insert({
-                  file: self.imageUrl, // Get the raw file
+                  file: self.imageFileUpload.raw, // Get the raw file
                   streams: 'dynamic',
                   chunkSize: 'dynamic',
-                  isBase64: true,
                   fileName: self.imageFileUpload.name
                 }, false)
 
@@ -280,18 +279,14 @@
           } catch (error) {
             self.$message({
               type: 'error',
-              message: error.reason
+              message: error.error
             })
           }
         })
       },
       handleImageSuccess(res, file) {
         this.imageFileUpload = file
-        let reader = new FileReader()
-        reader.readAsDataURL(file.raw)
-        reader.onload = () => {
-          this.imageUrl = reader.result
-        }
+        this.imageUrl = URL.createObjectURL(file.raw)
       },
       beforeImageUpload(file) {
         const isJPG = file.type === 'image/jpeg'
