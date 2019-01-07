@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "setup": "meteor npm install",
+    "update": "meteor update",
+    "reset": "meteor reset",
     "dev": "./node_modules/.bin/eslint . && meteor -p 1337 --settings ./settings/settings-development.json",
     "dev:production": "./node_modules/.bin/eslint . && meteor -p 1337 --production --settings ./settings/settings-production.json",
     "setup:deploy": "cd .deploy && mupx setup",
