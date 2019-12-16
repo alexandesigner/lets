@@ -12,7 +12,7 @@
             <span>New document</span>
           </el-button>
         </div>
-      </header> 
+      </header>
       <el-table
         v-if="documents.length > 0"
         :data="documents"
@@ -76,15 +76,12 @@
   import Documents from '../../../../api/Documents/documents'
   export default {
     name: 'admin-documents',
-    data: () => ({
-      documents: []
-    }),
     meteor: {
       $subscribe: {
         'documents.owner': [],
       },
       documents() {
-        return Documents.find({})
+        return Documents.find({}, { sort: { createdAt: -1}})
       },
     },
     methods: {

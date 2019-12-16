@@ -34,11 +34,6 @@
 
   export default {
     name: 'admin-dashboard',
-    data: () => ({
-      documents: [],
-      images: [],
-      users: []
-    }),
     meteor: {
       $subscribe: {
         'users': [],

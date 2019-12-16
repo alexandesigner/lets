@@ -46,7 +46,6 @@
   export default {
     name: 'admin-images-new',
     data: () => ({
-      users: [],
       imageUrl: null,
       imageFileUpload: '',
       image: [],

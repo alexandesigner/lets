@@ -74,9 +74,6 @@
   import Images from '../../../../api/Images/images'
   export default {
     name: 'admin-images',
-    data: () => ({
-      images: []
-    }),
     meteor: {
       $subscribe: {
         'files.images.all': [],

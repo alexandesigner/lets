@@ -74,8 +74,6 @@
     name: 'admin-documents-edit',
     data: () => ({
       fullName: '',
-      documents: [],
-      users: [],
       imageUrl: null,
       imageFileUpload: null,
       image: [],

@@ -46,7 +46,6 @@
   export default {
     name: 'admin-users-edit',
     data: () => ({
-      users: [],
       editUser: {
         firstName: '',
         lastName: '',

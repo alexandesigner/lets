@@ -26,33 +26,31 @@ VueSSR.createApp = function (context) {
         reject({ code: 404 })
       }
 
-      let js = ''
+      context.js = ''
 
       // Call preFetch hooks on components matched by the route.
       // A preFetch hook dispatches a store action and returns a Promise,
       // which is resolved when the action is complete and store state has been
       // updated.
-      Promise.all([
-        // Store prefetch
-        ...matchedComponents.map(component => {
-          return component.preFetch && component.preFetch(store)
+      Promise.all(matchedComponents.map(component => {
+        return component.asyncData && component.asyncData({
+          store,
+          route: router.currentRoute
         })
-      ]).then(() => {
-        isDev && console.log(`[SSR] data pre-fetch: ${Date.now() - s}ms`)
+      })).then(() => {
+        context.rendered = () => {
+          isDev && console.log(`[SSR] Data prefetch: ${Date.now() - s}ms`)
 
-        // After all preFetch hooks are resolved, our store is now
-        // filled with the state needed to render the app.
-        // Expose the state on the render context, and let the request handler
-        // inline the state in the HTML response. This allows the client-side
-        // store to pick-up the server-side state without having to duplicate
-        // the initial data fetching on the client.
+          // After all preFetch hooks are resolved, our store is now
+          // filled with the state needed to render the app.
+          // Expose the state on the render context, and let the request handler
+          // inline the state in the HTML response. This allows the client-side
+          // store to pick-up the server-side state without having to duplicate
+          // the initial data fetching on the client.
 
-        js += `window.__INITIAL_STATE__=${JSON.stringify(store.state)};`
-
-        resolve({
-          app,
-          js
-        })
+          context.js += `window.__INITIAL_STATE__=${JSON.stringify(store.state)};`
+        }
+        resolve(app)
       }).catch(reject)
     })
   })

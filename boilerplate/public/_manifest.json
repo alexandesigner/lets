@@ -6,7 +6,6 @@
   "background_color": "#FFF",
   "theme_color": "#FFF",
   "display": "standalone",
-  "start_url": "./",
   "icons": [
     {
      "src": "../icons/android/android-icon-36x36.png",

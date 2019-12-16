@@ -21,9 +21,8 @@
     display flex
     justify-content center
     flex-direction column
-    padding 30px
+    padding 0
     &-table
-      box-shadow 0 0 6px 0px rgba(0,0,0,.10)
       border-radius 4px
       img
         box-shadow 0 0 6px 0px rgba(0, 0, 0, 0.25)
@@ -38,6 +37,7 @@
     justify-content space-between 
     display flex
     margin-bottom 20px
+    padding 30px
     .el-button
       &:hover
         .icon

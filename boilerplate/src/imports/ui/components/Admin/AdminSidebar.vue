@@ -8,18 +8,22 @@
 	    </header>
 	    <div class="sidebar-content_nav">
     		<router-link class="nav-item" :to="{name: 'admin-dashboard'}" exact>
+					<i class="left-icon el-icon-menu"></i>
 	    		Dashboard
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
 				<router-link class="nav-item" :to="{path: '/admin/images'}" exact>
+					<i class="left-icon el-icon-picture-outline"></i>
 	    		Images
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
 	    	<router-link class="nav-item" :to="{path: '/admin/users'}" exact>
+					<i class="left-icon el-icon-user-solid"></i>
 	    		Users
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
 	    	<router-link class="nav-item" :to="{path: '/admin/documents'}" exact>
+					<i class="left-icon el-icon-document"></i>
 	    		Documents
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
@@ -53,6 +57,7 @@
   .sidebar-content
   	height 100%
 		background-color #fff
+		border-right 1px solid #d1d1d1
   .sidebar-content
     &_header
     	display flex

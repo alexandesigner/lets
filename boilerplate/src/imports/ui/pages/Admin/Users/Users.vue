@@ -60,9 +60,6 @@
   import AdminSidebar from '../../../components/Admin/AdminSidebar.vue'
   export default {
   	name: 'admin-users',
-  	data: () => ({
-      users: []
-    }),
   	meteor: {
       $subscribe: {
         'users': [],
