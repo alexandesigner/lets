@@ -1,7 +1,8 @@
-node_modules/
-/packages/
-.vscode/
+node_modules
+packages
+.vscode
 package-lock.json
+yarn.lock
 .DS_Store
-.deploy/
+.deploy
 .cache
