@@ -57,7 +57,7 @@
   .sidebar-content
   	height 100%
 		background-color #fff
-		border-right 1px solid #d1d1d1
+		border-right 1px solid var(--color-border)
   .sidebar-content
     &_header
     	display flex

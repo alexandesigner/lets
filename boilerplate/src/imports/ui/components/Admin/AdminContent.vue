@@ -23,12 +23,13 @@
     flex-direction column
     padding 0
     &-table
-      border-radius 4px
       img
         box-shadow 0 0 6px 0px rgba(0, 0, 0, 0.25)
         border-radius 3px
         margin 3px
     &-form
+      .box-card
+        border-radius 0
       .el-col
         margin-bottom 10px
   &_main-header

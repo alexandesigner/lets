@@ -4,7 +4,7 @@
   "description": "A minimalist boilerplate for products",
   "orientation": "portrait",
   "background_color": "#FFF",
-  "theme_color": "#FFF",
+  "theme_color": "#674CD8",
   "display": "standalone",
   "icons": [
     {
