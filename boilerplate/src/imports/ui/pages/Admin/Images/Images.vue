@@ -12,57 +12,68 @@
             <span>New image</span>
           </el-button>
         </div>
-      </header> 
-      <el-table
-        v-if="images.length > 0"
-        :data="images"
-        border
-        style="width: 100%"
-        class="admin-content_main-table">
-        <el-table-column
-          label="Created At"
-          width="140">
-          <template slot-scope="scope">
-            <el-icon class="icon" name="time"></el-icon>
-            <span>{{ scope.row.createdAt | date("L, LT") }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Image"
-          width="70">
-          <template slot-scope="scope">
-            <img :src="renderImages(scope.row)" width="42" height="42" />
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Name">
-          <template slot-scope="scope">
-            <span>{{ scope.row.name }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Type"
-          width="140">
-          <template slot-scope="scope">
-            <span>{{ scope.row.type }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Actions"
-          width="180">
-          <template slot-scope="scope">
-            <el-button
-              size="small"
-              @click="handleViewDetails(scope.row._id)">View</el-button>
-            <el-button
-              size="small"
-              type="danger" 
-              @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-      <div v-else class="not-found">
-        <h3>Not Found</h3>
+      </header>
+      <div class="admin-content_table">
+        <el-table
+          v-loading="!$subReady['files.images.all']"
+          element-loading-text="Wait a moment..."
+          :data="images"
+          height="480"
+          :default-sort = "{prop: 'created_at', order: 'descending'}"
+          class="admin-content_main-table full-width">
+          <el-table-column
+            sortable
+            prop="create_at"
+            label="Created At"
+            width="140">
+            <template slot-scope="scope">
+              <el-icon class="icon" name="time"></el-icon>
+              <span>{{ scope.row.createdAt | date("L, LT") }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="Image"
+            width="70">
+            <template slot-scope="scope">
+              <img :src="renderImages(scope.row)" width="42" height="42" />
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="Name">
+            <template slot-scope="scope">
+              <span>{{ scope.row.name }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="Type"
+            width="140">
+            <template slot-scope="scope">
+              <span>{{ scope.row.type }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            fixed="right"
+            width="240">
+            <template slot-scope="scope">
+              <el-tooltip content="View image" placement="top">
+                <el-button
+                  size="small"
+                  icon="el-icon-view"
+                  @click="handleViewDetails(scope.row._id)">View</el-button>
+              </el-tooltip>
+              <el-tooltip content="Delete image" placement="top">
+                <el-button
+                  size="small"
+                  type="danger" 
+                  icon="el-icon-delete"
+                  @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+              </el-tooltip>
+            </template>
+          </el-table-column>
+          <span slot="empty">
+            You have no registered image
+          </span>
+        </el-table>
       </div>
     </div>
   </admin-content>
@@ -74,6 +85,9 @@
   import Images from '../../../../api/Images/images'
   export default {
     name: 'admin-images',
+    mounted() {
+      console.log(this.$subReady['files.images.all'])
+    },
     meteor: {
       $subscribe: {
         'files.images.all': [],

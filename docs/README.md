@@ -99,8 +99,7 @@ The directory structure is built in a way to make things predictable and enforce
   |  |_filters.js                      <-- filters for application
   |  |_plugins.js                      <-- all plugins import for the application
   |  |_routes.js                       <-- routing use Vue Router for the application
-  |_theme/                             <-- themify use Element UI library
-  |_element-variables.scss             <-- element UI config variables
+  |_theme/                             <-- themify use Element UI library (Use [Element UI Theme Generator](https://element.eleme.io/#/en-US/theme))
   |_index.html                         <-- start markup application
   |_index.js                           <-- import client/server for application
 ```

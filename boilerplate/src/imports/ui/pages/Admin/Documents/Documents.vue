@@ -13,58 +13,72 @@
           </el-button>
         </div>
       </header>
-      <el-table
-        v-if="documents.length > 0"
-        :data="documents"
-        border
-        style="width: 100%"
-        class="admin-content_main-table">
-        <el-table-column
-          label="Created At"
-          width="140">
-          <template slot-scope="scope">
-            <el-icon class="icon" name="time"></el-icon>
-            <span>{{ scope.row.createdAt | date("L, LT") }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Image"
-          width="70">
-          <template slot-scope="scope">
-            <template v-if="isImage(scope.row.image)">
-              <img :src="scope.row.image.path" width="42" height="42" />
+      <div class="admin-content_table">
+        <el-table
+          v-loading="!$subReady['documents.owner']"
+          element-loading-text="Wait a moment..."
+          :data="documents"
+          height="480"
+          :default-sort = "{prop: 'created_at', order: 'descending'}"
+          class="admin-content_main-table full-width">
+          <el-table-column
+            sortable
+            prop="create_at"
+            label="Created At"
+            width="140">
+            <template slot-scope="scope">
+              <el-icon class="icon" name="time"></el-icon>
+              <span>{{ scope.row.createdAt | date("L, LT") }}</span>
             </template>
-            <template v-else>
-              <img src="/images/thumb.jpg" width="42" height="42" />
+          </el-table-column>
+          <el-table-column
+            label="Image"
+            width="70">
+            <template slot-scope="scope">
+              <template v-if="isImage(scope.row.image)">
+                <img :src="scope.row.image.path" width="42" height="42" />
+              </template>
+              <template v-else>
+                <img src="/images/thumb.jpg" width="42" height="42" />
+              </template>
             </template>
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Title">
-          <template slot-scope="scope">
-            <span>{{ scope.row.title }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Actions"
-          width="240">
-          <template slot-scope="scope">
-            <el-button
-              size="small"
-              @click="handleViewDetails(scope.row._id)">View</el-button>
-            <el-button
-              size="small"
-              type="warning"
-              @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
-            <el-button
-              size="small"
-              type="danger" 
-              @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-      <div v-else class="not-found">
-        <h3>Not Found</h3>
+          </el-table-column>
+          <el-table-column
+            label="Title">
+            <template slot-scope="scope">
+              <span>{{ scope.row.title }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            fixed="right"
+            width="300">
+            <template slot-scope="scope">
+              <el-tooltip content="View document" placement="top">
+                <el-button
+                  size="small"
+                  icon="el-icon-view"
+                  @click="handleViewDetails(scope.row._id)">View</el-button>
+              </el-tooltip>
+              <el-tooltip content="Edit document" placement="top">
+                <el-button
+                  size="small"
+                  type="warning"
+                  icon="el-icon-edit"
+                  @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+              </el-tooltip>
+              <el-tooltip content="Remove document" placement="top">
+                <el-button
+                  size="small"
+                  type="danger" 
+                  icon="el-icon-delete"
+                  @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+              </el-tooltip>
+            </template>
+          </el-table-column>
+          <span slot="empty">
+            You have no registered documents
+          </span>
+        </el-table>
       </div>
     </div>
   </admin-content>
@@ -109,7 +123,7 @@
             _id: row._id
           })
           this.$message({
-            type: 'info',
+            type: 'success',
             message: 'Document removed!'
           })
         } catch (error) {

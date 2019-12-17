@@ -16,7 +16,7 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .app-index
   display flex
   align-items center

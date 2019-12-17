@@ -8,21 +8,21 @@
 	    </header>
 	    <div class="sidebar-content_nav">
     		<router-link class="nav-item" :to="{name: 'admin-dashboard'}" exact>
-					<i class="left-icon el-icon-menu"></i>
+					<i class="left-icon el-icon-odometer"></i>
 	    		Dashboard
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
-				<router-link class="nav-item" :to="{path: '/admin/images'}" exact>
+				<router-link class="nav-item" :to="{path: '/admin/images'}">
 					<i class="left-icon el-icon-picture-outline"></i>
 	    		Images
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
-	    	<router-link class="nav-item" :to="{path: '/admin/users'}" exact>
-					<i class="left-icon el-icon-user-solid"></i>
+	    	<router-link class="nav-item" :to="{path: '/admin/users'}">
+					<i class="left-icon el-icon-user"></i>
 	    		Users
 	    		<i class="icon el-icon-arrow-right"></i>
 	    	</router-link>
-	    	<router-link class="nav-item" :to="{path: '/admin/documents'}" exact>
+	    	<router-link class="nav-item" :to="{path: '/admin/documents'}">
 					<i class="left-icon el-icon-document"></i>
 	    		Documents
 	    		<i class="icon el-icon-arrow-right"></i>
@@ -50,50 +50,55 @@
 <style lang="stylus" scoped>
 @import '../../../startup/client/styles/base/custom-properties'
 .admin-sidebar
-  position fixed
-  left 0
-  width 220px
-  height 100%
-  .sidebar-content
-  	height 100%
+	position fixed
+	left 0
+	width 220px
+	height 100%
+	z-index 2
+	.sidebar-content
+		height 100%
 		background-color #fff
 		border-right 1px solid var(--color-border)
-  .sidebar-content
-    &_header
-    	display flex
-    	justify-content space-between
-    	align-items center
-    	padding 20px
-    	position relative
-    	.logo
-    		float left
-    	.actions
-    		float right
-    		.config, .notifications
-    			cursor pointer
-    			margin 0 2px
-		  			.icon
-		  				fill var(--icon-color)
-		  				width 24px
-		  				height 24px
-		  				cursor pointer
-		  				transition var(--all-transition)
-		  				&:hover
-		  					fill var(--color-primary)	
-    &_nav
-    	display flex
-    	margin-bottom 20px
-    	flex-direction column
+		&_header
+			display flex
+			justify-content space-between
+			align-items center
+			padding 20px
+			position relative
+			.logo
+				float left
+			.actions
+				float right
+				.config, .notifications
+					cursor pointer
+					margin 0 2px
+						.icon
+							fill var(--icon-color)
+							width 24px
+							height 24px
+							cursor pointer
+							transition var(--all-transition)
+							&:hover
+								fill var(--color-primary)	
+		&_nav
+			display flex
+			margin-bottom 20px
+			flex-direction column
 			.nav-item, .nav-logout
 				position relative
 				line-height 32px
 				text-align left
 				font-size 16px
-				padding 5px 20px
+				padding 6px 20px
 				cursor pointer
 				transition var(--all-transition)
+				text-decoration none
+				display flex
+				align-items center
+				opacity 0.2
 				&:hover
 					color var(--color-primary)
+					opacity 1
 					.icon
 						opacity 1
 				.icon
@@ -103,9 +108,13 @@
 					opacity 0
 					fill var(--color-primary)
 					transition var(--fade-transition)
-			.router-link-exact-active
+				.left-icon 
+					margin-right 10px
+					font-size 24px
+			.router-link-active
 				color var(--color-primary)
 				font-weight 600
+				opacity 1
 				.icon
 					opacity 1
 			.nav-logout
@@ -113,4 +122,6 @@
 				bottom 0
 				left 0
 				right 0
+				opacity 1
+				border-top 1px solid var(--color-border)
 </style>

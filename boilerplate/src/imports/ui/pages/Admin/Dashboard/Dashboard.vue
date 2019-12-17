@@ -2,7 +2,7 @@
   <admin-content>
     <admin-sidebar></admin-sidebar>
     <div class="admin-content_main">
-      <div class="wrapper">
+      <div class="wrapper p2">
         <div class="col">
           <div class="item">
             <strong>Users</strong>

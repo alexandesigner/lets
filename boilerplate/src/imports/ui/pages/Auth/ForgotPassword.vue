@@ -1,22 +1,20 @@
 <template>
   <div class="new-password">
     <div class="auth-layout_inner">
-      <el-card class="auth-layout_card card">
-        <header class="auth-layout_card-header card-header">
-          <img class="logo" src="/images/logo.svg" width="60" height="60" alt="Logo" />
-          <h2>Forgot password</h2>
-        </header>
+      <div class="auth-layout_card">
+        <PageHeader title="Forgot Password" />
         <span class="divider"></span>
         <el-form
           :model="forgotPasswordForm"
           :rules="rules"
            ref="forgotPasswordForm"
-           class="auth-layout_card-content card-content">
+           class="auth-layout_card-content">
           <el-form-item
             prop="email"
             label="Email">
             <el-input
               v-model="forgotPasswordForm.email"
+              v-on:keyup.enter.native="submitForm('forgotPasswordForm')"
               auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
@@ -30,7 +28,7 @@
             </el-button>
           </el-form-item>
         </el-form>
-      </el-card>
+      </div>
       <footer class="auth-layout_footer">
         <router-link :to="{ name: 'login'}">Back</router-link>
       </footer>
@@ -39,7 +37,11 @@
 </template>
 
 <script>
+import PageHeader from './PageHeader'
   export default {
+    components: {
+      PageHeader
+    },
     name: 'auth-forgot-password',
     data: () => ({
       isLoading: false,
