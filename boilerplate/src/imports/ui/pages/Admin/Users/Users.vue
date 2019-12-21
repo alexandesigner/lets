@@ -76,7 +76,7 @@
         'users': [],
       },
       users() {
-        return Meteor.users.find({})
+        return Meteor.users.find({}, { sort: { createdAt: -1}}).fetch()
       },
     },
     methods: {

@@ -123,7 +123,7 @@
       users() {
         return Meteor.users.find({
           _id: this.$route.params.userId
-        });
+        }).fetch()
       },
     },
     components: {

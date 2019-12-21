@@ -7,7 +7,6 @@
         <h1>{{ currentDoc.title }}</h1>
         <strong>{{ currentDoc.owner }}</strong>
         <p v-html="currentDoc.body"></p>
-        <p v-html="handle"></p>
       </div>
       <div v-else>Loading...</div>
     </div>
@@ -23,10 +22,8 @@
       Toolbar
     },
     computed: {
-      handle() {
-        return console.log(this.currentDoc.image)
-      },
        currentDoc: function() {
+         console.log(this.documents[0].image.length)
         return this.documents[0]
       }
     },
@@ -37,7 +34,7 @@
       documents() {
         return Documents.find({
           _id: this.$route.params.documentId
-        });
+        }).fetch()
       },
     }
   }

@@ -41,13 +41,13 @@
         'files.images.all': [],
       },
       users() {
-        return Meteor.users.find({})
+        return Meteor.users.find({}).fetch()
       },
       documents() {
-        return Documents.find({})
+        return Documents.find({}).fetch()
       },
       images() {
-        return Images.find({})
+        return Images.find({}).fetch()
       }
     },
     components: {

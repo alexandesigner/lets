@@ -34,7 +34,7 @@
         'documents': [],
       },
       documents() {
-        return Documents.find({}, { sort: { createdAt: -1}})
+        return Documents.find({}, { sort: { createdAt: -1}}).fetch()
       },
     }
   }

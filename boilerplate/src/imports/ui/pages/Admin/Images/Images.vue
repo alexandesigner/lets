@@ -85,15 +85,12 @@
   import Images from '../../../../api/Images/images'
   export default {
     name: 'admin-images',
-    mounted() {
-      console.log(this.$subReady['files.images.all'])
-    },
     meteor: {
       $subscribe: {
         'files.images.all': [],
       },
       images() {
-        return Images.find({})
+        return Images.find({}, { sort: { createdAt: -1}}).fetch()
       },
     },
     methods: {

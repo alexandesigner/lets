@@ -305,7 +305,7 @@
         'documents.owner': []
       },
       users() {
-        return Meteor.users.find({})
+        return Meteor.users.find({}).fetch()
       },
       documents() {
         return Documents.find({
