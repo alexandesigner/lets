@@ -11,7 +11,7 @@ const documentsSeed = userId => ({
     return {
       owner: userId,
       title: `Document #${dataIndex + 1}`,
-      subtitle: `This is the subtitle of document`,
+      subtitle: 'This is the subtitle of document',
       body: `<p>Hello Document #${dataIndex + 1}</p>`,
       image: [{
         name: '',

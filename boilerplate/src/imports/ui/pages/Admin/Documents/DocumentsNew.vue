@@ -66,7 +66,6 @@
   export default {
     name: 'admin-documents-new',
     data: () => ({
-      users: [],
       imageUrl: null,
       imageFileUpload: '',
       image: [],
@@ -245,10 +244,10 @@
     },
     meteor: {
       $subscribe: {
-        'users': [],
+        'users': []
       },
       users() {
-        return Meteor.users.find({})
+        return Meteor.users.find({}).fetch()
       },
     },
     components: {

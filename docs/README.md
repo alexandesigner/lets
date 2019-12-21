@@ -27,26 +27,26 @@ How to start this project?
 
 ``` bash
 # install dependencies
-$ yarn install
+$ npm run setup
 ```
 
 ## Command utils
 
 ``` bash
 # Serve with hot reload at localhost port 3000
-$ yarn dev
+$ npm run dev
 
 # Update meteor version and all packages
-$ yarn update
+$ npm run update
 
 # Running in --production flag, after configure .deploy/settings-production.json file
-$ yarn dev:production
+$ npm run dev:production
 
 # Reset database
-$ yarn reset
+$ npm run reset
 
 # This project uses the Element UI library so you need to take a look at the (element-variables.css)[https://github.com/alexandesigner/lets/blob/master/boilerplate/src/element-variables.css] variables and change them according to the color palette of your project
-$ yarn generate:styles
+$ npm run generate:styles
 ```
 
 ## Deployment
@@ -61,10 +61,10 @@ Configure the basics of dns and hosting .. then there is a basic [nginx configur
 $ npm install -g trimurtix-mupx
 
 # Setup deploy
-$ make setup:deploy
+$ npm run setup:deploy
 
 # Deploy to production
-$ make deploy
+$ npm run deploy
 
 ```
 
@@ -85,7 +85,7 @@ The directory structure is built in a way to make things predictable and enforce
   |  |_api/                            <-- data api server for application
   |  |_store/                          <-- uses vuex store
   |  |_supply/                         <-- resources that can automatically be activated and deactivated when used
-  |  |_startup/                        <-- startup code for application
+  |  |_startup/                        <-- startup code for application server
   |  |   |_server/                     <-- server startup code
   |  |_modules/                        <-- application modules go here 
   |  |_ui/                             <-- ui code for application
@@ -95,12 +95,11 @@ The directory structure is built in a way to make things predictable and enforce
   |  |  |_components/                  <-- all components for application
   |  |  |_layouts/                     <-- layouts for application go here
   |  |  |_pages/                       <-- all pages for application
-  |  |  |_style/                       <-- main ui styles use _stylus_
+  |  |  |_style/                       <-- main ui styles use scss
   |  |_filters.js                      <-- filters for application
   |  |_plugins.js                      <-- all plugins import for the application
   |  |_routes.js                       <-- routing use Vue Router for the application
-  |_theme/                             <-- themify use Element UI library
-  |_element-variables.scss             <-- element UI config variables
+  |_theme/                             <-- themify use Element UI library (Use [Element UI Theme Generator](https://element.eleme.io/#/en-US/theme))
   |_index.html                         <-- start markup application
   |_index.js                           <-- import client/server for application
 ```

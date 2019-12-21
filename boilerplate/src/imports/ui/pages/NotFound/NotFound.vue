@@ -15,7 +15,7 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .not-found
   margin-top 84px
   text-align center

@@ -46,7 +46,6 @@
   export default {
     name: 'admin-users-edit',
     data: () => ({
-      users: [],
       editUser: {
         firstName: '',
         lastName: '',
@@ -124,7 +123,7 @@
       users() {
         return Meteor.users.find({
           _id: this.$route.params.userId
-        });
+        }).fetch()
       },
     },
     components: {

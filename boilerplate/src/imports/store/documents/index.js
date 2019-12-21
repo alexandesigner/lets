@@ -11,6 +11,6 @@ export default {
   },
 
   getters: {
-    'count': (state, getters) => getters['all-documents'].length
+    count: (state, getters) => getters['all-documents'].length
   }
 }

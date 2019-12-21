@@ -2,7 +2,7 @@
   <admin-content>
     <admin-sidebar></admin-sidebar>
     <div class="admin-content_main">
-      <div class="wrapper">
+      <div class="wrapper p2">
         <div class="col">
           <div class="item">
             <strong>Users</strong>
@@ -34,11 +34,6 @@
 
   export default {
     name: 'admin-dashboard',
-    data: () => ({
-      documents: [],
-      images: [],
-      users: []
-    }),
     meteor: {
       $subscribe: {
         'users': [],
@@ -46,13 +41,13 @@
         'files.images.all': [],
       },
       users() {
-        return Meteor.users.find({})
+        return Meteor.users.find({}).fetch()
       },
       documents() {
-        return Documents.find({})
+        return Documents.find({}).fetch()
       },
       images() {
-        return Images.find({})
+        return Images.find({}).fetch()
       }
     },
     components: {

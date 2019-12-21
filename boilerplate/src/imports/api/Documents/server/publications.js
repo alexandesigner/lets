@@ -12,5 +12,5 @@ Meteor.publish('documents.owner', function () {
 
 Meteor.publish('documents.view', function documentsView (documentId) {
   check(documentId, String)
-  return Documents.find({_id: documentId, owner: this.userId})
+  return Documents.find({ _id: documentId, owner: this.userId })
 })

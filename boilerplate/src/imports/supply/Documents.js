@@ -12,7 +12,7 @@ export default {
 
   meteor: {
     $subscribe: {
-      'documents': []
+      documents: []
     },
 
     documents () {

@@ -1,23 +1,20 @@
 <template>
   <div class="login">
     <div class="auth-layout_inner">
-      <el-card class="auth-layout_card card">
-        <header class="auth-layout_card-header card-header">
-          <img class="logo" src="/images/logo.svg" width="60" height="60" alt="Logo" />
-          <h2>Login</h2>
-        </header>
+      <div class="auth-layout_card">
+        <PageHeader title="My Account" />
         <span class="divider"></span>
         <el-form
           :model="loginForm"
           :rules="rules"
            ref="loginForm"
-           class="auth-layout_card-content card-content">
+           class="auth-layout_card-content">
           <el-form-item
             prop="email"
             label="Email">
             <el-input
               v-model="loginForm.email"
-              v-on:keyup.enter="submitForm('loginForm')"
+              v-on:keyup.enter.native="submitForm('loginForm')"
               auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item
@@ -26,7 +23,7 @@
             <el-input
               type="password"
               v-model="loginForm.password"
-              v-on:keyup.enter="submitForm('loginForm')"
+              v-on:keyup.enter.native="submitForm('loginForm')"
               auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
@@ -43,7 +40,7 @@
             <router-link :to="{ name: 'forgot-password'}">Forgot password?</router-link>
           </el-form-item>
         </el-form>
-      </el-card>
+      </div>
       <footer class="auth-layout_footer">
         No account yet?
         <router-link :to="{ name: 'register'}">Register</router-link>
@@ -53,7 +50,11 @@
 </template>
 
 <script>
+  import PageHeader from './PageHeader'
   export default {
+    components: {
+      PageHeader
+    },
     name: 'auth-login',
     data: () => ({
       isLoading: false,

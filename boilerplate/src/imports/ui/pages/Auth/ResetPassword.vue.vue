@@ -1,19 +1,22 @@
 <template>
   <div class="reset-password">
     <div class="auth-layout_inner">
-      <el-card class="auth-layout_card card">
-        <header class="auth-layout_card-header card-header">
-          <img class="logo" src="/images/logo.svg" width="60" height="60" alt="Logo" />
-          <h2>Reset Password</h2>
-        </header>
+      <div class="auth-layout_card">
+        <PageHeader title="Reset Password" />
         <span class="divider"></span>
         <el-form 
           :model="resetPasswordForm" 
           :rules="rules" 
           ref="resetPasswordForm"
-          class="auth-layout_card-content card-content">
+          class="auth-layout_card-content ">
           <el-form-item label="New Password" prop="new_password">
-            <el-input type="password" v-model="resetPasswordForm.new_password" auto-complete="off"></el-input>
+            <el-input 
+              type="password" 
+              v-model="resetPasswordForm.new_password" 
+              v-on:keyup.enter.native="submitForm('resetPasswordForm')"
+              auto-complete="off"
+            >
+            </el-input>
           </el-form-item>
           <el-form-item>
             <el-button 
@@ -26,12 +29,13 @@
             </el-button>
           </el-form-item>
         </el-form>
-      </el-card>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import PageHeader from './PageHeader'
   export default {
     name: 'auth-reset-password',
     data: () => ({

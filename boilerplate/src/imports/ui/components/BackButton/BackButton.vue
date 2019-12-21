@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import '../../../startup/client/styles/base/custom-properties.styl'
 .back-button
   position absolute

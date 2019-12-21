@@ -1,17 +1,14 @@
 <template>
   <div class="register">
     <div class="auth-layout_inner">
-      <el-card class="auth-layout_card card">
-        <header class="auth-layout_card-header card-header">
-          <img class="logo" src="/images/logo.svg" width="60" height="60" alt="Logo" />
-          <h2>Create Account</h2>
-        </header>
+      <div class="auth-layout_card">
+        <PageHeader title="Create Account" />
         <span class="divider"></span>
         <el-form
           :model="registerForm"
           :rules="rules"
           ref="registerForm"
-          class="auth-layout_card-content card-content">
+          class="auth-layout_card-content">
           <el-row :gutter="20" class="form-row-item">
             <el-col :span="12">
               <el-form-item
@@ -19,6 +16,7 @@
                 label="First Name">
                 <el-input
                   v-model="registerForm.firstName"
+                  v-on:keyup.enter.native="submitForm('registerForm')"
                   auto-complete="off"></el-input>
               </el-form-item>
             </el-col>
@@ -28,6 +26,7 @@
                 label="Last Name">
                 <el-input
                   v-model="registerForm.lastName"
+                  v-on:keyup.enter.native="submitForm('registerForm')"
                   auto-complete="off"></el-input>
               </el-form-item>
             </el-col>
@@ -39,6 +38,7 @@
                 label="Email">
                 <el-input
                   v-model="registerForm.email"
+                  v-on:keyup.enter.native="submitForm('registerForm')"
                   auto-complete="off"></el-input>
               </el-form-item>
             </el-col>
@@ -48,6 +48,7 @@
                 label="Callphone">
                 <el-input
                   v-model="registerForm.phone"
+                  v-on:keyup.enter.native="submitForm('registerForm')"
                   auto-complete="off"></el-input>
               </el-form-item>
             </el-col>
@@ -59,6 +60,7 @@
               <el-input
                 type="password"
                 v-model="registerForm.password"
+                v-on:keyup.enter.native="submitForm('registerForm')"
                 auto-complete="off"></el-input>
             </el-form-item>
           </el-row>
@@ -75,7 +77,7 @@
             </el-form-item>
           </el-row>
         </el-form>
-      </el-card>
+      </div>
       <footer class="auth-layout_footer">
         Already have a register?
         <router-link :to="{ name: 'login'}">Login</router-link>
@@ -86,7 +88,11 @@
 </template>
 
 <script>
+  import PageHeader from './PageHeader'
   export default {
+    components: {
+      PageHeader
+    },
     name: 'auth-register',
     data: () => ({
       isLoading: false,

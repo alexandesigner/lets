@@ -13,9 +13,12 @@
 import BackButton from './BackButton/BackButton'
 export default {
   name: 'app-toolbar',
-  props: [
-    'is-back'
-  ],
+  props: {
+    isBack: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     BackButton
   }

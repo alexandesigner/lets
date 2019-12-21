@@ -46,7 +46,6 @@
   export default {
     name: 'admin-images-new',
     data: () => ({
-      users: [],
       imageUrl: null,
       imageFileUpload: '',
       image: [],
@@ -126,7 +125,7 @@
         'users': [],
       },
       users() {
-        return Meteor.users.find({})
+        return Meteor.users.find({}).fetch()
       },
     },
     components: {
